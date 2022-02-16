@@ -77,11 +77,13 @@
             android:hint="@string/employee_name_employerPage"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColorHint="#757575"
             app:layout_constraintBottom_toTopOf="@+id/etPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeBoss" />
+            app:layout_constraintTop_toBottomOf="@+id/welcomeBoss"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -91,80 +93,54 @@
             android:hint="@string/password_employerPage"
             android:inputType="textPassword"
             android:minHeight="48dp"
+            android:textColorHint="#757575"
             app:layout_constraintBottom_toTopOf="@+id/etEmployeeId"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmployeeName" />
+            app:layout_constraintTop_toBottomOf="@+id/etEmployeeName"
+            android:autofillHints="" />
 
 
         <ImageButton
             android:id="@+id/addBtn"
             android:layout_width="76dp"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:background="@drawable/round_buttons"
+            android:contentDescription="@string/add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logOutBtn"
             app:layout_constraintVertical_bias="0.095"
-            app:srcCompat="@android:drawable/ic_menu_add" />
-
-        <EditText
-            android:id="@+id/openEmployee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
-            android:ems="10"
-            android:hint="@string/employee_search"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toStartOf="@+id/searchBtn"
-            app:layout_constraintHorizontal_bias="0.188"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-        <ImageButton
-            android:id="@+id/searchBtn"
-            android:layout_width="75dp"
-            android:layout_height="39dp"
-            android:background="@drawable/round_buttons"
-            android:text="@string/search"
-            app:layout_constraintBottom_toBottomOf="@+id/openEmployee"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.883"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addBtn"
-            app:layout_constraintVertical_bias="0.8"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+            app:srcCompat="@android:drawable/ic_menu_add"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
         <EditText
             android:id="@+id/etEmployeeId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/employeeId_employerPage"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/openEmployee"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
         <ListView
             android:id="@+id/lvEmployee"
             android:layout_width="408dp"
             android:layout_height="502dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginTop="240dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/openEmployee" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

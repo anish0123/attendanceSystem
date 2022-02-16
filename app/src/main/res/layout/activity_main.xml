@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title_name"
         android:textColor="@color/navyBlue"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/errorText"
         android:layout_width="261dp"
         android:layout_height="51dp"
         android:text="@string/errorText"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/errorText"
         app:layout_constraintVertical_bias="0.144" />
 
     <EditText
