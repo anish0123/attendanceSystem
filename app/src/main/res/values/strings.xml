@@ -5,4 +5,12 @@
     <string name="userId">Employee Id</string>
     <string name="password">Password</string>
     <string name="logInButton">LogIn Button</string>
+    <string name="welcomeBoss">Welcome Boss</string>
+    <string name="sign_out">Sign out</string>
+    <string name="employee_name_employerPage">Employee\'s name</string>
+    <string name="password_employerPage">Employee\'s Password</string>
+    <string name="employeeId_employerPage">Employee\'s id</string>
+    <string name="employee_search">Search by name</string>
+    <string name="search">Search</string>
+    <string name="add">Add</string>
 </resources>
