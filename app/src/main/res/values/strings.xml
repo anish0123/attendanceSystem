@@ -13,4 +13,9 @@
     <string name="employee_search">Search by name</string>
     <string name="search">Search</string>
     <string name="add">Add</string>
+    <string name="checkIn">Check In</string>
+    <string name="submit">Submit</string>
+    <string name="timeView"></string>
+    <string name="checkOut">Check Out</string>
+    <string name="history">History</string>
 </resources>
