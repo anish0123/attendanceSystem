@@ -1,4 +1,4 @@
-package fi.metropolia.attendancesystem;
+package fi.metropolia.attendancesystem.database;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package fi.metropolia.attendancesystem;
+package fi.metropolia.attendancesystem.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
