@@ -1,7 +1,6 @@
 package fi.metropolia.attendancesystem.database;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -17,8 +16,8 @@ public interface EmployeeDao {
     @Update
     public void update (Employee employee);
 
-    @Delete
-    public void delete (Employee employee);
+    @Query("Delete FROM employee where employeeId= :employeeId ")
+    void deleteEmployee (String employeeId);
 
     @Query("SELECT * FROM employee ORDER BY columnId, employeeId")
     public List <Employee> getAll();
