@@ -62,12 +62,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "columnId=" + columnId +
-                ", employeeId='" + employeeId + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+        return name+ "  " + employeeId+ "  " + "(" + role + ")" ;
     }
 }
