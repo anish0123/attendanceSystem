@@ -42,15 +42,14 @@ public class MainActivity extends AppCompatActivity {
         database = AppDataBase.getInstance(getApplicationContext());
 
         List<Employee> employeeList = database.employeeDao().getAll();
+        Boolean logIn = false;
 
         for (Employee workingEmployee : employeeList) {
-            //  Boolean employerCheck = employeeId.equals(workingEmployee.getEmployeeId()) && password.equals(workingEmployee.getPassword()) && workingEmployee.getRole().equals("esimies");
-            // Boolean employeeCheck = employeeId.equals(workingEmployee.getEmployeeId()) && password.equals(workingEmployee.getPassword()) && workingEmployee.getRole().equals("worker");
 
             Boolean credentialsCheck = employeeId.equals(workingEmployee.getEmployeeId()) && password.equals(workingEmployee.getPassword());
             if (credentialsCheck) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-
+                logIn = true;
                 if (workingEmployee.getRole().equals("esimies")) {
                     Intent employerActivity = new Intent(this, EmployerActivity.class);
                     startActivity(employerActivity);
@@ -61,13 +60,16 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
 
-            } else {
-                errorTextView.setText("Wrong Credentials");
             }
-
         }
+        if (logIn == false) {
+            errorTextView.setText("Wrong Credentials");
+        }
+
     }
-    protected  void onResume() {
+
+
+    protected void onResume() {
         super.onResume();
         EditText idText = findViewById(R.id.userIdText);
         EditText password = findViewById(R.id.passwordText);
