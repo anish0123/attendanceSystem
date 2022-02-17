@@ -13,7 +13,10 @@ import java.util.List;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    public static final String TAG = "checking main activity";
     private AppDataBase database;
 
     @Override
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //login();
+        login();
     }
 
     public void login() {
@@ -32,21 +35,29 @@ public class MainActivity extends AppCompatActivity {
         TextView errorTextView = findViewById(R.id.errorText);
         ImageButton signInBtn = findViewById(R.id.logInButton);
 
+
         database = AppDataBase.getInstance(getApplicationContext());
 
-        Employee employee = new Employee("000", "Argie", "esimies", "argie123");
+        Employee employee = new Employee(0,"000", "Argie", "argie123","esimies" );
 
 
-        long id = database.employeeInterface().insert(employee);
+
+
+        long id = database.employeeDao().insert(employee);
 
         //check existing esimies and avoid multiple entries
-        List<Employee> employeeList = database.employeeInterface().getAll();
+        List<Employee> employeeList = database.employeeDao().getAll();
+        Log.d(TAG, "is it getting the employee list");
         for (Employee employee1 : employeeList) {
-            if (employee1.getColumnId() > 1 && employee1.getEmployeeRole().equals("esimies")) {
-                database.employeeInterface().delete(employee);
+            Log.d(TAG, "is it inside the for loop?");
+            if (employee1.getColumnId() > 1 && employee1.getRole().equals("esimies")) {
+                Log.d(TAG, "is it trying to delete?");
+               database.employeeDao().delete(employee);
             }
 
         }
+
+
 
     }
 
