@@ -38,13 +38,12 @@
         android:id="@+id/view4"
         android:layout_width="412dp"
         android:layout_height="54dp"
-        android:layout_marginTop="573dp"
-        android:layout_marginEnd="1dp"
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.998" />
 
     <TextView
         android:id="@+id/errorText"
@@ -98,17 +97,14 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="170dp"
         android:layout_height="99dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="151dp"
+        android:layout_marginBottom="92dp"
         android:contentDescription="@string/logInButton"
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.68"
         app:srcCompat="@drawable/signin_icon"
         tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck" />
 

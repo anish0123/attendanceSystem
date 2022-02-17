@@ -54,14 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 if (workingEmployee.getRole().equals("esimies")) {
                     Intent employerActivity = new Intent(this, EmployerActivity.class);
                     startActivity(employerActivity);
+                    break;
                 } else if (workingEmployee.getRole().equals("worker")) {
                     Intent employeeActivity = new Intent(this, employeeWindow.class);
                     startActivity(employeeActivity);
+                    break;
                 }
 
-                break;
             } else {
-                errorTextView.setText("Wrong Username or Password");
+                errorTextView.setText("Wrong Credentials");
             }
 
         }
@@ -70,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         EditText idText = findViewById(R.id.userIdText);
         EditText password = findViewById(R.id.passwordText);
-
+        TextView errorText = findViewById(R.id.errorText);
         idText.setText("");
         password.setText("");
+        errorText.setText("");
     }
 }
