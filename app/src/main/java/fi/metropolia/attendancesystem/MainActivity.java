@@ -53,17 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 if (workingEmployee.getRole().equals("esimies")) {
                     Intent employerActivity = new Intent(this, EmployerActivity.class);
                     startActivity(employerActivity);
-                    break;
                 } else if (workingEmployee.getRole().equals("worker")) {
                     Intent employeeActivity = new Intent(this, employeeWindow.class);
                     startActivity(employeeActivity);
-                    break;
                 }
 
             }
         }
         if (logIn == false) {
-            errorTextView.setText("Wrong Credentials");
+            errorTextView.setText("Wrong Credentials !!!");
         }
 
     }

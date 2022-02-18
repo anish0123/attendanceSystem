@@ -47,16 +47,17 @@
 
     <TextView
         android:id="@+id/errorText"
-        android:layout_width="261dp"
-        android:layout_height="51dp"
+        android:layout_width="221dp"
+        android:layout_height="68dp"
         android:text="@string/errorText"
         android:textColor="@color/red"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.154" />
 
     <EditText
         android:id="@+id/userIdText"
