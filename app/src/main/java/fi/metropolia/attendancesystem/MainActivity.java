@@ -19,6 +19,7 @@ import fi.metropolia.attendancesystem.database.Employee;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "checking main activity";
+    public static final String EMPLOYEE_LOGIN = "employee_login";
     private AppDataBase database;
 
     @Override
@@ -32,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //TODO: Working on the login page Logic, still in the case of employee login the toast is showing wrong username & password even after login
-
+    // checks employeeID & password from database and logIn to respective activity for employee and employer based on roles mentioned on the database
     public void LoginBtnClick() {
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
@@ -41,27 +41,24 @@ public class MainActivity extends AppCompatActivity {
 
         database = AppDataBase.getInstance(getApplicationContext());
 
-        List<Employee> employeeList = database.employeeDao().getAll();
-        Boolean logIn = false;
 
-        for (Employee workingEmployee : employeeList) {
-
-            Boolean credentialsCheck = employeeId.equals(workingEmployee.getEmployeeId()) && password.equals(workingEmployee.getPassword());
-            if (credentialsCheck) {
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-                logIn = true;
-                if (workingEmployee.getRole().equals("esimies")) {
-                    Intent employerActivity = new Intent(this, EmployerActivity.class);
-                    startActivity(employerActivity);
-                } else if (workingEmployee.getRole().equals("worker")) {
-                    Intent employeeActivity = new Intent(this, employeeWindow.class);
-                    startActivity(employeeActivity);
-                }
-
+        Employee employee = database.employeeDao().checkLogIn(employeeId, password);
+        Log.d(TAG, "employee? " + employee);
+        if (employee != null) {
+            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+            if (employee.getRole().equals("esimies")) {
+                Intent employerActivity = new Intent(this, EmployerActivity.class);
+                startActivity(employerActivity);
+            } else if (employee.getRole().equals("worker")) {
+                Intent employeeActivity = new Intent(this, employeeWindow.class);
+                employeeActivity.putExtra(EMPLOYEE_LOGIN, employee.getEmployeeId());
+                startActivity(employeeActivity);
             }
-        }
-        if (logIn == false) {
+
+        } else {
+            Toast.makeText(this, "Wrong Credentials !!! ", Toast.LENGTH_SHORT).show();
             errorTextView.setText("Wrong Credentials !!!");
+
         }
 
     }

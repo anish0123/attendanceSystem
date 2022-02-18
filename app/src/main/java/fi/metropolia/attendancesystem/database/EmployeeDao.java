@@ -25,6 +25,10 @@ public interface EmployeeDao {
     @Query("SELECT * FROM employee WHERE employeeId like :employeeId")
     public Employee getByEmployeeId (String employeeId);
 
+    @Query("SELECT * FROM employee WHERE employeeId like :employeeId and password = :password")
+    public Employee checkLogIn (String employeeId, String password);
+
+
     @Query("SELECT * FROM employee WHERE name like :name")
     public List <Employee>  getByName (String name);
 

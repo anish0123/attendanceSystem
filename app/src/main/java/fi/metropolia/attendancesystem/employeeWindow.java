@@ -13,6 +13,6 @@ public class employeeWindow extends AppCompatActivity {
         setContentView(R.layout.activity_employee_window);
 
         Button logOut = findViewById(R.id.logOutBtn2);
-        logOut.setOnClickListener(view -> finish());
+        logOut.setOnClickListener(view ->finish());
     }
 }
