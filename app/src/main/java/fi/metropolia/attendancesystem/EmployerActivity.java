@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.List;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
@@ -30,7 +33,7 @@ public class EmployerActivity extends AppCompatActivity {
         ImageButton addButton = findViewById(R.id.addBtn);
         ImageButton removeButton = findViewById(R.id.removeButton);
 
-        addButton.setOnClickListener(view -> addButtonClick());
+        addButton.setOnClickListener(view -> checkRedundancy());
         removeButton.setOnClickListener(view -> removeButtonClick());
 
         updateUI();
@@ -52,6 +55,23 @@ public class EmployerActivity extends AppCompatActivity {
         database.employeeDao().deleteEmployee(employeeId);
         updateUI();
 
+    }
+    //Method for checking if employeeid is already assigned to avoid same id for employees
+    public  void checkRedundancy(){
+        String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
+
+        List<Employee> employeeList = database.employeeDao().getAll();
+        Boolean employeeExists = false;
+        for (Employee workingEmployee : employeeList) {
+            if(newEmployeeId.equals(workingEmployee.getEmployeeId())){
+                employeeExists = true;
+                Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+        if(employeeExists==false){
+            addButtonClick();
+        }
     }
 
     public void updateUI(){
