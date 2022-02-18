@@ -11,7 +11,7 @@ import java.util.List;
 public interface EmployeeDao {
 
     @Insert
-    public Long insert (Employee employee);
+    public void insert (Employee employee);
 
     @Update
     public void update (Employee employee);
@@ -19,7 +19,7 @@ public interface EmployeeDao {
     @Query("Delete FROM employee where employeeId= :employeeId ")
     void deleteEmployee (String employeeId);
 
-    @Query("SELECT * FROM employee ORDER BY columnId, employeeId")
+    @Query("SELECT * FROM employee ORDER BY employeeId")
     public List <Employee> getAll();
 
     @Query("SELECT * FROM employee WHERE employeeId like :employeeId")

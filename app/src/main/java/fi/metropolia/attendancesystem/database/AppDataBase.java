@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Employee.class}, version = 1)
+@Database(entities = {Employee.class,EmployeeAttendance.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
     public static final String TAG = "DATABASE";
 

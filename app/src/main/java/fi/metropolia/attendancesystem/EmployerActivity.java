@@ -46,7 +46,7 @@ public class EmployerActivity extends AppCompatActivity {
         String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
-        Long id = database.employeeDao().insert(new Employee(0, newEmployeeId, newEmployeeName, newEmployeePassword, "worker"));
+        database.employeeDao().insert(new Employee( newEmployeeId, newEmployeeName, newEmployeePassword, "worker"));
         updateUI();
     }
 
