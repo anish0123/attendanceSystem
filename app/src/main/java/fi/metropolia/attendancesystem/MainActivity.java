@@ -27,12 +27,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        database = AppDataBase.getInstance(getApplicationContext());
 
-        //Boolean firstVisit = SharedPreferences()
+        /* //add manager into database for time-being manually commented after first run
 
+        Employee employee = new Employee("000", "Manager", "boss123", "esimies");
+        database.employeeDao().insert(employee);*/
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
+
     }
 
 
@@ -41,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         TextView errorTextView = findViewById(R.id.errorText);
-
-        database = AppDataBase.getInstance(getApplicationContext());
 
 
         Employee employee = database.employeeDao().checkLogIn(employeeId, password);
@@ -76,4 +78,6 @@ public class MainActivity extends AppCompatActivity {
         password.setText("");
         errorText.setText("");
     }
+
+
 }

@@ -46,35 +46,33 @@ public class EmployerActivity extends AppCompatActivity {
         String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
-        database.employeeDao().insert(new Employee( newEmployeeId, newEmployeeName, newEmployeePassword, "worker"));
+        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "worker"));
         updateUI();
     }
 
-    public void removeButtonClick(){
+    public void removeButtonClick() {
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         database.employeeDao().deleteEmployee(employeeId);
         updateUI();
 
     }
+
     //Method for checking if employeeid is already assigned to avoid same id for employees
-    public  void checkRedundancy(){
+    public void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
 
-        List<Employee> employeeList = database.employeeDao().getAll();
-        Boolean employeeExists = false;
-        for (Employee workingEmployee : employeeList) {
-            if(newEmployeeId.equals(workingEmployee.getEmployeeId())){
-                employeeExists = true;
-                Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
-                break;
-            }
-        }
-        if(employeeExists==false){
+        Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
+        if (employee != null) {
+            Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
+        } else {
             addButtonClick();
         }
+
     }
 
-    public void updateUI(){
+
+
+    public void updateUI() {
         //Introducing listview for displaying all the employees
         ListView lvList = findViewById(R.id.lvEmployee);
         lvList.setAdapter(new ArrayAdapter<>(
@@ -84,5 +82,4 @@ public class EmployerActivity extends AppCompatActivity {
         ));
 
 
-    }
-}
+    }}
