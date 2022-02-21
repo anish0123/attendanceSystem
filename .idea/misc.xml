@@ -3,19 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1453125" />
-=======
         <entry key="..\:/Users/Asmita/AndroidStudioProjects/attendance-system/app/src/main/res/drawable/round_buttons.xml" value="0.134" />
-        <entry key="..\:/Users/Asmita/AndroidStudioProjects/attendance-system/app/src/main/res/layout/activity_employer.xml" value="0.26306769494430166" />
+        <entry key="..\:/Users/Asmita/AndroidStudioProjects/attendance-system/app/src/main/res/layout/activity_employer.xml" value="0.18729641693811075" />
         <entry key="..\:/Users/Asmita/AndroidStudioProjects/attendance-system/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
->>>>>>> 3048d3c586f6278ef28d32621b23c5d9b58a68a5
-=======
-        <entry key="..\:/Users/argie/AndroidStudioProjects/AttendanceSystem/app/src/main/res/layout/activity_employee_window.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/argie/AndroidStudioProjects/AttendanceSystem/app/src/main/res/layout/activity_employer.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/argie/AndroidStudioProjects/AttendanceSystem/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
->>>>>>> 7c5f4845885f57b4b26957488b9497d01d19a4a7
       </map>
     </option>
   </component>

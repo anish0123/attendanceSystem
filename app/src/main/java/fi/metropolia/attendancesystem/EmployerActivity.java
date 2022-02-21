@@ -24,7 +24,7 @@ public class EmployerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer);
 
-        //Logout button introduced to take employer to main activity afer pressing the logout button.
+        //Logout button introduced to take employer to main activity after pressing the logout button.
         Button signOut = findViewById(R.id.logOutBtn);
         signOut.setOnClickListener(view -> finish());
 
