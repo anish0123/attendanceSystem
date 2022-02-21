@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "checking main activity";
     public static final String EMPLOYEE_LOGIN = "employee_login";
+    public static final String EMPLOYEE_ID = "employee_id";
     private AppDataBase database;
 
     @Override
@@ -56,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(employerActivity);
             } else if (employee.getRole().equals("worker")) {
                 Intent employeeActivity = new Intent(this, employeeWindow.class);
-                employeeActivity.putExtra(EMPLOYEE_LOGIN, employee.getEmployeeId());
+                String message = "Welcome, "+employee.getName()+" ("+employee.getEmployeeId()+")";
+                employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
+                employeeActivity.putExtra(EMPLOYEE_ID,employee.getEmployeeId());
                 startActivity(employeeActivity);
             }
 
