@@ -16,17 +16,16 @@ public class EmployeeAttendance {
 
     @PrimaryKey(autoGenerate = true)
     private long attendanceId;
-
+    private String employeeId;
     private String checkInTime;
     private String checkOutTime;
 
-    private String employeeId;
 
-    public EmployeeAttendance(long attendanceId, String checkInTime, String checkOutTime, String employeeId) {
+    public EmployeeAttendance(long attendanceId,String employeeId, String checkInTime, String checkOutTime ) {
         this.attendanceId = attendanceId;
+        this.employeeId = employeeId;
         this.checkInTime = checkInTime;
         this.checkOutTime = checkOutTime;
-        this.employeeId = employeeId;
     }
 
     public long getAttendanceId() {

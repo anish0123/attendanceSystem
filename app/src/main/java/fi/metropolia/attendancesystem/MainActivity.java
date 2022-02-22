@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         database = AppDataBase.getInstance(getApplicationContext());
 
-        /* //add manager into database for time-being manually commented after first run
+        /*//add manager into database for time-being manually commented after first run
 
         Employee employee = new Employee("000", "Manager", "boss123", "esimies");
         database.employeeDao().insert(employee);*/
