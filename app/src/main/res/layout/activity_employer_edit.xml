@@ -6,4 +6,131 @@
     android:layout_height="match_parent"
     tools:context=".EmployerEdit">
 
+    <View
+        android:id="@+id/topView"
+        android:layout_width="408dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="607dp"
+        android:background="#94AFB3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/employerEditName"
+        android:layout_width="298dp"
+        android:layout_height="54dp"
+        android:text="@string/employerEditNme"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <View
+        android:id="@+id/bottomView"
+        android:layout_width="412dp"
+        android:layout_height="54dp"
+        android:background="#94AFB3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <TextView
+        android:id="@+id/employerEditId"
+        android:layout_width="194dp"
+        android:layout_height="23dp"
+        android:text="@string/employerEditId"
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employerEditName" />
+
+    <TextView
+        android:id="@+id/employerEditDate"
+        android:layout_width="181dp"
+        android:layout_height="32dp"
+        android:text="@string/employerEditDate"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <RadioGroup
+        android:id="@+id/check"
+        android:layout_width="145dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="388dp"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employerEditDate"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/editCheckIn"
+            android:layout_width="139dp"
+            android:layout_height="51dp"
+            android:text="@string/editCheckIn"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <RadioButton
+            android:id="@+id/editCheckOut"
+            android:layout_width="137dp"
+            android:layout_height="52dp"
+            android:text="@string/editCheckOut"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/editTime"
+        android:layout_width="149dp"
+        android:layout_height="31dp"
+        android:text="@string/editTime"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <ListView
+        android:id="@+id/lvEditEmployee"
+        android:layout_width="409dp"
+        android:layout_height="330dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTime" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/check"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

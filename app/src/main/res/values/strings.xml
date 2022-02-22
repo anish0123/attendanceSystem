@@ -18,4 +18,13 @@
     <string name="timeView"></string>
     <string name="checkOut">Check Out</string>
     <string name="history">History</string>
+    <string name="historyEmployeeName" />
+    <string name="employeeHistoryId">EmployeeHistoryId</string>
+    <string name="employerEditNme">Employee\'s name</string>
+    <string name="employerEditId">employerEditId</string>
+    <string name="employerEditDate">Date</string>
+    <string name="editCheckIn">Check In</string>
+    <string name="editCheckOut">Check Out</string>
+    <string name="editTime">Time</string>
+    <string name="edit">Edit</string>
 </resources>
