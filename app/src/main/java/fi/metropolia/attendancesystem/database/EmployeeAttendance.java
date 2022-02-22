@@ -8,31 +8,32 @@ import androidx.room.ForeignKey;
 
 @Entity(foreignKeys = @ForeignKey(
         entity = Employee.class,
-        onDelete=CASCADE,
+        onDelete = CASCADE,
         parentColumns = "employeeId",
-        childColumns ="employeeId"
-        ))
+        childColumns = "employeeId"
+))
 public class EmployeeAttendance {
 
     @PrimaryKey(autoGenerate = true)
-    private long attendanceId;
+    private int attendanceId;
+
     private String employeeId;
     private String checkInTime;
     private String checkOutTime;
 
 
-    public EmployeeAttendance(long attendanceId,String employeeId, String checkInTime, String checkOutTime ) {
+    public EmployeeAttendance(int attendanceId, String employeeId, String checkInTime, String checkOutTime) {
         this.attendanceId = attendanceId;
         this.employeeId = employeeId;
         this.checkInTime = checkInTime;
         this.checkOutTime = checkOutTime;
     }
 
-    public long getAttendanceId() {
+    public int getAttendanceId() {
         return attendanceId;
     }
 
-    public void setAttendanceId(long attendanceId) {
+    public void setAttendanceId(int attendanceId) {
         this.attendanceId = attendanceId;
     }
 
@@ -59,4 +60,6 @@ public class EmployeeAttendance {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
+
+
 }

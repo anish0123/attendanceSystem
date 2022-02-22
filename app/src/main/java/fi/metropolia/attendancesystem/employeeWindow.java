@@ -27,6 +27,7 @@ public class employeeWindow extends AppCompatActivity {
     private AppDataBase database;
     private static final String TAG = "Employee Window";
     private long epochTime;
+    int checkInId;
 
 
     @Override
@@ -74,10 +75,11 @@ public class employeeWindow extends AppCompatActivity {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         epochTime = System.currentTimeMillis();
-
-        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, String.valueOf(epochTime), "224");
+        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, String.valueOf(epochTime), "");
         long id = database.attendanceDao().insertTime(employeeAttendance);
         TextView checkInDisplay = findViewById(R.id.timeView);
+        checkInId= database.attendanceDao().getByAttendanceId();
+        Log.d(TAG,String.valueOf(checkInId));
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
@@ -89,8 +91,14 @@ public class employeeWindow extends AppCompatActivity {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         long checkOutTime = System.currentTimeMillis();
-        EmployeeAttendance employeeAttendance = new EmployeeAttendance(5, employeesWindow, String.valueOf(epochTime), String.valueOf(checkOutTime));
-        database.attendanceDao().updateAttendance(5);
+
+        database.attendanceDao().updateCheckOutTime(String.valueOf(checkOutTime),checkInId);
+        TextView checkInDisplay = findViewById(R.id.timeView);
+        //For date formatting
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        String formatted = format.format(epochTime);
+        checkInDisplay.setText("Checked Out at: " + formatted);
     }
 
     protected void onPause() {

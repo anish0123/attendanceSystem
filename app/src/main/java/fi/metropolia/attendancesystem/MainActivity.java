@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         database = AppDataBase.getInstance(getApplicationContext());
 
         //add manager into database for time-being manually commented after first run
-        /*
+/*
         Employee employee = new Employee("000", "Manager", "boss123", "esimies");
         database.employeeDao().insert(employee);
+*/
 
-         */
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(employerActivity);
             } else if (employee.getRole().equals("worker")) {
                 Intent employeeActivity = new Intent(this, employeeWindow.class);
-                String message = "Welcome, "+employee.getName()+" ("+employee.getEmployeeId()+")";
+                String message = "Welcome, " + employee.getName() + " (" + employee.getEmployeeId() + ")";
                 employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
-                employeeActivity.putExtra(EMPLOYEE_ID,employee.getEmployeeId());
+                employeeActivity.putExtra(EMPLOYEE_ID, employee.getEmployeeId());
                 startActivity(employeeActivity);
             }
 
