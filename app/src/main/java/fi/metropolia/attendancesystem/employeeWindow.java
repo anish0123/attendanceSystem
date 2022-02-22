@@ -78,16 +78,17 @@ public class employeeWindow extends AppCompatActivity {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         epochTime = System.currentTimeMillis();
-        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, String.valueOf(epochTime), "");
-        long id = database.attendanceDao().insertTime(employeeAttendance);
-        TextView checkInDisplay = findViewById(R.id.timeView);
-        checkInId= database.attendanceDao().getByAttendanceId();
-        Log.d(TAG,String.valueOf(checkInId));
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String formatted = format.format(epochTime);
+        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, formatted, "");
+        long id = database.attendanceDao().insertTime(employeeAttendance);
+        TextView checkInDisplay = findViewById(R.id.timeView);
+        checkInId= database.attendanceDao().getByAttendanceId();
+        Log.d(TAG,String.valueOf(checkInId));
         checkInDisplay.setText("Checked In at: " + formatted);
+
     }
 
     public void checkOutButtonClick() {
@@ -95,12 +96,12 @@ public class employeeWindow extends AppCompatActivity {
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         long checkOutTime = System.currentTimeMillis();
 
-        database.attendanceDao().updateCheckOutTime(String.valueOf(checkOutTime),checkInId,employeesWindow);
         TextView checkInDisplay = findViewById(R.id.timeView);
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String formatted = format.format(epochTime);
+        database.attendanceDao().updateCheckOutTime(formatted,checkInId,employeesWindow);
         checkInDisplay.setText("Checked Out at: " + formatted);
     }
     public void historyButtonClick(){
