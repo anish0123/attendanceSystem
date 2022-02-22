@@ -22,5 +22,11 @@ public interface AttendanceDao {
     @Query("SELECT * FROM employee WHERE employeeId = :employeeId")
     public ListOfAttendance getAttendance(String employeeId);
 
+    @Query("SELECT * FROM employeeattendance WHERE attendanceId  = :attendanceId")
+    public EmployeeAttendance getByAttendanceId (long attendanceId);
+
+    @Query("UPDATE FROM employeeattendance WHERE attendanceId = :attendanceId")
+    public void updateAttendance (long attendanceId);
+
 
 }

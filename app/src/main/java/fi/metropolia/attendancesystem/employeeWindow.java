@@ -13,6 +13,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
@@ -21,6 +26,7 @@ public class employeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
     private static final String TAG = "Employee Window";
+    private long epochTime;
 
 
     @Override
@@ -39,6 +45,12 @@ public class employeeWindow extends AppCompatActivity {
 
         TextView employeeTextView = findViewById(R.id.employeePageText);
         employeeTextView.setText(message);
+        epochTime = System.currentTimeMillis();
+        Log.d(TAG, String.valueOf(epochTime));
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        String formatted = format.format(epochTime);
+        Log.d(TAG,formatted);
 
 
     }
@@ -52,16 +64,33 @@ public class employeeWindow extends AppCompatActivity {
         if(checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
           checkInButtonClick();
         }
+
+        if(checkInRG.getCheckedRadioButtonId() == R.id.checkOutRadio) {
+            checkOutButtonClick();
+        }
     }
 
     public void checkInButtonClick() {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-        Log.d(TAG, "working till here? 1");
-        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, "113", "224");
+        epochTime = System.currentTimeMillis();
+
+        EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, String.valueOf(epochTime), "224");
         long id = database.attendanceDao().insertTime(employeeAttendance);
         TextView checkInDisplay = findViewById(R.id.timeView);
-        checkInDisplay.setText("Checked In at: " + employeeAttendance.getCheckInTime());
+        //For date formatting
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        String formatted = format.format(epochTime);
+        checkInDisplay.setText("Checked In at: " + formatted);
+    }
+
+    public void checkOutButtonClick() {
+        Intent intent = getIntent();
+        String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
+        long checkOutTime = System.currentTimeMillis();
+        EmployeeAttendance employeeAttendance = new EmployeeAttendance(5, employeesWindow, String.valueOf(epochTime), String.valueOf(checkOutTime));
+        database.attendanceDao().updateAttendance(5);
     }
 
     protected void onPause() {

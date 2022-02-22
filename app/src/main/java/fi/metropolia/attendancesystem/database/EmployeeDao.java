@@ -34,4 +34,5 @@ public interface EmployeeDao {
 
     @Query("SELECT * FROM employee WHERE role like :role")
     public List <Employee> getByRole (String role);
+
 }
