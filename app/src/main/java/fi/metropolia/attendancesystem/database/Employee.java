@@ -9,16 +9,17 @@ public class Employee {
     @PrimaryKey
     @NonNull
     private String employeeId;
-
+    private String status;
     private String name;
     private String password;
     private String role;
 
-    public Employee( String employeeId, String name, String password, String role) {
+    public Employee( String employeeId, String name, String password, String role,String status) {
         this.employeeId = employeeId;
         this.name = name;
         this.password = password;
         this.role = role;
+        this.status=status;
     }
 
 
@@ -46,6 +47,14 @@ public class Employee {
         this.password = password;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getRole() {
         return role;
     }
@@ -56,6 +65,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return name+ "  " + employeeId+ "  " + "(" + role + ")" ;
+        return name+ "  " + employeeId+ "  " + "(" + role + ") Status: "+ status ;
     }
 }

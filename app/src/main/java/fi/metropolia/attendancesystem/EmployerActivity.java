@@ -47,14 +47,14 @@ public class EmployerActivity extends AppCompatActivity {
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
         Toast.makeText(this, newEmployeeName+" added ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "worker"));
+        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "worker","active"));
         updateUI();
     }
 
     public void removeButtonClick() {
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         Toast.makeText(this," Employee Removed ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().deleteEmployee(employeeId);
+        database.employeeDao().updateEmployee(employeeId,"inactive");
         updateUI();
 
     }

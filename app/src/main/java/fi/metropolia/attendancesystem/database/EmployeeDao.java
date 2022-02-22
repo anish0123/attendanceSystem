@@ -19,6 +19,9 @@ public interface EmployeeDao {
     @Query("Delete FROM employee where employeeId= :employeeId ")
     void deleteEmployee (String employeeId);
 
+    @Query("UPDATE employee SET status= :status WHERE employeeId = :employeeId")
+    void updateEmployee(String employeeId, String status);
+
     @Query("SELECT * FROM employee ORDER BY employeeId")
     public List <Employee> getAll();
 
@@ -27,6 +30,9 @@ public interface EmployeeDao {
 
     @Query("SELECT * FROM employee WHERE employeeId like :employeeId and password = :password")
     public Employee checkLogIn (String employeeId, String password);
+
+    @Query("SELECT * FROM employee WHERE status like :status")
+    public Employee getStatus(String status);
 
 
     @Query("SELECT * FROM employee WHERE name like :name")

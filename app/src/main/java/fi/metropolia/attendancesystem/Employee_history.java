@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class Employee_history extends AppCompatActivity {
         setContentView(R.layout.activity_employee_history);
         dataBase=AppDataBase.getInstance(getApplicationContext());
         historyUI();
+        Button signOutButton = findViewById(R.id.signOut2);
+        signOutButton.setOnClickListener(view -> finish());
     }
     public void historyUI(){
         TextView textView = findViewById(R.id.employeeHistoryId);

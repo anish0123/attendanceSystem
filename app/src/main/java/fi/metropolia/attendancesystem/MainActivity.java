@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         database = AppDataBase.getInstance(getApplicationContext());
 
         //add manager into database for time-being manually commented after first run
-/*
-        Employee employee = new Employee("000", "Manager", "boss123", "esimies");
-        database.employeeDao().insert(employee);
-*/
+
+        /*Employee employee = new Employee("000", "Manager", "boss123", "esimies","active");
+        database.employeeDao().insert(employee);*/
+
 
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
@@ -54,16 +54,22 @@ public class MainActivity extends AppCompatActivity {
         Employee employee = database.employeeDao().checkLogIn(employeeId, password);
         Log.d(TAG, "employee? " + employee);
         if (employee != null) {
-            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-            if (employee.getRole().equals("esimies")) {
+            if (employee.getRole().equals("esimies")&&employee.getStatus().equals("active")) {
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+
                 Intent employerActivity = new Intent(this, EmployerActivity.class);
                 startActivity(employerActivity);
-            } else if (employee.getRole().equals("worker")) {
+            } else if (employee.getRole().equals("worker")&&employee.getStatus().equals("active")) {
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent employeeActivity = new Intent(this, employeeWindow.class);
                 String message = "Welcome, " + employee.getName() + " (" + employee.getEmployeeId() + ")";
                 employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
                 employeeActivity.putExtra(EMPLOYEE_ID, employee.getEmployeeId());
                 startActivity(employeeActivity);
+            }else {
+                Toast.makeText(this, "User Inactive !!! ", Toast.LENGTH_SHORT).show();
+                errorTextView.setText("User Inactive !!!");
+
             }
 
         } else {
