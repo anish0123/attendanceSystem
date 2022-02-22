@@ -61,5 +61,9 @@ public class EmployeeAttendance {
         this.employeeId = employeeId;
     }
 
+    public String toString(){
+        return employeeId+" "+checkInTime+" "+checkOutTime;
+    }
+
 
 }

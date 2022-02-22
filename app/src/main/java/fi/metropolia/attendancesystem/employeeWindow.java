@@ -53,6 +53,9 @@ public class employeeWindow extends AppCompatActivity {
         String formatted = format.format(epochTime);
         Log.d(TAG,formatted);
 
+        Button historyButton = findViewById(R.id.historyBtn);
+        historyButton.setOnClickListener(view -> historyButtonClick());
+
 
     }
 
@@ -92,13 +95,17 @@ public class employeeWindow extends AppCompatActivity {
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         long checkOutTime = System.currentTimeMillis();
 
-        database.attendanceDao().updateCheckOutTime(String.valueOf(checkOutTime),checkInId);
+        database.attendanceDao().updateCheckOutTime(String.valueOf(checkOutTime),checkInId,employeesWindow);
         TextView checkInDisplay = findViewById(R.id.timeView);
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String formatted = format.format(epochTime);
         checkInDisplay.setText("Checked Out at: " + formatted);
+    }
+    public void historyButtonClick(){
+        Intent historyActivity = new Intent(this,Employee_history.class);
+        startActivity(historyActivity);
     }
 
     protected void onPause() {
