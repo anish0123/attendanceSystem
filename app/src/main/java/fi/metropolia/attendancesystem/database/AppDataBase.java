@@ -12,7 +12,7 @@ public abstract class AppDataBase extends RoomDatabase {
     public static final String TAG = "DATABASE";
 
     public abstract EmployeeDao employeeDao();
-
+    public abstract AttendanceDao attendanceDao();
     private static final String DB_NAME = "app_database.db";
     private static AppDataBase instance;
 

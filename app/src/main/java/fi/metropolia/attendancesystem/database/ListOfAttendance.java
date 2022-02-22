@@ -12,5 +12,19 @@ public class ListOfAttendance {
     @Relation(parentColumn = "employeeId", entityColumn ="employeeId")
     private List<EmployeeAttendance> employeeAttendances;
 
+    public Employee getEmployee() {
+        return employee;
+    }
 
+    public List<EmployeeAttendance> getEmployeeAttendances() {
+        return employeeAttendances;
+    }
+
+    public void setEmployeeAttendances(List<EmployeeAttendance> employeeAttendances) {
+        this.employeeAttendances = employeeAttendances;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }

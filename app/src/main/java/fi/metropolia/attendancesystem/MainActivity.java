@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         database = AppDataBase.getInstance(getApplicationContext());
 
-        /*//add manager into database for time-being manually commented after first run
-
+        //add manager into database for time-being manually commented after first run
+        /*
         Employee employee = new Employee("000", "Manager", "boss123", "esimies");
-        database.employeeDao().insert(employee);*/
+        database.employeeDao().insert(employee);
+
+         */
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
