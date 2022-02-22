@@ -28,6 +28,10 @@ public class employeeWindow extends AppCompatActivity {
     private static final String TAG = "Employee Window";
     private long epochTime;
     int checkInId;
+    public static final String EMPLOYEE_ID_SEND = "employee_id";
+    public static final String EMPLOYEE_DETAIL = "employee_detail";
+
+
 
 
     @Override
@@ -105,7 +109,14 @@ public class employeeWindow extends AppCompatActivity {
         checkInDisplay.setText("Checked Out at: " + formatted);
     }
     public void historyButtonClick(){
+        Intent intent = getIntent();
+        String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
+        String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
+        String message = employeeName;
+
         Intent historyActivity = new Intent(this,Employee_history.class);
+        historyActivity.putExtra(EMPLOYEE_ID_SEND,employeeId);
+        historyActivity.putExtra(EMPLOYEE_DETAIL,message);
         startActivity(historyActivity);
     }
 

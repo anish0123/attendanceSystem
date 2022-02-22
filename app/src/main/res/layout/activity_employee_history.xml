@@ -33,56 +33,41 @@
         app:layout_constraintTop_toTopOf="@+id/topView"
         app:layout_constraintVertical_bias="0.998" />
 
-    <TextView
-        android:id="@+id/historyEmployeeName"
-        android:layout_width="242dp"
-        android:layout_height="33dp"
-        android:text="@string/historyEmployeeName"
-        android:textAlignment="center"
+    <Button
+        android:id="@+id/signOut2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        android:background="@drawable/round_buttons"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintEnd_toEndOf="@+id/topView"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.622" />
 
-    <ImageButton
-        android:id="@+id/signOut"
-        android:layout_width="66dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/historyList"
+    <TextView
+        android:id="@+id/employeeHistoryId"
+        android:layout_width="232dp"
+        android:layout_height="67dp"
+        android:text="@string/employeeHistoryId"
+        android:textColor="@color/navyBlue"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="@+id/historyEmployeeName"
-        app:layout_constraintTop_toBottomOf="@+id/historyEmployeeName"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/signin_icon" />
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="@+id/topView" />
 
     <ListView
         android:id="@+id/historyList"
         android:layout_width="409dp"
         android:layout_height="570dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topView" />
-
-    <TextView
-        android:id="@+id/EmployeeHistoryId"
-        android:layout_width="137dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/employeeHistoryId"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/signOut"
-        app:layout_constraintHorizontal_bias="0.426"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topView" />
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@ public class EmployeeAttendance {
     }
 
     public String toString(){
-        return checkInTime+" "+checkOutTime;
+        return"In: "+checkInTime+"   Out: "+checkOutTime;
     }
 
 
