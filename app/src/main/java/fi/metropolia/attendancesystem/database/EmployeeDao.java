@@ -41,4 +41,10 @@ public interface EmployeeDao {
     @Query("SELECT * FROM employee WHERE role like :role")
     public List <Employee> getByRole (String role);
 
+    @Query("UPDATE employee SET attendanceId = :attendanceId WHERE employeeId = :employeeId")
+    void updateAttendanceId (String employeeId, long attendanceId);
+
+    @Query("SELECT * FROM employee WHERE attendanceId like :attendanceId")
+    public Employee getByEmployeeId (long attendanceId);
+
 }
