@@ -27,5 +27,6 @@
     <string name="editCheckOut">Check Out</string>
     <string name="editTime">Time</string>
     <string name="edit">Edit</string>
+    <string name="changeIntToString">00%s</string>
 
 </resources>

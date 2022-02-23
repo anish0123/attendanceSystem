@@ -2,7 +2,9 @@ package fi.metropolia.attendancesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,9 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
 public class EmployerActivity extends AppCompatActivity {
+    public static final String TAG = "Employer Activity";
+    public static final String ID = "Id";
+    public static final String EMPLOYEE_ID = "employee_ID";
 
     private AppDataBase database;
 
@@ -83,5 +88,19 @@ public class EmployerActivity extends AppCompatActivity {
                 database.employeeDao().getAll()
         ));
 
+        //TODO: setup the click listener so when employee name is clicked the work history opens up.
+        lvList.setOnItemClickListener(((adapterView, view, i, l) -> {
+            Log.d(TAG, "did the click listener work?" + i);
+            startActivityEmployeeHistory(i);
+        }));
 
-    }}
+    }
+
+    private void startActivityEmployeeHistory(int i) {
+        Intent intent = new Intent(EmployerActivity.this, EmployerViewHistoryActivity.class);
+       intent.putExtra(ID, i);
+       intent.putExtra(EMPLOYEE_ID,"001");
+       startActivity(intent);
+
+    }
+}

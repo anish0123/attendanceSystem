@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AttendanceSystem">
         <activity
+            android:name=".EmployerViewHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmployerEdit"
             android:exported="false" />
         <activity
