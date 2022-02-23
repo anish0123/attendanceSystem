@@ -13,6 +13,7 @@ public class Employee {
     private String name;
     private String password;
     private String role;
+    private long attendanceId;
 
     public Employee( String employeeId, String name, String password, String role,String status) {
         this.employeeId = employeeId;
@@ -22,6 +23,13 @@ public class Employee {
         this.status=status;
     }
 
+    public long getAttendanceId() {
+        return attendanceId;
+    }
+
+    public void setAttendanceId(long attendanceId) {
+        this.attendanceId = attendanceId;
+    }
 
     public String getEmployeeId() {
         return employeeId;
