@@ -38,7 +38,7 @@ public class employeeWindow extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {00
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_window);
         Intent intent = getIntent();
