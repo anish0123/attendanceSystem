@@ -38,10 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
          */
 
+        ImageButton infoButton = findViewById(R.id.infoButton);
+        infoButton.setOnClickListener(view -> infoBtnClick);
+
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
 
+    }
+
+    public void infoBtnClick(){
+        Intent = new Intent()
     }
 
 
