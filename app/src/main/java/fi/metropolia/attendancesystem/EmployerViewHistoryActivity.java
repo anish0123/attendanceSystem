@@ -25,7 +25,7 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
         database=AppDataBase.getInstance(getApplicationContext());
         historyUI();
         Button signOutButton = findViewById(R.id.signOut2);
-        signOutButton.setOnClickListener(view -> finish());
+        signOutButton.setOnClickListener(view -> backToMain());
     }
     public void historyUI(){
         TextView textView = findViewById(R.id.employeeHistoryId);
@@ -61,6 +61,11 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
 
         startActivity(intent);
 
+    }
+
+    public void backToMain(){
+        Intent mainActivity = new Intent(this,MainActivity.class);
+        startActivity(mainActivity);
     }
 
 

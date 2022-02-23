@@ -28,7 +28,7 @@ public interface AttendanceDao {
     @Query("Update EmployeeAttendance Set checkOutTime= :checkOutTime where attendanceId= :attendanceId and employeeId= :employeeId")
     public  void updateCheckOutTime(String checkOutTime, long attendanceId,String employeeId);
 
-    @Query("Select * From employeeattendance where employeeId= :employeeId")
+    @Query("Select * From employeeattendance where employeeId= :employeeId Order By attendanceId DESC")
     public List<EmployeeAttendance> getAllAttendance(String employeeId);
 
 

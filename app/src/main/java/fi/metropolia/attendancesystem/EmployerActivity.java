@@ -31,7 +31,7 @@ public class EmployerActivity extends AppCompatActivity {
 
         //Logout button introduced to take employer to main activity after pressing the logout button.
         Button signOut = findViewById(R.id.logOutBtn);
-        signOut.setOnClickListener(view -> finish());
+        signOut.setOnClickListener(view -> backToMain());
 
         // Introducing database and image button which will be used to add employees in the database.
         database = AppDataBase.getInstance(getApplicationContext());
@@ -102,5 +102,9 @@ public class EmployerActivity extends AppCompatActivity {
        intent.putExtra(EMPLOYEE_ID,"001");
        startActivity(intent);
 
+    }
+    public void backToMain(){
+        Intent mainActivity = new Intent(this,MainActivity.class);
+        startActivity(mainActivity);
     }
 }

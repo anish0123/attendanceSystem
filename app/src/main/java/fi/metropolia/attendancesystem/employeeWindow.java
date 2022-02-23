@@ -38,7 +38,7 @@ public class employeeWindow extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {00
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_window);
         Intent intent = getIntent();
@@ -49,7 +49,7 @@ public class employeeWindow extends AppCompatActivity {
         ImageButton submitButton =findViewById(R.id.submitBtn);
         submitButton.setOnClickListener(view -> submitButtonClick());
         Button logOut = findViewById(R.id.logOutBtn2);
-        logOut.setOnClickListener(view ->finish());
+        logOut.setOnClickListener(view ->backToMain());
 
         TextView employeeTextView = findViewById(R.id.employeePageText);
         employeeTextView.setText(message);
@@ -136,5 +136,9 @@ public class employeeWindow extends AppCompatActivity {
         // got idea from this page https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds
         handler.postDelayed(this::finish, 60000);
 
+    }
+    public void backToMain(){
+        Intent mainActivity = new Intent(this,MainActivity.class);
+        startActivity(mainActivity);
     }
     }
