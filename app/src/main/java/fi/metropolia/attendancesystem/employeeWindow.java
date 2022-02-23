@@ -2,7 +2,9 @@ package fi.metropolia.attendancesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
@@ -92,21 +95,28 @@ public class employeeWindow extends AppCompatActivity {
         checkInId= database.attendanceDao().getByAttendanceId();
         Log.d(TAG,String.valueOf(checkInId));
         checkInDisplay.setText("Checked In at: " + formatted);
+        database.employeeDao().updateAttendanceId(employeesWindow,id);
 
     }
 
     public void checkOutButtonClick() {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
+        //Declared a employee so that we can get employee details through employee ID.
+        Employee employee = database.employeeDao().getByEmployeeId(employeesWindow);
+        // called get attendanceId for employee so that we can get the latest attendance Id for submitting checkOut.
+        long id = employee.getAttendanceId();
         long checkOutTime = System.currentTimeMillis();
-
         TextView checkInDisplay = findViewById(R.id.timeView);
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
-        String formatted = format.format(epochTime);
+        String formatted = format.format(checkOutTime);
         database.attendanceDao().updateCheckOutTime(formatted,checkInId,employeesWindow);
         checkInDisplay.setText("Checked Out at: " + formatted);
+        database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
+
+
     }
     public void historyButtonClick(){
         Intent intent = getIntent();
@@ -124,7 +134,7 @@ public class employeeWindow extends AppCompatActivity {
         super.onPause();
 
         // got idea from this page https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds
-        handler.postDelayed(() -> finish(), 60000);
+        handler.postDelayed(this::finish, 60000);
 
     }
     }
