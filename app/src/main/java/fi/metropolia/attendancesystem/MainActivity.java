@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
          */
 
         ImageButton infoButton = findViewById(R.id.infoButton);
-        infoButton.setOnClickListener(view -> infoBtnClick);
+        infoButton.setOnClickListener(view -> infoBtnClick());
 
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void infoBtnClick(){
-        Intent = new Intent()
+        Intent info= new Intent(this, Info.class);
+        startActivity(info);
     }
 
 
