@@ -22,8 +22,8 @@ public interface AttendanceDao {
     @Query("SELECT * FROM employee WHERE employeeId = :employeeId")
     public ListOfAttendance getAttendance(String employeeId);
 
-    @Query("SELECT COUNT(attendanceId) FROM employeeattendance")
-    public int getByAttendanceId ();
+    @Query("SELECT * FROM employeeattendance Where attendanceId = :attendanceId")
+    public EmployeeAttendance getByAttendanceId (long attendanceId);
 
     @Query("Update EmployeeAttendance Set checkOutTime= :checkOutTime where attendanceId= :attendanceId and employeeId= :employeeId")
     public  void updateCheckOutTime(String checkOutTime, long attendanceId,String employeeId);

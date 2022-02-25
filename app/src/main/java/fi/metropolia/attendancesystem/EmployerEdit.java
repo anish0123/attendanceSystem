@@ -4,15 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
+import fi.metropolia.attendancesystem.database.AttendanceDao;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerEdit extends AppCompatActivity {
@@ -36,11 +40,20 @@ public class EmployerEdit extends AppCompatActivity {
         int screenHeight= displayMetrics.heightPixels;
 
         getWindow().setLayout((int)(screenWidth*.9),(int)(screenHeight*.7));
+        EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
+        TextView textDisplay = findViewById(R.id.textDisplay);
+        RadioButton checkInRadio = findViewById(R.id.checkInRadioEdit);
+        RadioButton checkOutRadio = findViewById(R.id.checkOutRadioEdit);
+        RadioButton bothEditRadio = findViewById(R.id.bothRadio);
 
+        checkInRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
+        checkOutRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
+        checkInRadio.setOnClickListener(view ->  textDisplay.setText(employeeAttendance.toString()));
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
         Log.d(TAG,"before button check");
+
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
 
@@ -50,6 +63,7 @@ public class EmployerEdit extends AppCompatActivity {
         RadioGroup editGroup = findViewById(R.id.checkEditGroup);
         EditText checkInEdit = findViewById(R.id.checkInTimeEdit);
         EditText checkOutEdit = findViewById(R.id.checkOutTimeEdit);
+
 
         if(editGroup.getCheckedRadioButtonId() == R.id.checkInRadioEdit) {
             Log.d(TAG, "checkInRadioButton");

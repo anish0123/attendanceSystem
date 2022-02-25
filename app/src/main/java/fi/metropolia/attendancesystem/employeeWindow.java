@@ -30,7 +30,6 @@ public class employeeWindow extends AppCompatActivity {
     private AppDataBase database;
     private static final String TAG = "Employee Window";
     private long epochTime;
-    int checkInId;
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
 
@@ -92,8 +91,6 @@ public class employeeWindow extends AppCompatActivity {
         EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, formatted, "");
         long id = database.attendanceDao().insertTime(employeeAttendance);
         TextView checkInDisplay = findViewById(R.id.timeView);
-        checkInId= database.attendanceDao().getByAttendanceId();
-        Log.d(TAG,String.valueOf(checkInId));
         checkInDisplay.setText("Checked In at: " + formatted);
         database.employeeDao().updateAttendanceId(employeesWindow,id);
 
@@ -112,7 +109,6 @@ public class employeeWindow extends AppCompatActivity {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String formatted = format.format(checkOutTime);
-        database.attendanceDao().updateCheckOutTime(formatted,checkInId,employeesWindow);
         checkInDisplay.setText("Checked Out at: " + formatted);
         database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
 

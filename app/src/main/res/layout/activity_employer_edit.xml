@@ -65,30 +65,44 @@
 
     <RadioGroup
         android:id="@+id/checkEditGroup"
-        android:layout_width="270dp"
-        android:layout_height="146dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024">
+        app:layout_constraintVertical_bias="0.215">
 
         <RadioButton
             android:id="@+id/checkInRadioEdit"
-            android:layout_width="match_parent"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:text="@string/checkIn" />
 
         <RadioButton
             android:id="@+id/checkOutRadioEdit"
-            android:layout_width="match_parent"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:text="@string/checkOut" />
 
         <RadioButton
             android:id="@+id/bothRadio"
-            android:layout_width="match_parent"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:text="@string/both" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/checkEditGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507" />
 </androidx.constraintlayout.widget.ConstraintLayout>
