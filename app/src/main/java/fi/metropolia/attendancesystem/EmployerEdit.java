@@ -39,16 +39,8 @@ public class EmployerEdit extends AppCompatActivity {
         int screenWidth = displayMetrics.widthPixels;
         int screenHeight= displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(screenWidth*.9),(int)(screenHeight*.7));
-        EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
-        TextView textDisplay = findViewById(R.id.textDisplay);
-        RadioButton checkInRadio = findViewById(R.id.checkInRadioEdit);
-        RadioButton checkOutRadio = findViewById(R.id.checkOutRadioEdit);
-        RadioButton bothEditRadio = findViewById(R.id.bothRadio);
-
-        checkInRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
-        checkOutRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
-        bothEditRadio.setOnClickListener(view ->  textDisplay.setText(employeeAttendance.toString()));
+        getWindow().setLayout((int)(screenWidth*1),(int)(screenHeight*.7));
+        updateUI();
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
@@ -82,6 +74,12 @@ public class EmployerEdit extends AppCompatActivity {
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             this.finish();
         }
+    }
+
+    private void updateUI() {
+        EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
+        TextView textDisplay = findViewById(R.id.textDisplay);
+        textDisplay.setText(employeeAttendance.toString());
     }
 
 
