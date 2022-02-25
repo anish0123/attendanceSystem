@@ -28,6 +28,12 @@ public interface AttendanceDao {
     @Query("Update EmployeeAttendance Set checkOutTime= :checkOutTime where attendanceId= :attendanceId and employeeId= :employeeId")
     public  void updateCheckOutTime(String checkOutTime, long attendanceId,String employeeId);
 
+    @Query("Update EmployeeAttendance Set checkInTime= :checkInTime where attendanceId= :attendanceId and employeeId= :employeeId")
+    public  void updateCheckInTime(String checkInTime, long attendanceId,String employeeId);
+
+    @Query("Update EmployeeAttendance Set checkInTime= :checkInTime and checkOutTime= :checkOutTime where attendanceId= :attendanceId and employeeId= :employeeId")
+    public  void updateAllTime(String checkInTime,String checkOutTime, long attendanceId,String employeeId);
+
     @Query("Select * From employeeattendance where employeeId= :employeeId Order By attendanceId DESC")
     public List<EmployeeAttendance> getAllAttendance(String employeeId);
 
