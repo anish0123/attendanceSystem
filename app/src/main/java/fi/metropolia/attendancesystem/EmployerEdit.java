@@ -48,7 +48,7 @@ public class EmployerEdit extends AppCompatActivity {
 
         checkInRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
         checkOutRadio.setOnClickListener(view -> textDisplay.setText(employeeAttendance.toString()));
-        checkInRadio.setOnClickListener(view ->  textDisplay.setText(employeeAttendance.toString()));
+        bothEditRadio.setOnClickListener(view ->  textDisplay.setText(employeeAttendance.toString()));
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
