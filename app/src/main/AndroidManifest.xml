@@ -17,6 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".EmployerEdit"
+            android:theme="@style/Theme.AttendanceSystem.popUp"
             android:exported="false" />
         <activity
             android:name=".Employee_history"

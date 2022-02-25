@@ -28,5 +28,9 @@
     <string name="editTime">Time</string>
     <string name="edit">Edit</string>
     <string name="changeIntToString">00%s</string>
+    <string name= "both">Both</string>
+    <string name= "cancel">Cancel</string>
+    <string name="checkInTime">CheckIn Time</string>
+    <string name="checkOutTime">CheckOut Time</string>
 
 </resources>

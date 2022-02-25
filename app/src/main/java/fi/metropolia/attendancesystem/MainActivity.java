@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         database = AppDataBase.getInstance(getApplicationContext());
 
         //add manager into database for time-being manually commented after first run
-        /*
+/*
         Employee employee = new Employee("000", "Manager", "boss123", "esimies","active");
         database.employeeDao().insert(employee);
+*/
 
-         */
 
         ImageButton infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(view -> infoBtnClick());
