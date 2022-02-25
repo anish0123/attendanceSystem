@@ -10,13 +10,18 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
+import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerViewHistoryActivity extends AppCompatActivity {
     private AppDataBase database;
     public static final String TAG = "EmployerViewHistory";
-    public static final String EmployeeID = "employeeId";
+    public static final String EMPLOYEEID = "employeeId";
+    public static final String ATTENDANCEID = "attendanceId";
+    private String employeeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +33,16 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
         signOutButton.setOnClickListener(view -> backToMain());
     }
     public void historyUI(){
-        TextView textView = findViewById(R.id.employeeHistoryId);
+        TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
         //Getting the Id from Employer Activity
         Integer Id = intent.getIntExtra(EmployerActivity.ID, 0);
         //Since our employerId is in String so we had to change Int to String
-        String workingId = getString(R.string.changeIntToString,String.valueOf(Id));
+        employeeId = getString(R.string.changeIntToString,String.valueOf(Id));
         //Introduced employee for getting the details of the employee.
-        Employee employee = database.employeeDao().getByEmployeeId(workingId);
-        String employeeId = employee.getEmployeeId();
+        Employee employee = database.employeeDao().getByEmployeeId(employeeId);
 
-        textView.setText(employee.toString());
+        detailView.setText(employee.toString());
         //Introduced ListView for displaying the work history of employee
         ListView historyList = findViewById(R.id.historyList);
         historyList.setAdapter(new ArrayAdapter<>(
@@ -57,8 +61,11 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
     //Method for starting the employer edit activity.
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerViewHistoryActivity.this, EmployerEdit.class);
-        intent.putExtra(EmployeeID, i);
-
+        List list = database.attendanceDao().getAllAttendance(employeeId);
+        EmployeeAttendance employeeAttendance = (EmployeeAttendance) list.get(i);
+        long attendanceId = employeeAttendance.getAttendanceId();
+        intent.putExtra(ATTENDANCEID,attendanceId);
+        intent.putExtra(EMPLOYEEID, employeeId);
         startActivity(intent);
 
     }
@@ -67,6 +74,13 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        historyUI();
+    }
+
 
 
 }

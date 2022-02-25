@@ -77,8 +77,6 @@ public class EmployerActivity extends AppCompatActivity {
 
     }
 
-
-
     public void updateUI() {
         //Introducing listview for displaying all the employees
         ListView lvList = findViewById(R.id.lvEmployee);
@@ -88,7 +86,7 @@ public class EmployerActivity extends AppCompatActivity {
                 database.employeeDao().getAll()
         ));
 
-        //TODO: setup the click listener so when employee name is clicked the work history opens up.
+        //setup the click listener so when employee name is clicked the work history opens up.
         lvList.setOnItemClickListener(((adapterView, view, i, l) -> {
             Log.d(TAG, "did the click listener work?" + i);
             startActivityEmployeeHistory(i);
@@ -99,7 +97,6 @@ public class EmployerActivity extends AppCompatActivity {
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerActivity.this, EmployerViewHistoryActivity.class);
        intent.putExtra(ID, i);
-       intent.putExtra(EMPLOYEE_ID,"001");
        startActivity(intent);
 
     }
