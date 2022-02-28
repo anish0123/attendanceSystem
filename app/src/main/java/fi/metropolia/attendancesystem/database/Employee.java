@@ -20,11 +20,11 @@ public class Employee {
 
     /**
      * Constructor for getting an instance of employee class
-     * @param employeeId String
-     * @param name String
-     * @param password String
-     * @param role String
-     * @param status String
+     * @param employeeId Employee's Id
+     * @param name Employee's name
+     * @param password Employee's password
+     * @param role Employee's role
+     * @param status Employee's status
      */
     public Employee( String employeeId, String name, String password, String role,String status) {
         this.employeeId = employeeId;
@@ -36,7 +36,7 @@ public class Employee {
 
     /**
      * Method for getting attendanceId of the employee.
-     * @return attendanceId
+     * @return latest attendanceId
      */
     public long getAttendanceId() {
         return attendanceId;
@@ -44,7 +44,7 @@ public class Employee {
 
     /**
      * Method for setting attendanceId of the employee.
-     * @param attendanceId String
+     * @param attendanceId latest Attendance's Id
      */
     public void setAttendanceId(long attendanceId) {
         this.attendanceId = attendanceId;
@@ -52,7 +52,7 @@ public class Employee {
 
     /**
      * Method for getting the employeeId of the employee.
-     * @return employeeId String
+     * @return EmployeeId of the employee
      */
     public String getEmployeeId() {
         return employeeId;
@@ -60,7 +60,7 @@ public class Employee {
 
     /**
      * Method for setting the employeeId of the employee
-     * @param employeeId String
+     * @param employeeId Employee's Id
      */
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
@@ -68,7 +68,7 @@ public class Employee {
 
     /**
      * Method for getting the name of the employee.
-     * @return name String
+     * @return Employee's name
      */
     public String getName() {
         return name;
@@ -76,7 +76,7 @@ public class Employee {
 
     /**
      * Method for setting the name of the employee
-     * @param name String
+     * @param name Employee's name
      */
     public void setName(String name) {
         this.name = name;
@@ -84,7 +84,7 @@ public class Employee {
 
     /**
      * Method for getting the password of the employee
-     * @return password String
+     * @return Employee's password
      */
     public String getPassword() {
         return password;
@@ -92,7 +92,7 @@ public class Employee {
 
     /**
      * Method for setting the password of the employee
-     * @param password String
+     * @param password Employee's password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -100,7 +100,7 @@ public class Employee {
 
     /**
      * Method for getting the status of the employee
-     * @return status String
+     * @return Employee's status
      */
     public String getStatus() {
         return status;
@@ -108,7 +108,7 @@ public class Employee {
 
     /**
      * Method for setting the status of the employee
-     * @param status String
+     * @param status Employee's status
      */
     public void setStatus(String status) {
         this.status = status;
@@ -116,7 +116,7 @@ public class Employee {
 
     /**
      * Method for getting role of the employee
-     * @return role String
+     * @return Employee's role
      */
     public String getRole() {
         return role;
@@ -124,7 +124,7 @@ public class Employee {
 
     /**
      * Method for setting role of the employee
-     * @param role String
+     * @param role Employee's role
      */
 
     public void setRole(String role) {
@@ -133,7 +133,7 @@ public class Employee {
 
     /**
      * Method for getting the employee details
-     * @return employee String
+     * @return Employee's details: name, employeeId, role and status.
      */
     @Override
     public String toString() {

@@ -16,7 +16,6 @@ public class EmployeeAttendance {
 
     @PrimaryKey(autoGenerate = true)
     private long attendanceId;
-
     private String employeeId;
     private String checkInTime;
     private String checkOutTime;
