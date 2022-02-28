@@ -17,8 +17,10 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
@@ -54,8 +56,8 @@ public class employeeWindow extends AppCompatActivity {
         employeeTextView.setText(message);
         epochTime = System.currentTimeMillis();
         Log.d(TAG, String.valueOf(epochTime));
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
+        format.setTimeZone(TimeZone.getTimeZone("EET"));
         String formatted = format.format(epochTime);
         Log.d(TAG,formatted);
 
@@ -85,8 +87,8 @@ public class employeeWindow extends AppCompatActivity {
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         epochTime = System.currentTimeMillis();
         //For date formatting
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
+        format.setTimeZone(TimeZone.getTimeZone("EET"));
         String formatted = format.format(epochTime);
         EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, formatted, "");
         long id = database.attendanceDao().insertTime(employeeAttendance);
@@ -105,9 +107,11 @@ public class employeeWindow extends AppCompatActivity {
         long id = employee.getAttendanceId();
         long checkOutTime = System.currentTimeMillis();
         TextView checkInDisplay = findViewById(R.id.timeView);
+
+
         //For date formatting
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
+        format.setTimeZone(TimeZone.getTimeZone("EET"));
         String formatted = format.format(checkOutTime);
         checkInDisplay.setText("Checked Out at: " + formatted);
         database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
