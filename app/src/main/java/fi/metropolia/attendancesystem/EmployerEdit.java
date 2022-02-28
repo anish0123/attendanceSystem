@@ -44,12 +44,11 @@ public class EmployerEdit extends AppCompatActivity {
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
-        Button signOut = findViewById(R.id.logOutBtn);
         Log.d(TAG,"before button check");
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
-        signOut.setOnClickListener(view -> backToMain());
+
 
     }
 
@@ -83,9 +82,7 @@ public class EmployerEdit extends AppCompatActivity {
         TextView textDisplay = findViewById(R.id.textDisplay);
         textDisplay.setText(employeeAttendance.toString());
     }
-    public void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
-        startActivity(mainActivity);
-    }
+
+
 
 }
