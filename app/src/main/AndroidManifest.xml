@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AttendanceSystem">
         <activity
+            android:name=".onBoardingLayout"
+            android:exported="false" />
+        <activity
             android:name=".Info"
             android:exported="false" />
         <activity
@@ -17,8 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".EmployerEdit"
-            android:theme="@style/Theme.AttendanceSystem.popUp"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AttendanceSystem.popUp" />
         <activity
             android:name=".Employee_history"
             android:exported="false" />
