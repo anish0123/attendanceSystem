@@ -35,12 +35,11 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
     public void historyUI(){
         TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
-        //Getting the Id from Employer Activity
-        Integer Id = intent.getIntExtra(EmployerActivity.ID, 0);
         //Since our employerId is in String so we had to change Int to String
-        employeeId = getString(R.string.changeIntToString,String.valueOf(Id));
+        employeeId = intent.getStringExtra(EmployerActivity.EMPLOYEE_ID);
         //Introduced employee for getting the details of the employee.
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
+        employeeId = employee.getEmployeeId();
 
         detailView.setText(employee.toString());
         //Introduced ListView for displaying the work history of employee
