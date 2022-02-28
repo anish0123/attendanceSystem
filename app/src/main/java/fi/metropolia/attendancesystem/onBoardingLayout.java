@@ -24,22 +24,26 @@ public class onBoardingLayout extends AppCompatActivity {
         addSuperVisor.setOnClickListener(view -> checkRedundancy());
 
     }
+
     public void addButtonClick() {
-        String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
-        String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
-        String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
-        String uniqueToken = ((EditText)findViewById(R.id.uniqueToken)).getText().toString();
-        if(uniqueToken.equals("112233")){
-            Toast.makeText(this, "SuperVisor added & LogIn Window Started", Toast.LENGTH_SHORT).show();
-            database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "esimies","active"));
-            Intent intent = new Intent(this,MainActivity.class);
+        String newEmployeeName = ((EditText) findViewById(R.id.superVisorName)).getText().toString();
+        String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();
+        String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
+        String uniqueToken = ((EditText) findViewById(R.id.uniqueToken)).getText().toString();
+        if (uniqueToken.equals("112233")) {
+            Toast.makeText(this, "SuperVisor added", Toast.LENGTH_SHORT).show();
+            database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "esimies", "active"));
+            Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
+        }else{
+            Toast.makeText(this, "Access Denied", Toast.LENGTH_SHORT).show();
+
         }
     }
 
     //Method for checking if employeeid is already assigned to avoid same id for either employer or employees
     public void checkRedundancy() {
-        String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
+        String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
 
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
         if (employee != null) {
