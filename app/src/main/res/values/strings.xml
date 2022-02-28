@@ -32,6 +32,8 @@
     <string name="cancel">Cancel</string>
     <string name="checkInTime">CheckIn Time</string>
     <string name="checkOutTime">CheckOut Time</string>
+    <string name="uniqueToken">Unique Token</string>
     <string name="welcomeText"><b>Welcome to Attendance System</b></string>
-
+    <string name="admin">SuperVisor Name</string>
+<string name="addSuperVisor">Add SuperVisor (Employer)</string>
 </resources>

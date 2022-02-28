@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
 
+        ImageButton addSuperVisor = findViewById(R.id.addSuperVisorBtn);
+        addSuperVisor.setOnClickListener(view -> addSuperVisor());
+
     }
 
     public void infoBtnClick(){
@@ -87,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+    public void addSuperVisor(){
+        Intent intent = new Intent(this,onBoardingLayout.class);
+        startActivity(intent);
     }
 
 
