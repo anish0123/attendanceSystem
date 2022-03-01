@@ -1,7 +1,6 @@
 package fi.metropolia.attendancesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Insert;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +11,24 @@ import android.widget.Toast;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
-public class onBoardingLayout extends AppCompatActivity {
+public class addSuperVisor extends AppCompatActivity {
     private AppDataBase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_boarding_layout);
+        setContentView(R.layout.activity_add_supervisor);
+
+
         database = AppDataBase.getInstance(getApplicationContext());
+
+        //assign imageButton Id and its click listener
         ImageButton addSuperVisor = findViewById(R.id.addSuperVisorButton);
         addSuperVisor.setOnClickListener(view -> checkRedundancy());
 
     }
 
+    //add manager function to add superVisor and has a uniqueToken
     public void addButtonClick() {
         String newEmployeeName = ((EditText) findViewById(R.id.superVisorName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();

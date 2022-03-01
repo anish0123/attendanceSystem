@@ -3,16 +3,12 @@ package fi.metropolia.attendancesystem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
@@ -92,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void addSuperVisor(){
-        Intent intent = new Intent(this,onBoardingLayout.class);
+        Intent intent = new Intent(this, addSuperVisor.class);
         startActivity(intent);
     }
 
