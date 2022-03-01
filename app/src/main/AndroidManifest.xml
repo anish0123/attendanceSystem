@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AttendanceSystem">
         <activity
-            android:name=".onBoardingLayout"
+            android:name=".addSuperVisor"
             android:exported="false" />
         <activity
             android:name=".Info"
