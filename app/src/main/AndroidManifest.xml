@@ -14,7 +14,8 @@
             android:exported="false" />
         <activity
             android:name=".Info"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AttendanceSystem.popUp"/>
         <activity
             android:name=".EmployerViewHistoryActivity"
             android:exported="false" />
