@@ -32,8 +32,27 @@
     <string name="cancel">Cancel</string>
     <string name="checkInTime">CheckIn Time</string>
     <string name="checkOutTime">CheckOut Time</string>
+<<<<<<< HEAD
+    <string name="info">INFO</string>
+    <string name="signing_in_info">Signing In</string>
+    <string name="signIn_info">* Start by signing in to the system,enter your user id and password</string>
+    <string name="loging_in">Loging In</string>
+    <string name="history_info">* Click history to check your history.</string>
+    <string name="signout_info">* Click signout to go back.</string>
+    <string name="statement_logIn1">* Log in or log out by pressing check in or check out and submit.</string>
+
+=======
     <string name="uniqueToken">Unique Token</string>
     <string name="welcomeText"><b>Welcome to Attendance System</b></string>
     <string name="admin">SuperVisor Name</string>
-<string name="addSuperVisor">Add SuperVisor (Employer)</string>
+    <string name="addSuperVisor">Add SuperVisor (Employer)</string>
+    <string name="checkedOutAt">Checked Out at: %s</string>
+    <string name="checkedInAt">Checked In at: %s</string>
+    <string name="esimies">esimies</string>
+    <string name="active">active</string>
+    <string name="worker">worker</string>
+    <string name="userInactive">User Inactive !!!</string>
+    <string name="wrongCredentials">Wrong Credentials !!!</string>
+    <string name="welcomeEmployeeDetails">Welcome, %1s (%2s)</string>
+>>>>>>> main
 </resources>
