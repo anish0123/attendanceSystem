@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/darkRed"
+    android:layout_height="match_parent"
+    tools:context=".onBoardingLayout">
+
+    <EditText
+        android:id="@+id/superVisorId"
+        android:layout_width="261dp"
+        android:layout_height="68dp"
+        android:ems="10"
+        android:hint="@string/userId"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/superVisorPassword"
+        app:layout_constraintVertical_bias="0.026"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/uniqueToken"
+        android:layout_width="261dp"
+        android:layout_height="68dp"
+        android:ems="10"
+        android:hint="@string/uniqueToken"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/superVisorId"
+        app:layout_constraintVertical_bias="0.049"
+        android:autofillHints="" />
+
+    <ImageButton
+        android:id="@+id/addSuperVisorButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:contentDescription="@string/title_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uniqueToken"
+        app:layout_constraintVertical_bias="0.298"
+        app:srcCompat="@drawable/start2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/superVisorName"
+        android:layout_width="261dp"
+        android:layout_height="68dp"
+        android:ems="10"
+        android:hint="@string/admin"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/superVisorPassword"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/superVisorName"
+        app:layout_constraintVertical_bias="0.023"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/superVisorTextView"
+        android:layout_width="323dp"
+        android:layout_height="68dp"
+        android:text="@string/addSuperVisor"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/superVisorName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

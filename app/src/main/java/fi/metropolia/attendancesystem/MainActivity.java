@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         database = AppDataBase.getInstance(getApplicationContext());
 
+<<<<<<< HEAD
         //add manager into database for time-being manually commented after first run
         /*
         Employee employee = new Employee("000", "Manager", "boss123", "esimies","active");
@@ -41,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+=======
+>>>>>>> main
         ImageButton infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(view -> infoBtnClick());
 
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> LoginBtnClick());
+
+        ImageButton addSuperVisor = findViewById(R.id.addSuperVisorBtn);
+        addSuperVisor.setOnClickListener(view -> addSuperVisor());
 
     }
 
@@ -64,32 +70,35 @@ public class MainActivity extends AppCompatActivity {
 
 
         Employee employee = database.employeeDao().checkLogIn(employeeId, password);
-        Log.d(TAG, "employee? " + employee);
         if (employee != null) {
-            if (employee.getRole().equals("esimies")&&employee.getStatus().equals("active")) {
+            if (employee.getRole().equals(getString(R.string.esimies))&&employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
 
                 Intent employerActivity = new Intent(this, EmployerActivity.class);
                 startActivity(employerActivity);
-            } else if (employee.getRole().equals("worker")&&employee.getStatus().equals("active")) {
+            } else if (employee.getRole().equals(getString(R.string.worker))&&employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent employeeActivity = new Intent(this, employeeWindow.class);
-                String message = "Welcome, " + employee.getName() + " (" + employee.getEmployeeId() + ")";
+                String message = getString(R.string.welcomeEmployeeDetails,  employee.getName(),  employee.getEmployeeId());
                 employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
                 employeeActivity.putExtra(EMPLOYEE_ID, employee.getEmployeeId());
                 startActivity(employeeActivity);
             }else {
                 Toast.makeText(this, "User Inactive !!! ", Toast.LENGTH_SHORT).show();
-                errorTextView.setText("User Inactive !!!");
+                errorTextView.setText(R.string.userInactive);
 
             }
 
         } else {
             Toast.makeText(this, "Wrong Credentials !!! ", Toast.LENGTH_SHORT).show();
-            errorTextView.setText("Wrong Credentials !!!");
+            errorTextView.setText(R.string.wrongCredentials);
 
         }
 
+    }
+    public void addSuperVisor(){
+        Intent intent = new Intent(this,onBoardingLayout.class);
+        startActivity(intent);
     }
 
 

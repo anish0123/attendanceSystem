@@ -39,7 +39,7 @@ public class EmployerEdit extends AppCompatActivity {
         int screenWidth = displayMetrics.widthPixels;
         int screenHeight= displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(screenWidth*1),(int)(screenHeight*.7));
+        getWindow().setLayout((int)(screenWidth),(int)(screenHeight*.7));
         updateUI();
 
         Button editBtn = findViewById(R.id.editButton);
@@ -48,6 +48,7 @@ public class EmployerEdit extends AppCompatActivity {
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
+
 
     }
 
@@ -81,10 +82,6 @@ public class EmployerEdit extends AppCompatActivity {
         TextView textDisplay = findViewById(R.id.textDisplay);
         textDisplay.setText(employeeAttendance.toString());
     }
-
-
-
-
 
 
 

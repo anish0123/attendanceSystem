@@ -15,21 +15,20 @@ import androidx.room.ForeignKey;
 public class EmployeeAttendance {
 
     @PrimaryKey(autoGenerate = true)
-    private int attendanceId;
-
+    private long attendanceId;
     private String employeeId;
     private String checkInTime;
     private String checkOutTime;
 
 
-    public EmployeeAttendance(int attendanceId, String employeeId, String checkInTime, String checkOutTime) {
+    public EmployeeAttendance(long attendanceId, String employeeId, String checkInTime, String checkOutTime) {
         this.attendanceId = attendanceId;
         this.employeeId = employeeId;
         this.checkInTime = checkInTime;
         this.checkOutTime = checkOutTime;
     }
 
-    public int getAttendanceId() {
+    public long getAttendanceId() {
         return attendanceId;
     }
 

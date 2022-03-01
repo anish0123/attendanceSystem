@@ -16,10 +16,10 @@ import java.util.List;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
+import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerActivity extends AppCompatActivity {
     public static final String TAG = "Employer Activity";
-    public static final String ID = "Id";
     public static final String EMPLOYEE_ID = "employee_ID";
 
     private AppDataBase database;
@@ -96,7 +96,10 @@ public class EmployerActivity extends AppCompatActivity {
 
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerActivity.this, EmployerViewHistoryActivity.class);
-       intent.putExtra(ID, i);
+        List list = database.employeeDao().getAll();
+        Employee employee = (Employee) list.get(i);
+        String employeeId = employee.getEmployeeId();
+       intent.putExtra(EMPLOYEE_ID,employeeId);
        startActivity(intent);
 
     }
