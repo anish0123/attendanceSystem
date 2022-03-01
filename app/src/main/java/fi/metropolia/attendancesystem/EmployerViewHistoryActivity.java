@@ -39,7 +39,6 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
         employeeId = intent.getStringExtra(EmployerActivity.EMPLOYEE_ID);
         //Introduced employee for getting the details of the employee.
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
-        employeeId = employee.getEmployeeId();
 
         detailView.setText(employee.toString());
         //Introduced ListView for displaying the work history of employee

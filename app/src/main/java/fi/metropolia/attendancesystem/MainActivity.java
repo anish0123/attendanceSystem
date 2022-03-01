@@ -27,11 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         database = AppDataBase.getInstance(getApplicationContext());
 
-
-
-
-
-
         ImageButton infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(view -> infoBtnClick());
 

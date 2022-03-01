@@ -52,7 +52,7 @@ public class EmployerActivity extends AppCompatActivity {
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
         Toast.makeText(this, newEmployeeName+" added ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, "worker","active"));
+        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, getString(R.string.worker),getString(R.string.active)));
         updateUI();
     }
 
@@ -88,7 +88,6 @@ public class EmployerActivity extends AppCompatActivity {
 
         //setup the click listener so when employee name is clicked the work history opens up.
         lvList.setOnItemClickListener(((adapterView, view, i, l) -> {
-            Log.d(TAG, "did the click listener work?" + i);
             startActivityEmployeeHistory(i);
         }));
 

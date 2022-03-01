@@ -4,19 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import java.util.List;
-
 import fi.metropolia.attendancesystem.database.AppDataBase;
-import fi.metropolia.attendancesystem.database.AttendanceDao;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerEdit extends AppCompatActivity {
@@ -44,7 +37,6 @@ public class EmployerEdit extends AppCompatActivity {
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
-        Log.d(TAG,"before button check");
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
@@ -59,18 +51,12 @@ public class EmployerEdit extends AppCompatActivity {
 
 
         if(editGroup.getCheckedRadioButtonId() == R.id.checkInRadioEdit) {
-            Log.d(TAG, "checkInRadioButton");
-            Log.d(TAG, "attendanceId" + employeeId);
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             this.finish();
         } else if (editGroup.getCheckedRadioButtonId() == R.id.checkOutRadioEdit ) {
-            Log.d(TAG, "checkOutRadioButton");
-            Log.d(TAG, "attendanceId" + employeeId);
             database.attendanceDao().updateCheckOutTime(checkOutEdit.getText().toString(), attendanceId, employeeId);
            this.finish();
         } else if (editGroup.getCheckedRadioButtonId() == R.id.bothRadio) {
-            Log.d(TAG, "BothButton");
-            Log.d(TAG, "attendanceId" + employeeId);
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             this.finish();

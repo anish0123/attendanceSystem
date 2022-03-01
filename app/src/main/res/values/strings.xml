@@ -51,5 +51,6 @@
     <string name="userInactive">User Inactive !!!</string>
     <string name="wrongCredentials">Wrong Credentials !!!</string>
     <string name="welcomeEmployeeDetails">Welcome, %1s (%2s)</string>
+    <string name="uniqueKey">112233</string>
 
 </resources>
