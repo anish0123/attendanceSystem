@@ -31,7 +31,6 @@ public class employeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
     private static final String TAG = "Employee Window";
-    private long epochTime;
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
 
@@ -44,7 +43,6 @@ public class employeeWindow extends AppCompatActivity {
         setContentView(R.layout.activity_employee_window);
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
-        String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         database = AppDataBase.getInstance(getApplicationContext());
 
         ImageButton submitButton =findViewById(R.id.submitBtn);
@@ -54,12 +52,6 @@ public class employeeWindow extends AppCompatActivity {
 
         TextView employeeTextView = findViewById(R.id.employeePageText);
         employeeTextView.setText(message);
-        epochTime = System.currentTimeMillis();
-        Log.d(TAG, String.valueOf(epochTime));
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
-        format.setTimeZone(TimeZone.getTimeZone("EET"));
-        String formatted = format.format(epochTime);
-        Log.d(TAG,formatted);
 
         Button historyButton = findViewById(R.id.historyBtn);
         historyButton.setOnClickListener(view -> historyButtonClick());
@@ -69,9 +61,6 @@ public class employeeWindow extends AppCompatActivity {
 
     public void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
-        RadioButton checkInButton = findViewById(R.id.checkInRadio);
-        RadioButton checkOutButton = findViewById(R.id.checkOutRadio);
-
 
         if(checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
           checkInButtonClick();
@@ -85,7 +74,7 @@ public class employeeWindow extends AppCompatActivity {
     public void checkInButtonClick() {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-        epochTime = System.currentTimeMillis();
+        long epochTime = System.currentTimeMillis();
         //For date formatting
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
@@ -93,7 +82,7 @@ public class employeeWindow extends AppCompatActivity {
         EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, formatted, "");
         long id = database.attendanceDao().insertTime(employeeAttendance);
         TextView checkInDisplay = findViewById(R.id.timeView);
-        checkInDisplay.setText("Checked In at: " + formatted);
+        checkInDisplay.setText(getString(R.string.checkedInAt, formatted));
         database.employeeDao().updateAttendanceId(employeesWindow,id);
 
     }
@@ -113,7 +102,7 @@ public class employeeWindow extends AppCompatActivity {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         String formatted = format.format(checkOutTime);
-        checkInDisplay.setText("Checked Out at: " + formatted);
+        checkInDisplay.setText(getString(R.string.checkedOutAt, formatted));
         database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
 
 
@@ -122,11 +111,10 @@ public class employeeWindow extends AppCompatActivity {
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-        String message = employeeName;
 
         Intent historyActivity = new Intent(this,Employee_history.class);
         historyActivity.putExtra(EMPLOYEE_ID_SEND,employeeId);
-        historyActivity.putExtra(EMPLOYEE_DETAIL,message);
+        historyActivity.putExtra(EMPLOYEE_DETAIL,employeeName);
         startActivity(historyActivity);
     }
 

@@ -35,5 +35,7 @@
     <string name="uniqueToken">Unique Token</string>
     <string name="welcomeText"><b>Welcome to Attendance System</b></string>
     <string name="admin">SuperVisor Name</string>
-<string name="addSuperVisor">Add SuperVisor (Employer)</string>
+    <string name="addSuperVisor">Add SuperVisor (Employer)</string>
+    <string name="checkedOutAt">Checked Out at: %s</string>
+    <string name="checkedInAt">Checked In at: %s</string>
 </resources>
