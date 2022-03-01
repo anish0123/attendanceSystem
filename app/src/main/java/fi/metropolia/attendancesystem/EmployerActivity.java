@@ -19,7 +19,6 @@ import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerActivity extends AppCompatActivity {
-    public static final String TAG = "Employer Activity";
     public static final String EMPLOYEE_ID = "employee_ID";
 
     private AppDataBase database;

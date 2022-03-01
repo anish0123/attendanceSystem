@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,7 +15,6 @@ import fi.metropolia.attendancesystem.database.Employee;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "checking main activity";
     public static final String EMPLOYEE_LOGIN = "employee_login";
     public static final String EMPLOYEE_ID = "employee_id";
     private AppDataBase database;

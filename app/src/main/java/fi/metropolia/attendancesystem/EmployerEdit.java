@@ -13,7 +13,6 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerEdit extends AppCompatActivity {
-    public final String TAG = "employerEdit";
     private AppDataBase database;
     long attendanceId;
     String employeeId;

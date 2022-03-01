@@ -2,7 +2,7 @@ package fi.metropolia.attendancesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
