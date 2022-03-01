@@ -111,17 +111,19 @@
 
     <ImageButton
         android:id="@+id/infoButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/navyBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        style="?android:attr/borderlessButtonStyle"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.172"
         app:srcCompat="@android:drawable/ic_menu_info_details"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        app:tint="@color/design_default_color_secondary_variant" />
 
     <ImageButton
         android:id="@+id/addSuperVisorBtn"
