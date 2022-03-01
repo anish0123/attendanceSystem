@@ -38,4 +38,10 @@
     <string name="addSuperVisor">Add SuperVisor (Employer)</string>
     <string name="checkedOutAt">Checked Out at: %s</string>
     <string name="checkedInAt">Checked In at: %s</string>
+    <string name="esimies">esimies</string>
+    <string name="active">active</string>
+    <string name="worker">worker</string>
+    <string name="userInactive">User Inactive !!!</string>
+    <string name="wrongCredentials">Wrong Credentials !!!</string>
+    <string name="welcomeEmployeeDetails">Welcome, %1s (%2s)</string>
 </resources>
