@@ -27,19 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         database = AppDataBase.getInstance(getApplicationContext());
 
-<<<<<<< HEAD
-        //add manager into database for time-being manually commented after first run
-        /*
-        Employee employee = new Employee("000", "Manager", "boss123", "esimies","active");
-        database.employeeDao().insert(employee);
-
-         */
 
 
 
 
-=======
->>>>>>> main
+
         ImageButton infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(view -> infoBtnClick());
 
