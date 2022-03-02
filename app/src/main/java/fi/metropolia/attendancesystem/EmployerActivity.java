@@ -4,40 +4,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
-import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerActivity extends AppCompatActivity {
-    public static final String TAG = "Employer Activity";
     public static final String EMPLOYEE_ID = "employee_ID";
-
     private AppDataBase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer);
+        Intent intent = getIntent();
+        String welcomeMessage = intent.getStringExtra(MainActivity.EMPLOYER_LOGIN);
 
-        //Logout button introduced to take employer to main activity after pressing the logout button.
-        Button signOut = findViewById(R.id.logOutBtn);
-        signOut.setOnClickListener(view -> backToMain());
+        TextView welcome = findViewById(R.id.welcomeBoss);
+        welcome.setText(welcomeMessage);
 
         // Introducing database and image button which will be used to add employees in the database.
         database = AppDataBase.getInstance(getApplicationContext());
         ImageButton addButton = findViewById(R.id.addBtn);
         ImageButton removeButton = findViewById(R.id.removeButton);
 
+        //Logout button introduced to take employer to main activity after pressing the logout button.
+        Button signOut = findViewById(R.id.logOutBtn);
+        signOut.setOnClickListener(view -> backToMain());
         addButton.setOnClickListener(view -> checkRedundancy());
         removeButton.setOnClickListener(view -> removeButtonClick());
 
@@ -94,12 +95,12 @@ public class EmployerActivity extends AppCompatActivity {
     }
 
     private void startActivityEmployeeHistory(int i) {
-        Intent intent = new Intent(EmployerActivity.this, EmployerViewHistoryActivity.class);
+        Intent intent = new Intent(EmployerActivity.this, EmployerViewHistory.class);
         List list = database.employeeDao().getAll();
         Employee employee = (Employee) list.get(i);
         String employeeId = employee.getEmployeeId();
-       intent.putExtra(EMPLOYEE_ID,employeeId);
-       startActivity(intent);
+        intent.putExtra(EMPLOYEE_ID,employeeId);
+        startActivity(intent);
 
     }
     public void backToMain(){

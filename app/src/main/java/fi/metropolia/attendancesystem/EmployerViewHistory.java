@@ -16,7 +16,7 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
-public class EmployerViewHistoryActivity extends AppCompatActivity {
+public class EmployerViewHistory extends AppCompatActivity {
     private AppDataBase database;
     public static final String TAG = "EmployerViewHistory";
     public static final String EMPLOYEEID = "employeeId";
@@ -58,7 +58,7 @@ public class EmployerViewHistoryActivity extends AppCompatActivity {
 
     //Method for starting the employer edit activity.
     private void startActivityEmployeeHistory(int i) {
-        Intent intent = new Intent(EmployerViewHistoryActivity.this, EmployerEdit.class);
+        Intent intent = new Intent(EmployerViewHistory.this, EmployerEdit.class);
         List list = database.attendanceDao().getAllAttendance(employeeId);
         EmployeeAttendance employeeAttendance = (EmployeeAttendance) list.get(i);
         long attendanceId = employeeAttendance.getAttendanceId();

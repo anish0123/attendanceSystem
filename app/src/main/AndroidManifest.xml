@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AttendanceSystem">
         <activity
-            android:name=".addSuperVisor"
+            android:name=".AddSuperVisor"
             android:exported="false" />
         <activity
             android:name=".Info"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AttendanceSystem.popUp"/>
         <activity
-            android:name=".EmployerViewHistoryActivity"
+            android:name=".EmployerViewHistory"
             android:exported="false" />
         <activity
             android:name=".EmployerEdit"
@@ -26,7 +27,7 @@
             android:name=".Employee_history"
             android:exported="false" />
         <activity
-            android:name=".employeeWindow"
+            android:name=".EmployeeWindow"
             android:exported="false" />
         <activity
             android:name=".EmployerActivity"

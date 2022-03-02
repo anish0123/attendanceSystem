@@ -13,7 +13,6 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerEdit extends AppCompatActivity {
-    public final String TAG = "employerEdit";
     private AppDataBase database;
     long attendanceId;
     String employeeId;
@@ -24,8 +23,8 @@ public class EmployerEdit extends AppCompatActivity {
         setContentView(R.layout.activity_employer_edit);
         database = AppDataBase.getInstance(getApplicationContext());
         Intent intent = getIntent();
-        attendanceId = intent.getLongExtra(EmployerViewHistoryActivity.ATTENDANCEID,0);
-        employeeId = intent.getStringExtra(EmployerViewHistoryActivity.EMPLOYEEID);
+        attendanceId = intent.getLongExtra(EmployerViewHistory.ATTENDANCEID,0);
+        employeeId = intent.getStringExtra(EmployerViewHistory.EMPLOYEEID);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 

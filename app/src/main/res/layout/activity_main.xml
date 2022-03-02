@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/topView"
         android:layout_width="408dp"
         android:layout_height="101dp"
         android:layout_marginTop="3dp"
@@ -28,22 +28,22 @@
         android:textColor="@color/navyBlue"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintEnd_toEndOf="@+id/topView"
+        app:layout_constraintStart_toStartOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view4"
+        android:id="@+id/bottomView"
         android:layout_width="412dp"
         android:layout_height="54dp"
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/errorText"
@@ -52,12 +52,11 @@
         android:text="@string/errorText"
         android:textColor="@color/red"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="0.215" />
 
     <EditText
         android:id="@+id/userIdText"
@@ -69,7 +68,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/errorText"
@@ -83,7 +82,7 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:textColorHint="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,43 +99,43 @@
         android:layout_height="99dp"
         android:layout_marginBottom="92dp"
         android:contentDescription="@string/logInButton"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText"
         app:layout_constraintVertical_bias="0.68"
-        app:srcCompat="@drawable/signin_icon"
+        app:srcCompat="@drawable/sign1"
         tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck" />
 
     <ImageButton
         android:id="@+id/infoButton"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/navyBlue"
+        android:layout_width="99dp"
+        android:layout_height="94dp"
+        android:contentDescription="@string/info_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
-        app:srcCompat="@android:drawable/ic_menu_info_details"
-        tools:ignore="SpeakableTextPresentCheck"
-        app:tint="@color/design_default_color_secondary_variant" />
+        app:layout_constraintVertical_bias="0.182"
+        app:srcCompat="@drawable/helpbutton"
+        app:tint="@color/teal_700" />
 
     <ImageButton
         android:id="@+id/addSuperVisorBtn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/addManager"
         app:layout_constraintBottom_toTopOf="@+id/errorText"
         app:layout_constraintEnd_toStartOf="@+id/infoButton"
-        app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.893"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/addicon"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

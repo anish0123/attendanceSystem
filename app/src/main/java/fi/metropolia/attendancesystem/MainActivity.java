@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,9 +15,10 @@ import fi.metropolia.attendancesystem.database.Employee;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "checking main activity";
     public static final String EMPLOYEE_LOGIN = "employee_login";
     public static final String EMPLOYEE_ID = "employee_id";
+    public static final String EMPLOYER_LOGIN = "employer_login";
+    public static final String EMPLOYER_ID = "employer_id";
     private AppDataBase database;
 
     @Override
@@ -56,12 +56,14 @@ public class MainActivity extends AppCompatActivity {
         if (employee != null) {
             if (employee.getRole().equals(getString(R.string.esimies))&&employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-
                 Intent employerActivity = new Intent(this, EmployerActivity.class);
+                String message = getString(R.string.welcomeEmployeeDetails,  employee.getName(),  employee.getEmployeeId());
+                employerActivity.putExtra(EMPLOYER_LOGIN, message);
+                employerActivity.putExtra(EMPLOYER_ID, employee.getEmployeeId());
                 startActivity(employerActivity);
             } else if (employee.getRole().equals(getString(R.string.worker))&&employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-                Intent employeeActivity = new Intent(this, employeeWindow.class);
+                Intent employeeActivity = new Intent(this, EmployeeWindow.class);
                 String message = getString(R.string.welcomeEmployeeDetails,  employee.getName(),  employee.getEmployeeId());
                 employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
                 employeeActivity.putExtra(EMPLOYEE_ID, employee.getEmployeeId());
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void addSuperVisor(){
-        Intent intent = new Intent(this, addSuperVisor.class);
+        Intent intent = new Intent(this, AddSuperVisor.class);
         startActivity(intent);
     }
 

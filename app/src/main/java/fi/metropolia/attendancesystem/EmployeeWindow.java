@@ -27,7 +27,7 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
-public class employeeWindow extends AppCompatActivity {
+public class EmployeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
     private static final String TAG = "Employee Window";
@@ -41,24 +41,28 @@ public class employeeWindow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_window);
+        //Getting the intend and string from main activity.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
+        //Introducing the database
         database = AppDataBase.getInstance(getApplicationContext());
 
+        //Setting employeeTextView to display the employee details taken from main activity.
+        TextView employeeTextView = findViewById(R.id.employeePageText);
+        employeeTextView.setText(message);
+
+        //Submit button, logOut button and historyButton is introduced and used for submitting attendance, signing out and check history.
         ImageButton submitButton =findViewById(R.id.submitBtn);
         submitButton.setOnClickListener(view -> submitButtonClick());
         Button logOut = findViewById(R.id.logOutBtn2);
         logOut.setOnClickListener(view ->backToMain());
-
-        TextView employeeTextView = findViewById(R.id.employeePageText);
-        employeeTextView.setText(message);
-
         Button historyButton = findViewById(R.id.historyBtn);
         historyButton.setOnClickListener(view -> historyButtonClick());
-
-
     }
 
+    /**
+     * Method for submitting the checkIn time or checkOut time according to which radio button is selected.
+     */
     public void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
 
@@ -71,22 +75,28 @@ public class employeeWindow extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method for saving the checkIn time while user selects radio button checkIn
+     */
     public void checkInButtonClick() {
+        // getting intent and employeeId as String from main activity.
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-        long epochTime = System.currentTimeMillis();
-        //For date formatting
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
-        format.setTimeZone(TimeZone.getTimeZone("EET"));
-        String formatted = format.format(epochTime);
+        //Formatting the checkIn time and date.
+        String formatted = dateFormat(System.currentTimeMillis());
+        //Creating a new employee attendance when an employee checkIn.
         EmployeeAttendance employeeAttendance = new EmployeeAttendance(0, employeesWindow, formatted, "");
         long id = database.attendanceDao().insertTime(employeeAttendance);
+        //Displaying the checkIn time and date at textView.
         TextView checkInDisplay = findViewById(R.id.timeView);
         checkInDisplay.setText(getString(R.string.checkedInAt, formatted));
         database.employeeDao().updateAttendanceId(employeesWindow,id);
 
     }
 
+    /**
+     * Method for saving the checkOut time while user selects radio button checkOut
+     */
     public void checkOutButtonClick() {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
@@ -94,39 +104,51 @@ public class employeeWindow extends AppCompatActivity {
         Employee employee = database.employeeDao().getByEmployeeId(employeesWindow);
         // called get attendanceId for employee so that we can get the latest attendance Id for submitting checkOut.
         long id = employee.getAttendanceId();
-        long checkOutTime = System.currentTimeMillis();
         TextView checkInDisplay = findViewById(R.id.timeView);
-
-
-        //For date formatting
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
-        format.setTimeZone(TimeZone.getTimeZone("EET"));
-        String formatted = format.format(checkOutTime);
+        String formatted = dateFormat(System.currentTimeMillis());
         checkInDisplay.setText(getString(R.string.checkedOutAt, formatted));
         database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
-
-
     }
+
+    /**
+     * Method of opening the employee history activity when the viewHistory button is clicked
+     */
     public void historyButtonClick(){
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-
         Intent historyActivity = new Intent(this,Employee_history.class);
         historyActivity.putExtra(EMPLOYEE_ID_SEND,employeeId);
         historyActivity.putExtra(EMPLOYEE_DETAIL,employeeName);
         startActivity(historyActivity);
     }
 
+    /**
+     *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity.
+     */
     protected void onPause() {
         super.onPause();
 
         // got idea from this page https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds
         handler.postDelayed(this::finish, 60000);
-
     }
+
+    /**
+     * Method for going back to main activity
+     */
     public void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
+    }
+
+    /**
+     * Method for formatting the checkIn and checkOut time
+     * @param epochTime  time in milli seconds
+     * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss").
+     */
+    public String dateFormat (long epochTime) {
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
+        format.setTimeZone(TimeZone.getTimeZone("EET"));
+        return format.format(epochTime);
     }
     }
