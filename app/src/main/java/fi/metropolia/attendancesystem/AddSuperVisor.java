@@ -11,7 +11,7 @@ import android.widget.Toast;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
-public class addSuperVisor extends AppCompatActivity {
+public class AddSuperVisor extends AppCompatActivity {
     private AppDataBase database;
 
     @Override

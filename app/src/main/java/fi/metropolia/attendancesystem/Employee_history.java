@@ -25,8 +25,8 @@ public class Employee_history extends AppCompatActivity {
     public void historyUI(){
         TextView textView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
-        String employeeId = intent.getStringExtra(employeeWindow.EMPLOYEE_ID_SEND);
-        String employeeDetail = intent.getStringExtra(employeeWindow.EMPLOYEE_DETAIL);
+        String employeeId = intent.getStringExtra(EmployeeWindow.EMPLOYEE_ID_SEND);
+        String employeeDetail = intent.getStringExtra(EmployeeWindow.EMPLOYEE_DETAIL);
         textView.setText(employeeDetail);
         ListView listView=findViewById(R.id.historyList);
         listView.setAdapter(new ArrayAdapter<>(

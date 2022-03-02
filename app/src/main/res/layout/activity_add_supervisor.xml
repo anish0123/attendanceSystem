@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/darkRed"
     android:layout_height="match_parent"
-    tools:context=".addSuperVisor">
+    tools:context=".AddSuperVisor">
 
     <EditText
         android:id="@+id/superVisorId"

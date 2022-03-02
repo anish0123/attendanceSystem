@@ -27,7 +27,7 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
-public class employeeWindow extends AppCompatActivity {
+public class EmployeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
     private static final String TAG = "Employee Window";
