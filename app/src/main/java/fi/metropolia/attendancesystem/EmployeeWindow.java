@@ -35,8 +35,6 @@ public class EmployeeWindow extends AppCompatActivity {
     public static final String EMPLOYEE_DETAIL = "employee_detail";
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +50,10 @@ public class EmployeeWindow extends AppCompatActivity {
         employeeTextView.setText(message);
 
         //Submit button, logOut button and historyButton is introduced and used for submitting attendance, signing out and check history.
-        ImageButton submitButton =findViewById(R.id.submitBtn);
+        ImageButton submitButton = findViewById(R.id.submitBtn);
         submitButton.setOnClickListener(view -> submitButtonClick());
         Button logOut = findViewById(R.id.logOutBtn2);
-        logOut.setOnClickListener(view ->backToMain());
+        logOut.setOnClickListener(view -> backToMain());
         Button historyButton = findViewById(R.id.historyBtn);
         historyButton.setOnClickListener(view -> historyButtonClick());
     }
@@ -66,11 +64,11 @@ public class EmployeeWindow extends AppCompatActivity {
     public void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
 
-        if(checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
-          checkInButtonClick();
+        if (checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
+            checkInButtonClick();
         }
 
-        if(checkInRG.getCheckedRadioButtonId() == R.id.checkOutRadio) {
+        if (checkInRG.getCheckedRadioButtonId() == R.id.checkOutRadio) {
             checkOutButtonClick();
         }
     }
@@ -90,7 +88,7 @@ public class EmployeeWindow extends AppCompatActivity {
         //Displaying the checkIn time and date at textView.
         TextView checkInDisplay = findViewById(R.id.timeView);
         checkInDisplay.setText(getString(R.string.checkedInAt, formatted));
-        database.employeeDao().updateAttendanceId(employeesWindow,id);
+        database.employeeDao().updateAttendanceId(employeesWindow, id);
 
     }
 
@@ -107,24 +105,24 @@ public class EmployeeWindow extends AppCompatActivity {
         TextView checkInDisplay = findViewById(R.id.timeView);
         String formatted = dateFormat(System.currentTimeMillis());
         checkInDisplay.setText(getString(R.string.checkedOutAt, formatted));
-        database.attendanceDao().updateCheckOutTime(formatted,id,employeesWindow);
+        database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
     }
 
     /**
      * Method of opening the employee history activity when the viewHistory button is clicked
      */
-    public void historyButtonClick(){
+    public void historyButtonClick() {
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
-        Intent historyActivity = new Intent(this,Employee_history.class);
-        historyActivity.putExtra(EMPLOYEE_ID_SEND,employeeId);
-        historyActivity.putExtra(EMPLOYEE_DETAIL,employeeName);
+        Intent historyActivity = new Intent(this, Employee_history.class);
+        historyActivity.putExtra(EMPLOYEE_ID_SEND, employeeId);
+        historyActivity.putExtra(EMPLOYEE_DETAIL, employeeName);
         startActivity(historyActivity);
     }
 
     /**
-     *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
+     * Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
      */
     protected void onPause() {
         super.onPause();
@@ -136,19 +134,26 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for going back to main activity
      */
-    public void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
+    public void backToMain() {
+        Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 
     /**
      * Method for formatting the checkIn and checkOut time
-     * @param epochTime  time in milli seconds
+     *
+     * @param epochTime time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
-    public String dateFormat (long epochTime) {
+    public String dateFormat(long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();
+
     }
+}

@@ -149,4 +149,11 @@ public class EmployerActivity extends AppCompatActivity {
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();
+
+    }
 }
+

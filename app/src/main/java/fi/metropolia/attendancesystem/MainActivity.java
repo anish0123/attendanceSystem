@@ -109,5 +109,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();
 
+    }
 }
