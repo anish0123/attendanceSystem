@@ -175,5 +175,16 @@
         app:srcCompat="@drawable/addusermale"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
+    <ImageButton
+        android:id="@+id/enableEmployeeButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="73dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toBottomOf="@+id/removeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/removeButton"
+        app:layout_constraintTop_toTopOf="@+id/removeButton"
+        app:srcCompat="@drawable/enable" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

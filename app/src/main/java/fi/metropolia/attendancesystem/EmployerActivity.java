@@ -35,12 +35,14 @@ public class EmployerActivity extends AppCompatActivity {
         database = AppDataBase.getInstance(getApplicationContext());
         ImageButton addButton = findViewById(R.id.addBtn);
         ImageButton removeButton = findViewById(R.id.removeButton);
+        ImageButton enableButton = findViewById(R.id.enableEmployeeButton);
 
         //Logout button introduced to take employer to main activity after pressing the logout button.
         Button signOut = findViewById(R.id.logOutBtn);
         signOut.setOnClickListener(view -> backToMain());
         addButton.setOnClickListener(view -> checkRedundancy());
         removeButton.setOnClickListener(view -> removeButtonClick());
+        enableButton.setOnClickListener(view -> enableButtonClick());
 
         updateUI();
     }
@@ -63,9 +65,18 @@ public class EmployerActivity extends AppCompatActivity {
      * When the employee is inactive, they won't be able to log in into their account but managers will still be check employee's previous history.
      */
     public void removeButtonClick() {
+        String inactive = "inactive";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         Toast.makeText(this," Employee Removed ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().updateEmployee(employeeId,"inactive");
+        database.employeeDao().updateEmployee(employeeId,inactive);
+        updateUI();
+
+    }
+    public void enableButtonClick() {
+        String active = "active";
+        String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
+        Toast.makeText(this," Employee Status back to Active ", Toast.LENGTH_SHORT).show();
+        database.employeeDao().updateEmployee(employeeId,active);
         updateUI();
 
     }
@@ -99,9 +110,7 @@ public class EmployerActivity extends AppCompatActivity {
         ));
 
         //setup the click listener so when employee name is clicked the work history opens up.
-        lvList.setOnItemClickListener(((adapterView, view, i, l) -> {
-            startActivityEmployeeHistory(i);
-        }));
+        lvList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
 
     }
 
