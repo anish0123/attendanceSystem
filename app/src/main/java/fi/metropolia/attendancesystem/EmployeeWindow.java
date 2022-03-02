@@ -41,24 +41,28 @@ public class EmployeeWindow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_window);
+        //Getting the intend and string from main activity.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
+        //Introducing the database
         database = AppDataBase.getInstance(getApplicationContext());
 
+        //Setting employeeTextView to display the employee details taken from main activity.
+        TextView employeeTextView = findViewById(R.id.employeePageText);
+        employeeTextView.setText(message);
+
+        //Submit button, logOut button and historyButton is introduced and used for submitting attendance, signing out and check history.
         ImageButton submitButton =findViewById(R.id.submitBtn);
         submitButton.setOnClickListener(view -> submitButtonClick());
         Button logOut = findViewById(R.id.logOutBtn2);
         logOut.setOnClickListener(view ->backToMain());
-
-        TextView employeeTextView = findViewById(R.id.employeePageText);
-        employeeTextView.setText(message);
-
         Button historyButton = findViewById(R.id.historyBtn);
         historyButton.setOnClickListener(view -> historyButtonClick());
-
-
     }
 
+    /**
+     * Method for submitting the checkIn time or checkOut time according to which radio button is selected.
+     */
     public void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
 

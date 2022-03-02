@@ -17,11 +17,17 @@ public class Employee_history extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_history);
+        //Database is introduced for getting employee history.
         dataBase=AppDataBase.getInstance(getApplicationContext());
         historyUI();
+        //SignOut button is introduced and used for logging out the employee accounts.
         Button signOutButton = findViewById(R.id.signOut2);
         signOutButton.setOnClickListener(view -> backToMain());
     }
+
+    /**
+     * Method for displaying the employee attendance history in the list view.
+     */
     public void historyUI(){
         TextView textView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
@@ -35,6 +41,10 @@ public class Employee_history extends AppCompatActivity {
                 dataBase.attendanceDao().getAllAttendance(employeeId)
         ));
     }
+
+    /**
+     * Method for going back to the main activity.
+     */
     public void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);

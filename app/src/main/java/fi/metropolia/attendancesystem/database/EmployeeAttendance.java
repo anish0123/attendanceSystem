@@ -6,6 +6,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 
+/**
+ * This class is defined for recording employee attendance of each working employee in the database.
+ */
 @Entity(foreignKeys = @ForeignKey(
         entity = Employee.class,
         onDelete = CASCADE,
@@ -21,6 +24,13 @@ public class EmployeeAttendance {
     private String checkOutTime;
 
 
+    /**
+     * Constructor created for getting the instance of the EmployeeAttendance class.
+     * @param attendanceId a unique auto generated attendance ID for each attendance of each employee
+     * @param employeeId    a unique employee ID given to each employee
+     * @param checkInTime   time when the employee checks in at work
+     * @param checkOutTime  time when the employee checks out of work
+     */
     public EmployeeAttendance(long attendanceId, String employeeId, String checkInTime, String checkOutTime) {
         this.attendanceId = attendanceId;
         this.employeeId = employeeId;
@@ -28,38 +38,74 @@ public class EmployeeAttendance {
         this.checkOutTime = checkOutTime;
     }
 
+    /**
+     * Method for getting the unique attendance Id
+     * @return attendance Id of the selected attendance day.
+     */
     public long getAttendanceId() {
         return attendanceId;
     }
 
+    /**
+     * Method for setting the unique attendance Id
+     * @param attendanceId attendance Id of the attendance day which needs to be changed.
+     */
     public void setAttendanceId(int attendanceId) {
         this.attendanceId = attendanceId;
     }
 
+    /**
+     * Method for getting the checkIn time of the employee attendance
+     * @return checkIn Time
+     */
     public String getCheckInTime() {
         return checkInTime;
     }
 
+    /**
+     * Method for setting the checkIn time of the employee attendance
+     * @param checkInTime checkIn time
+     */
     public void setCheckInTime(String checkInTime) {
         this.checkInTime = checkInTime;
     }
 
+    /**
+     * Method for getting the checkOut time of the employee attendance
+     * @return checkOut time
+     */
     public String getCheckOutTime() {
         return checkOutTime;
     }
 
+    /**
+     * Method for setting the checkOut time of the employee attendance
+     * @param checkOutTime checkOut time
+     */
     public void setCheckOutTime(String checkOutTime) {
         this.checkOutTime = checkOutTime;
     }
 
+    /**
+     * Method for getting the employee Id of an employee
+     * @return employee Id of the employee
+     */
     public String getEmployeeId() {
         return employeeId;
     }
 
+    /**
+     * Method for setting the employee Id of employee
+     * @param employeeId employee Id
+     */
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
+    /**
+     * Method for providing details of the employee attendance
+     * @return checkIn time and checkOut time of the attendance
+     */
     public String toString(){
         return"In: "+checkInTime+"   Out: "+checkOutTime;
     }
