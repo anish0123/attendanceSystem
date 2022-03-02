@@ -36,9 +36,12 @@ public class EmployerEdit extends AppCompatActivity {
 
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
+        Button absentBtn = findViewById(R.id.absentButton);
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
+        absentBtn.setOnClickListener(view -> makeEmployeeAttendanceAbsent());
+
 
 
     }
@@ -68,6 +71,12 @@ public class EmployerEdit extends AppCompatActivity {
         textDisplay.setText(employeeAttendance.toString());
     }
 
+    private void makeEmployeeAttendanceAbsent(){
+        String newTime = "absent";
+        database.attendanceDao().updateCheckInTime(newTime,attendanceId,employeeId);
+        database.attendanceDao().updateCheckOutTime(newTime,attendanceId,employeeId);
+        this.finish();
+    }
 
 
 }

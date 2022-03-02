@@ -15,7 +15,7 @@
         android:ems="10"
         android:hint="@string/checkOutTime"
         android:inputType="textPersonName"
-        android:textColorHint="#757575"
+        android:textColorHint="#795548"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:ems="10"
         android:hint="@string/checkInTime"
         android:inputType="textPersonName"
-        android:textColorHint="#757575"
+        android:textColorHint="#795548"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -45,41 +45,41 @@
         android:background="@drawable/round_buttons"
         android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOutTimeEdit"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="144dp"
         android:background="@drawable/round_buttons"
         android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="@+id/editButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOutTimeEdit"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toEndOf="@+id/editButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
 
     <RadioGroup
         android:id="@+id/checkEditGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="322dp"
+        android:layout_height="55dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.215">
 
         <RadioButton
             android:id="@+id/checkInRadioEdit"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
+            android:layout_width="107dp"
+            android:layout_height="match_parent"
             android:text="@string/checkIn" />
 
         <RadioButton
@@ -90,9 +90,11 @@
 
         <RadioButton
             android:id="@+id/bothRadio"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:text="@string/both" />
+            android:layout_width="82dp"
+            android:layout_height="match_parent"
+            android:text="@string/both"
+            android:textColor="@color/black"
+            tools:ignore="TextContrastCheck" />
     </RadioGroup>
 
     <TextView
@@ -109,4 +111,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.488" />
+
+    <Button
+        android:id="@+id/absentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_buttons"
+        android:text="@string/absent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
 </androidx.constraintlayout.widget.ConstraintLayout>

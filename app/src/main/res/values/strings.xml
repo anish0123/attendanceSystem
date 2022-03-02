@@ -56,5 +56,6 @@
     <string name="info_button">Info button</string>
     <string name="addManager">Add manager Button</string>
     <string name="signup_employer">SignUp for Employer</string>
+    <string name="absent">Absent</string>
 
 </resources>
