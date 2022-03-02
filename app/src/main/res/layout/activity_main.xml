@@ -28,11 +28,10 @@
         android:textColor="@color/navyBlue"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintEnd_toEndOf="@+id/topView"
+        app:layout_constraintStart_toStartOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/bottomView"
@@ -41,9 +40,10 @@
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/errorText"
@@ -112,32 +112,31 @@
     <ImageButton
         android:id="@+id/infoButton"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="94dp"
+        android:contentDescription="@string/info_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.81"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
-        app:srcCompat="@android:drawable/ic_menu_info_details"
-        app:tint="@color/teal_700"
-        android:contentDescription="@string/info_button" />
+        app:layout_constraintVertical_bias="0.134"
+        app:srcCompat="@drawable/helpbutton"
+        app:tint="@color/teal_700" />
 
     <ImageButton
         android:id="@+id/addSuperVisorBtn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/addManager"
         app:layout_constraintBottom_toTopOf="@+id/errorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintEnd_toStartOf="@+id/infoButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.893"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
-        android:contentDescription="@string/addManager" />
+        app:srcCompat="@drawable/addicon"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

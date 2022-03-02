@@ -29,9 +29,10 @@
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintTop_toBottomOf="@+id/historyList"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/signOut2"
@@ -62,13 +63,14 @@
 
     <ListView
         android:id="@+id/historyList"
-        android:layout_width="409dp"
-        android:layout_height="570dp"
+        android:layout_width="411dp"
+        android:layout_height="515dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
