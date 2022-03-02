@@ -18,8 +18,8 @@ public class Info extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         int screenWidth = displayMetrics.widthPixels;
-        int screenHeight= displayMetrics.heightPixels;
+        int screenHeight = displayMetrics.heightPixels;
 
-        getWindow().setLayout(screenWidth,(int)(screenHeight*.7));
+        getWindow().setLayout(screenWidth, (int) (screenHeight * .7));
     }
 }

@@ -32,10 +32,11 @@ public class EmployeeAttendance {
 
     /**
      * Constructor created for getting the instance of the EmployeeAttendance class.
+     *
      * @param attendanceId a unique auto generated attendance ID for each attendance of each employee
-     * @param employeeId    a unique employee ID given to each employee
-     * @param checkInTime   time when the employee checks in at work in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
-     * @param checkOutTime  time when the employee checks out of work in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
+     * @param employeeId   a unique employee ID given to each employee
+     * @param checkInTime  time when the employee checks in at work in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
+     * @param checkOutTime time when the employee checks out of work in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public EmployeeAttendance(long attendanceId, String employeeId, String checkInTime, String checkOutTime) {
         this.attendanceId = attendanceId;
@@ -46,6 +47,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for getting the unique attendance Id
+     *
      * @return attendance Id of the selected attendance day.
      */
     public long getAttendanceId() {
@@ -54,6 +56,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for setting the unique attendance Id
+     *
      * @param attendanceId attendance Id of the attendance day which needs to be changed.
      */
     public void setAttendanceId(int attendanceId) {
@@ -62,6 +65,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for getting the checkIn time of the employee attendance
+     *
      * @return checkIn Time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public String getCheckInTime() {
@@ -70,6 +74,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for setting the checkIn time of the employee attendance
+     *
      * @param checkInTime checkIn time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public void setCheckInTime(String checkInTime) {
@@ -78,6 +83,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for getting the checkOut time of the employee attendance
+     *
      * @return checkOut time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public String getCheckOutTime() {
@@ -86,6 +92,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for setting the checkOut time of the employee attendance
+     *
      * @param checkOutTime checkOut time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public void setCheckOutTime(String checkOutTime) {
@@ -94,6 +101,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for getting the employee Id of an employee
+     *
      * @return employee Id of the employee
      */
     public String getEmployeeId() {
@@ -102,6 +110,7 @@ public class EmployeeAttendance {
 
     /**
      * Method for setting the employee Id of employee
+     *
      * @param employeeId employee Id
      */
     public void setEmployeeId(String employeeId) {
@@ -110,10 +119,11 @@ public class EmployeeAttendance {
 
     /**
      * Method for providing details of the employee attendance
+     *
      * @return checkIn time and checkOut time of the attendance in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
-    public String toString(){
-        return"In: "+checkInTime+"   Out: "+checkOutTime;
+    public String toString() {
+        return "In: " + checkInTime + "   Out: " + checkOutTime;
     }
 
 

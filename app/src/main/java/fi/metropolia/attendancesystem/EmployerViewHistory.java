@@ -27,7 +27,7 @@ public class EmployerViewHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer_view_history);
         //Introducing database
-        database=AppDataBase.getInstance(getApplicationContext());
+        database = AppDataBase.getInstance(getApplicationContext());
         historyUI();
         //Introducing signOut button for logging out
         Button signOutButton = findViewById(R.id.signOut2);
@@ -37,7 +37,7 @@ public class EmployerViewHistory extends AppCompatActivity {
     /**
      * Method of showing the employee attendance of an employee in the listView
      */
-    private void historyUI(){
+    private void historyUI() {
         TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
         //Since our employerId is in String so we had to change Int to String
@@ -57,6 +57,7 @@ public class EmployerViewHistory extends AppCompatActivity {
 
     /**
      * Method for starting the employerEdit activity for editing the checkIn and checkOut time of the employee.
+     *
      * @param i the number for the clicked employee attendance from the listView.
      */
     private void startActivityEmployeeHistory(int i) {
@@ -64,7 +65,7 @@ public class EmployerViewHistory extends AppCompatActivity {
         List<EmployeeAttendance> list = database.attendanceDao().getAllAttendance(employeeId);
         EmployeeAttendance employeeAttendance = list.get(i);
         long attendanceId = employeeAttendance.getAttendanceId();
-        intent.putExtra(ATTENDANCEID,attendanceId);
+        intent.putExtra(ATTENDANCEID, attendanceId);
         intent.putExtra(EMPLOYEEID, employeeId);
         startActivity(intent);
 
@@ -73,8 +74,8 @@ public class EmployerViewHistory extends AppCompatActivity {
     /**
      * Method for going to the main activity
      */
-    private void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
+    private void backToMain() {
+        Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 
@@ -86,7 +87,6 @@ public class EmployerViewHistory extends AppCompatActivity {
         super.onResume();
         historyUI();
     }
-
 
 
 }

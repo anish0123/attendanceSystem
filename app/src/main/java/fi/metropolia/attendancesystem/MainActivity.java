@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method for starting the info activity
      */
-    private void infoBtnClick(){
-        Intent info= new Intent(this, Info.class);
+    private void infoBtnClick() {
+        Intent info = new Intent(this, Info.class);
         startActivity(info);
     }
 
@@ -61,21 +61,21 @@ public class MainActivity extends AppCompatActivity {
 
         if (employee != null) {
             //If else statement for comparing role and status of employer and employees
-            if (employee.getRole().equals(getString(R.string.esimies))&&employee.getStatus().equals(getString(R.string.active))) {
+            if (employee.getRole().equals(getString(R.string.esimies)) && employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent employerActivity = new Intent(this, EmployerActivity.class);
-                String message = getString(R.string.welcomeEmployeeDetails,  employee.getName(),  employee.getEmployeeId());
+                String message = getString(R.string.welcomeEmployeeDetails, employee.getName(), employee.getEmployeeId());
                 employerActivity.putExtra(EMPLOYER_LOGIN, message);
                 employerActivity.putExtra(EMPLOYER_ID, employee.getEmployeeId());
                 startActivity(employerActivity);
-            } else if (employee.getRole().equals(getString(R.string.worker))&&employee.getStatus().equals(getString(R.string.active))) {
+            } else if (employee.getRole().equals(getString(R.string.worker)) && employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent employeeActivity = new Intent(this, EmployeeWindow.class);
-                String message = getString(R.string.welcomeEmployeeDetails,  employee.getName(),  employee.getEmployeeId());
+                String message = getString(R.string.welcomeEmployeeDetails, employee.getName(), employee.getEmployeeId());
                 employeeActivity.putExtra(EMPLOYEE_LOGIN, message);
                 employeeActivity.putExtra(EMPLOYEE_ID, employee.getEmployeeId());
                 startActivity(employeeActivity);
-            }else {
+            } else {
                 Toast.makeText(this, "User Inactive !!! ", Toast.LENGTH_SHORT).show();
                 errorTextView.setText(R.string.userInactive);
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method for adding new supervisor/ manager in the database
      */
-    private void addSuperVisor(){
+    private void addSuperVisor() {
         Intent intent = new Intent(this, AddSuperVisor.class);
         startActivity(intent);
     }
@@ -113,17 +113,21 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method for not letting user to input an empty string
      */
-    private void emptyFieldCheck(){
+    private void emptyFieldCheck() {
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         TextView errorTextView = findViewById(R.id.errorText);
-        if (employeeId.equals("")||password.equals("")){
+        if (employeeId.equals("") || password.equals("")) {
             errorTextView.setText(R.string.empty_field_message);
         } else {
             LoginBtnClick();
         }
     }
 
+    /**
+     * Disable Physical back button
+     * Avoids chances of moving back to signed it status after signOut button is Pressed
+     */
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();

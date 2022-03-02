@@ -158,6 +158,10 @@ public class EmployerActivity extends AppCompatActivity {
         startActivity(mainActivity);
     }
 
+    /**
+     * Disable Physical back button
+     * Avoids chances of moving back to signed it status after signOut button is Pressed
+     */
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();

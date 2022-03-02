@@ -155,6 +155,10 @@ public class EmployeeWindow extends AppCompatActivity {
         return format.format(epochTime);
     }
 
+    /**
+     * Disable Physical back button
+     * Avoids chances of moving back to signed it status after signOut button is Pressed
+     */
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();

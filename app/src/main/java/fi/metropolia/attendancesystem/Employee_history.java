@@ -12,13 +12,14 @@ import android.widget.TextView;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 
 public class Employee_history extends AppCompatActivity {
-        private AppDataBase dataBase;
+    private AppDataBase dataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_history);
         //Database is introduced for getting employee history.
-        dataBase=AppDataBase.getInstance(getApplicationContext());
+        dataBase = AppDataBase.getInstance(getApplicationContext());
         historyUI();
         //SignOut button is introduced and used for logging out the employee accounts.
         Button signOutButton = findViewById(R.id.signOut2);
@@ -28,13 +29,13 @@ public class Employee_history extends AppCompatActivity {
     /**
      * Method for displaying the employee attendance history in the list view.
      */
-    private void historyUI(){
+    private void historyUI() {
         TextView textView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
         String employeeId = intent.getStringExtra(EmployeeWindow.EMPLOYEE_ID_SEND);
         String employeeDetail = intent.getStringExtra(EmployeeWindow.EMPLOYEE_DETAIL);
         textView.setText(employeeDetail);
-        ListView listView=findViewById(R.id.historyList);
+        ListView listView = findViewById(R.id.historyList);
         listView.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -45,8 +46,8 @@ public class Employee_history extends AppCompatActivity {
     /**
      * Method for going back to the main activity.
      */
-    private void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
+    private void backToMain() {
+        Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 }
