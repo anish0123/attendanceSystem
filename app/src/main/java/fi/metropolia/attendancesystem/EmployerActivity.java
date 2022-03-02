@@ -72,14 +72,13 @@ public class EmployerActivity extends AppCompatActivity {
      * If empty string is inserted, it shows error.
      */
     private void removeButtonClick() {
-        String inactive = "inactive";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         //If else statement introduced so that user is not able to input empty string in the editTexts
         if (employeeId.equals("")) {
             Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, " Employee Removed ", Toast.LENGTH_SHORT).show();
-            database.employeeDao().updateEmployee(employeeId, inactive);
+            database.employeeDao().updateEmployee(employeeId, getString(R.string.inactive));
             updateUI();
         }
 
@@ -90,14 +89,13 @@ public class EmployerActivity extends AppCompatActivity {
      * If empty string is inserted, it shows error.
      */
     private void enableButtonClick() {
-        String active = "active";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         //If else statement introduced so that user is not able to input empty string in the editTexts
         if (employeeId.equals("")) {
             Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, " Employee Status back to Active ", Toast.LENGTH_SHORT).show();
-            database.employeeDao().updateEmployee(employeeId, active);
+            database.employeeDao().updateEmployee(employeeId, getString(R.string.active));
             updateUI();
         }
 
