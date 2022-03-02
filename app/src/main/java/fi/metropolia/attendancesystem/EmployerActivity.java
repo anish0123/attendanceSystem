@@ -55,9 +55,13 @@ public class EmployerActivity extends AppCompatActivity {
         String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
-        Toast.makeText(this, newEmployeeName+" added ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, getString(R.string.worker),getString(R.string.active)));
-        updateUI();
+        if (newEmployeeName.equals("") || newEmployeePassword.equals("") || newEmployeeId.equals("")) {
+            Toast.makeText(this, "Required fields empty ", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, newEmployeeName + " added ", Toast.LENGTH_SHORT).show();
+            database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, getString(R.string.worker), getString(R.string.active)));
+            updateUI();
+        }
     }
 
     /**
@@ -67,17 +71,26 @@ public class EmployerActivity extends AppCompatActivity {
     public void removeButtonClick() {
         String inactive = "inactive";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
-        Toast.makeText(this," Employee Removed ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().updateEmployee(employeeId,inactive);
-        updateUI();
+        if (employeeId.equals("")) {
+            Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, " Employee Removed ", Toast.LENGTH_SHORT).show();
+            database.employeeDao().updateEmployee(employeeId, inactive);
+            updateUI();
+        }
 
     }
+
     public void enableButtonClick() {
         String active = "active";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
-        Toast.makeText(this," Employee Status back to Active ", Toast.LENGTH_SHORT).show();
-        database.employeeDao().updateEmployee(employeeId,active);
-        updateUI();
+        if (employeeId.equals("")) {
+            Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, " Employee Status back to Active ", Toast.LENGTH_SHORT).show();
+            database.employeeDao().updateEmployee(employeeId, active);
+            updateUI();
+        }
 
     }
 
@@ -116,6 +129,7 @@ public class EmployerActivity extends AppCompatActivity {
 
     /**
      * Method for opening employerViewHistory activity according to which employee has been clicked in the listView.
+     *
      * @param i the number for the clicked employee from the listView.
      */
     private void startActivityEmployeeHistory(int i) {
@@ -123,7 +137,7 @@ public class EmployerActivity extends AppCompatActivity {
         List<Employee> list = database.employeeDao().getAll();
         Employee employee = list.get(i);
         String employeeId = employee.getEmployeeId();
-        intent.putExtra(EMPLOYEE_ID,employeeId);
+        intent.putExtra(EMPLOYEE_ID, employeeId);
         startActivity(intent);
 
     }
@@ -131,8 +145,8 @@ public class EmployerActivity extends AppCompatActivity {
     /**
      * Method for going back to the main activity.
      */
-    public void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
+    public void backToMain() {
+        Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 }
