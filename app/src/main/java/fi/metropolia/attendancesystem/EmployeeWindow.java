@@ -2,24 +2,17 @@ package fi.metropolia.attendancesystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -30,7 +23,6 @@ import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 public class EmployeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
-    private static final String TAG = "Employee Window";
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
 
@@ -123,7 +115,7 @@ public class EmployeeWindow extends AppCompatActivity {
 
     /**
      *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
-     * @see  {https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds}
+     * @see  <a href="https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds">postDelay</a>
      */
     @Override
     protected void onPause() {
