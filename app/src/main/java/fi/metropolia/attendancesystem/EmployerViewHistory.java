@@ -59,8 +59,8 @@ public class EmployerViewHistory extends AppCompatActivity {
     //Method for starting the employer edit activity.
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerViewHistory.this, EmployerEdit.class);
-        List list = database.attendanceDao().getAllAttendance(employeeId);
-        EmployeeAttendance employeeAttendance = (EmployeeAttendance) list.get(i);
+        List<EmployeeAttendance> list = database.attendanceDao().getAllAttendance(employeeId);
+        EmployeeAttendance employeeAttendance = list.get(i);
         long attendanceId = employeeAttendance.getAttendanceId();
         intent.putExtra(ATTENDANCEID,attendanceId);
         intent.putExtra(EMPLOYEEID, employeeId);

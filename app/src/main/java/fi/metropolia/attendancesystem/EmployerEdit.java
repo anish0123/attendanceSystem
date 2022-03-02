@@ -25,30 +25,34 @@ public class EmployerEdit extends AppCompatActivity {
         Intent intent = getIntent();
         attendanceId = intent.getLongExtra(EmployerViewHistory.ATTENDANCEID,0);
         employeeId = intent.getStringExtra(EmployerViewHistory.EMPLOYEEID);
+
+        //Introduces display metrics for the popup window
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         int screenWidth = displayMetrics.widthPixels;
         int screenHeight= displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(screenWidth),(int)(screenHeight*.7));
+        getWindow().setLayout(screenWidth,(int)(screenHeight*.7));
         updateUI();
 
+        //Buttons are introduced for editing the checkIn and checkOut time and closing the popup
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
-
-
     }
 
+    /**
+     * Method for editing the checkIn and checkOut time according to which radio button is selected.
+     */
     private void editClick() {
         RadioGroup editGroup = findViewById(R.id.checkEditGroup);
         EditText checkInEdit = findViewById(R.id.checkInTimeEdit);
         EditText checkOutEdit = findViewById(R.id.checkOutTimeEdit);
 
-
+        //If else statement for checking which radio is button is selected and editing checkIn and checkOut according to it.
         if(editGroup.getCheckedRadioButtonId() == R.id.checkInRadioEdit) {
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             this.finish();
@@ -62,6 +66,9 @@ public class EmployerEdit extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method for updating the User interface
+     */
     private void updateUI() {
         EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
         TextView textDisplay = findViewById(R.id.textDisplay);
