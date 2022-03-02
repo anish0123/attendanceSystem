@@ -111,11 +111,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method of opening the employee history activity when the viewHistory button is clicked
      */
-<<<<<<< HEAD
     private void historyButtonClick(){
-=======
-    public void historyButtonClick() {
->>>>>>> 6b7017910d442602446da87a4d08029d87b77e93
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
@@ -126,12 +122,8 @@ public class EmployeeWindow extends AppCompatActivity {
     }
 
     /**
-<<<<<<< HEAD
      *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
      * @see  {https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds}
-=======
-     * Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
->>>>>>> 6b7017910d442602446da87a4d08029d87b77e93
      */
     @Override
     protected void onPause() {
@@ -144,13 +136,10 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for going back to main activity
      */
-<<<<<<< HEAD
+
     private void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
-=======
-    public void backToMain() {
-        Intent mainActivity = new Intent(this, MainActivity.class);
->>>>>>> 6b7017910d442602446da87a4d08029d87b77e93
+
         startActivity(mainActivity);
     }
 
@@ -160,11 +149,7 @@ public class EmployeeWindow extends AppCompatActivity {
      * @param epochTime time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
-<<<<<<< HEAD
     private String dateFormat (long epochTime) {
-=======
-    public String dateFormat(long epochTime) {
->>>>>>> 6b7017910d442602446da87a4d08029d87b77e93
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
