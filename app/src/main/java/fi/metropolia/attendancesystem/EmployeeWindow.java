@@ -124,7 +124,7 @@ public class EmployeeWindow extends AppCompatActivity {
     }
 
     /**
-     *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity.
+     *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
      */
     protected void onPause() {
         super.onPause();
@@ -144,7 +144,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for formatting the checkIn and checkOut time
      * @param epochTime  time in milli seconds
-     * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss").
+     * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     public String dateFormat (long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);

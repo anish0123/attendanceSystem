@@ -43,11 +43,12 @@ public class EmployerActivity extends AppCompatActivity {
         removeButton.setOnClickListener(view -> removeButtonClick());
 
         updateUI();
-
-
     }
 
-    //Method for adding the employees.
+    /**
+     * Method for adding the employees in the database.
+     * It takes input from user for employee's name, password and Id.
+     */
     public void addButtonClick() {
         String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
@@ -57,6 +58,10 @@ public class EmployerActivity extends AppCompatActivity {
         updateUI();
     }
 
+    /**
+     * Method for making the employees inactive.
+     * When the employee is inactive, they won't be able to log in into their account but managers will still be check employee's previous history.
+     */
     public void removeButtonClick() {
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
         Toast.makeText(this," Employee Removed ", Toast.LENGTH_SHORT).show();
@@ -65,7 +70,10 @@ public class EmployerActivity extends AppCompatActivity {
 
     }
 
-    //Method for checking if employeeid is already assigned to avoid same id for employees
+    /**
+     * Method for checking if employeeId is already assigned to avoid same id for employees
+     * If the employeeId is already assigned, it will display toast with text: Employee Id exists.
+     */
     public void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
 
@@ -78,6 +86,9 @@ public class EmployerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method for updating the user interface.
+     */
     public void updateUI() {
         //Introducing listview for displaying all the employees
         ListView lvList = findViewById(R.id.lvEmployee);
@@ -94,6 +105,10 @@ public class EmployerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method for opening employerViewHistory activity according to which employee has been clicked in the listView.
+     * @param i the number for the clicked employee from the listView.
+     */
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerActivity.this, EmployerViewHistory.class);
         List list = database.employeeDao().getAll();
@@ -103,6 +118,10 @@ public class EmployerActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    /**
+     * Method for going back to the main activity.
+     */
     public void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
