@@ -111,8 +111,8 @@ public class EmployerActivity extends AppCompatActivity {
      */
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerActivity.this, EmployerViewHistory.class);
-        List list = database.employeeDao().getAll();
-        Employee employee = (Employee) list.get(i);
+        List<Employee> list = database.employeeDao().getAll();
+        Employee employee = list.get(i);
         String employeeId = employee.getEmployeeId();
         intent.putExtra(EMPLOYEE_ID,employeeId);
         startActivity(intent);

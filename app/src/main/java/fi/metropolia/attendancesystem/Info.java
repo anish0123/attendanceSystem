@@ -20,6 +20,6 @@ public class Info extends AppCompatActivity {
         int screenWidth = displayMetrics.widthPixels;
         int screenHeight= displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(screenWidth),(int)(screenHeight*.7));
+        getWindow().setLayout(screenWidth,(int)(screenHeight*.7));
     }
 }
