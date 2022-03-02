@@ -144,12 +144,11 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for formatting the checkIn and checkOut time
      * @param epochTime  time in milli seconds
-     * @return time in locale.Uk date format.
+     * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss").
      */
     public String dateFormat (long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
-        String formatted = format.format(epochTime);
-        return formatted;
+        return format.format(epochTime);
     }
     }

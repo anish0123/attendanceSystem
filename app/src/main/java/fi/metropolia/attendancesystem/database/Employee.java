@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey;
 public class Employee {
     @PrimaryKey
     @NonNull
+
     private String employeeId;
     private String status;
     private String name;
