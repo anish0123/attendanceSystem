@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         ImageButton signInBtn = findViewById(R.id.logInButton);
-        signInBtn.setOnClickListener(view -> LoginBtnClick());
+        signInBtn.setOnClickListener(view -> emptyFieldCheck());
 
         ImageButton addSuperVisor = findViewById(R.id.addSuperVisorBtn);
         addSuperVisor.setOnClickListener(view -> addSuperVisor());
@@ -96,6 +96,17 @@ public class MainActivity extends AppCompatActivity {
         idText.setText("");
         password.setText("");
         errorText.setText("");
+    }
+
+    public void emptyFieldCheck(){
+        String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
+        String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
+        TextView errorTextView = findViewById(R.id.errorText);
+        if (employeeId.equals("")||password.equals("")){
+            errorTextView.setText(R.string.empty_field_message);
+        } else {
+            LoginBtnClick();
+        }
     }
 
 

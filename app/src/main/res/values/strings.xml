@@ -57,5 +57,6 @@
     <string name="addManager">Add manager Button</string>
     <string name="signup_employer">SignUp for Employer</string>
     <string name="absent">Absent</string>
+    <string name="empty_field_message">Required fields empty</string>
 
 </resources>
