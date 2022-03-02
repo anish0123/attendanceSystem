@@ -80,10 +80,12 @@ public class EmployerEdit extends AppCompatActivity {
         textDisplay.setText(employeeAttendance.toString());
     }
 
+    /**
+     * Method for updating employee attendance as absent if employee was not present but had checkIn and checkOut time.
+     */
     private void makeEmployeeAttendanceAbsent(){
-        String newTime = "absent";
-        database.attendanceDao().updateCheckInTime(newTime,attendanceId,employeeId);
-        database.attendanceDao().updateCheckOutTime(newTime,attendanceId,employeeId);
+        database.attendanceDao().updateCheckInTime(getString(R.string.absent),attendanceId,employeeId);
+        database.attendanceDao().updateCheckOutTime(getString(R.string.absent),attendanceId,employeeId);
         this.finish();
     }
 
