@@ -55,5 +55,6 @@
     <string name="remove_employee_id">Remove(Employee ID)</string>
     <string name="info_button">Info button</string>
     <string name="addManager">Add manager Button</string>
+    <string name="signup_employer">SignUp for Employer</string>
 
 </resources>

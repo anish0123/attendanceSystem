@@ -111,31 +111,46 @@
     <ImageButton
         android:id="@+id/infoButton"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="99dp"
-        android:layout_height="94dp"
+        android:layout_width="70dp"
+        android:layout_height="58dp"
         android:contentDescription="@string/info_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
+        app:layout_constraintVertical_bias="0.173"
         app:srcCompat="@drawable/helpbutton"
         app:tint="@color/teal_700" />
 
     <ImageButton
         android:id="@+id/addSuperVisorBtn"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="54dp"
         android:contentDescription="@string/addManager"
-        app:layout_constraintBottom_toTopOf="@+id/errorText"
-        app:layout_constraintEnd_toStartOf="@+id/infoButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.893"
-        app:srcCompat="@drawable/addicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottomView"
+        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintStart_toStartOf="@+id/bottomView"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/addusermale"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/employerSignUp"
+        android:layout_width="140dp"
+        android:layout_height="25dp"
+        android:text="@string/signup_employer"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomView"
+        app:layout_constraintEnd_toStartOf="@+id/addSuperVisorBtn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/bottomView"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton"
+        app:layout_constraintVertical_bias="0.875" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
