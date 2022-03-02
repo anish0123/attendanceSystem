@@ -51,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoSignIn"
             app:layout_constraintVertical_bias="0.027"
-            app:srcCompat="@drawable/mainpage" />
+            app:srcCompat="@drawable/main_page" />
 
         <TextView
             android:id="@+id/statement_signIn"
