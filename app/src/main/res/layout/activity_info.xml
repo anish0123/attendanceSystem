@@ -59,7 +59,7 @@
             android:layout_height="14dp"
             android:text="@string/signIn_info"
             android:textColor="@color/black"
-            android:textSize="10sp"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.829"
@@ -113,7 +113,7 @@
                 android:layout_marginTop="36dp"
                 android:text="@string/statement_logIn1"
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/statement_logIn2"
@@ -121,7 +121,7 @@
                 android:layout_height="26dp"
                 android:text="@string/history_info"
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/statement_logIn3"
@@ -129,7 +129,7 @@
                 android:layout_height="26dp"
                 android:text="@string/signOut_info"
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
