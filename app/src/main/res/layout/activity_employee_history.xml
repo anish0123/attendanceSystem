@@ -37,14 +37,14 @@
         android:id="@+id/signOut2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_out"
         android:background="@drawable/round_buttons"
+        android:text="@string/sign_out"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="@+id/topView"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/employeeHistoryId"
         app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintVertical_bias="0.679" />
 
     <TextView
         android:id="@+id/employeeHistoryId"
@@ -61,8 +61,8 @@
 
     <ListView
         android:id="@+id/historyList"
-        android:layout_width="409dp"
-        android:layout_height="570dp"
+        android:layout_width="388dp"
+        android:layout_height="565dp"
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
