@@ -37,14 +37,13 @@ public class EmployerViewHistory extends AppCompatActivity {
     /**
      * Method of showing the employee attendance of an employee in the listView
      */
-    public void historyUI(){
+    private void historyUI(){
         TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
         //Since our employerId is in String so we had to change Int to String
         employeeId = intent.getStringExtra(EmployerActivity.EMPLOYEE_ID);
         //Introduced employee for getting the details of the employee.
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
-
         detailView.setText(employee.toString());
         //Introduced ListView for displaying the work history of employee
         ListView historyList = findViewById(R.id.historyList);
@@ -53,9 +52,7 @@ public class EmployerViewHistory extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 database.attendanceDao().getAllAttendance(employeeId)
         ));
-
         historyList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
-
     }
 
     /**
@@ -76,7 +73,7 @@ public class EmployerViewHistory extends AppCompatActivity {
     /**
      * Method for going to the main activity
      */
-    public void backToMain(){
+    private void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
     }

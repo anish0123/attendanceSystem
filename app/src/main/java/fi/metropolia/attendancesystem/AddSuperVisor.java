@@ -18,8 +18,7 @@ public class AddSuperVisor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_supervisor);
-
-
+        //Introduced database
         database = AppDataBase.getInstance(getApplicationContext());
 
         //assign imageButton Id and its click listener
@@ -28,8 +27,10 @@ public class AddSuperVisor extends AppCompatActivity {
 
     }
 
-    //add manager function to add superVisor and has a uniqueToken
-    public void addButtonClick() {
+    /**
+     * Method to add superVisor and has a uniqueToken which only allows user to create new supervisor/manager
+     */
+    private void addButtonClick() {
         String newEmployeeName = ((EditText) findViewById(R.id.superVisorName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
@@ -49,8 +50,10 @@ public class AddSuperVisor extends AppCompatActivity {
         }
     }
 
-    //Method for checking if employeeid is already assigned to avoid same id for either employer or employees
-    public void checkRedundancy() {
+    /**
+     * Method for checking if employeeId is already assigned to avoid same id for employers
+     */
+    private void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
 
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);

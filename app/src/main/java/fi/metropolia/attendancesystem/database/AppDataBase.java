@@ -22,7 +22,7 @@ public abstract class AppDataBase extends RoomDatabase {
     /**
      * Method for getting the instance of the AppDataBase class
      * @param context context
-     * @return instance
+     * @return instance of the database
      */
     public static synchronized AppDataBase getInstance(Context context) {
         if(null==instance) {

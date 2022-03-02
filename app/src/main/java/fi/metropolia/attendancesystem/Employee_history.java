@@ -28,7 +28,7 @@ public class Employee_history extends AppCompatActivity {
     /**
      * Method for displaying the employee attendance history in the list view.
      */
-    public void historyUI(){
+    private void historyUI(){
         TextView textView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
         String employeeId = intent.getStringExtra(EmployeeWindow.EMPLOYEE_ID_SEND);
@@ -45,7 +45,7 @@ public class Employee_history extends AppCompatActivity {
     /**
      * Method for going back to the main activity.
      */
-    public void backToMain(){
+    private void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
     }

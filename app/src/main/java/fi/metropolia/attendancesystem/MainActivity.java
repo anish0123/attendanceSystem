@@ -25,36 +25,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Database introduced
         database = AppDataBase.getInstance(getApplicationContext());
 
-
+        //info Button, signIn Button, addSuperVisor Button is introduced for opening info activity, signing in employees and employers and adding supervisor or manager when clicked
         ImageButton infoButton = findViewById(R.id.infoButton);
         infoButton.setOnClickListener(view -> infoBtnClick());
-
-
         ImageButton signInBtn = findViewById(R.id.logInButton);
         signInBtn.setOnClickListener(view -> emptyFieldCheck());
-
         ImageButton addSuperVisor = findViewById(R.id.addSuperVisorBtn);
         addSuperVisor.setOnClickListener(view -> addSuperVisor());
 
     }
 
-    public void infoBtnClick(){
+    /**
+     * Method for starting the info activity
+     */
+    private void infoBtnClick(){
         Intent info= new Intent(this, Info.class);
         startActivity(info);
     }
 
+    /**
+     * checks employeeID & password from database and logIn to respective activity for employee and employer based on roles mentioned on the database
+     * If the employee is inactive, employee won't be able to log in.
+     */
 
-    // checks employeeID & password from database and logIn to respective activity for employee and employer based on roles mentioned on the database
-    public void LoginBtnClick() {
+    private void LoginBtnClick() {
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         TextView errorTextView = findViewById(R.id.errorText);
 
-
+        //checking if the input matches with employee's employee ID and password
         Employee employee = database.employeeDao().checkLogIn(employeeId, password);
+
         if (employee != null) {
+            //If else statement for comparing role and status of employer and employees
             if (employee.getRole().equals(getString(R.string.esimies))&&employee.getStatus().equals(getString(R.string.active))) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent employerActivity = new Intent(this, EmployerActivity.class);
@@ -82,12 +88,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public void addSuperVisor(){
+
+    /**
+     * Method for adding new supervisor/ manager in the database
+     */
+    private void addSuperVisor(){
         Intent intent = new Intent(this, AddSuperVisor.class);
         startActivity(intent);
     }
 
-
+    /**
+     * onResume methods resets all the user inputs when the activity is resumed
+     */
     protected void onResume() {
         super.onResume();
         EditText idText = findViewById(R.id.userIdText);
@@ -98,7 +110,10 @@ public class MainActivity extends AppCompatActivity {
         errorText.setText("");
     }
 
-    public void emptyFieldCheck(){
+    /**
+     * Method for not letting user to input an empty string
+     */
+    private void emptyFieldCheck(){
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         TextView errorTextView = findViewById(R.id.errorText);

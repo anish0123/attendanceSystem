@@ -50,11 +50,13 @@ public class EmployerActivity extends AppCompatActivity {
     /**
      * Method for adding the employees in the database.
      * It takes input from user for employee's name, password and Id.
+     * If empty string is inserted, it shows error.
      */
-    public void addButtonClick() {
+    private void addButtonClick() {
         String newEmployeeName = ((EditText) findViewById(R.id.etEmployeeName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.etPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
+        //If else statement introduced so that user is not able to input empty string in the editTexts
         if (newEmployeeName.equals("") || newEmployeePassword.equals("") || newEmployeeId.equals("")) {
             Toast.makeText(this, "Required fields empty ", Toast.LENGTH_SHORT).show();
         } else {
@@ -67,10 +69,12 @@ public class EmployerActivity extends AppCompatActivity {
     /**
      * Method for making the employees inactive.
      * When the employee is inactive, they won't be able to log in into their account but managers will still be check employee's previous history.
+     * If empty string is inserted, it shows error.
      */
-    public void removeButtonClick() {
+    private void removeButtonClick() {
         String inactive = "inactive";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
+        //If else statement introduced so that user is not able to input empty string in the editTexts
         if (employeeId.equals("")) {
             Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
         } else {
@@ -81,9 +85,14 @@ public class EmployerActivity extends AppCompatActivity {
 
     }
 
-    public void enableButtonClick() {
+    /**
+     * Method for making the employees active so that employees are able to record their attendance again
+     * If empty string is inserted, it shows error.
+     */
+    private void enableButtonClick() {
         String active = "active";
         String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
+        //If else statement introduced so that user is not able to input empty string in the editTexts
         if (employeeId.equals("")) {
             Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
         } else {
@@ -98,9 +107,8 @@ public class EmployerActivity extends AppCompatActivity {
      * Method for checking if employeeId is already assigned to avoid same id for employees
      * If the employeeId is already assigned, it will display toast with text: Employee Id exists.
      */
-    public void checkRedundancy() {
+    private void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
-
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
         if (employee != null) {
             Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
@@ -113,7 +121,7 @@ public class EmployerActivity extends AppCompatActivity {
     /**
      * Method for updating the user interface.
      */
-    public void updateUI() {
+    private void updateUI() {
         //Introducing listview for displaying all the employees
         ListView lvList = findViewById(R.id.lvEmployee);
         lvList.setAdapter(new ArrayAdapter<>(
@@ -145,7 +153,7 @@ public class EmployerActivity extends AppCompatActivity {
     /**
      * Method for going back to the main activity.
      */
-    public void backToMain() {
+    private void backToMain() {
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }

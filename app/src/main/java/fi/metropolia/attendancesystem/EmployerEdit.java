@@ -44,9 +44,6 @@ public class EmployerEdit extends AppCompatActivity {
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
         absentBtn.setOnClickListener(view -> makeEmployeeAttendanceAbsent());
-
-
-
     }
 
     /**

@@ -63,7 +63,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for submitting the checkIn time or checkOut time according to which radio button is selected.
      */
-    public void submitButtonClick() {
+    private void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
 
         if(checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
@@ -78,7 +78,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for saving the checkIn time while user selects radio button checkIn
      */
-    public void checkInButtonClick() {
+    private void checkInButtonClick() {
         // getting intent and employeeId as String from main activity.
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
@@ -97,7 +97,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for saving the checkOut time while user selects radio button checkOut
      */
-    public void checkOutButtonClick() {
+    private void checkOutButtonClick() {
         Intent intent = getIntent();
         String employeesWindow = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
         //Declared a employee so that we can get employee details through employee ID.
@@ -113,7 +113,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method of opening the employee history activity when the viewHistory button is clicked
      */
-    public void historyButtonClick(){
+    private void historyButtonClick(){
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
@@ -125,7 +125,9 @@ public class EmployeeWindow extends AppCompatActivity {
 
     /**
      *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
+     * @see  {https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds}
      */
+    @Override
     protected void onPause() {
         super.onPause();
 
@@ -136,7 +138,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for going back to main activity
      */
-    public void backToMain(){
+    private void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
     }
@@ -146,7 +148,7 @@ public class EmployeeWindow extends AppCompatActivity {
      * @param epochTime  time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
-    public String dateFormat (long epochTime) {
+    private String dateFormat (long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
