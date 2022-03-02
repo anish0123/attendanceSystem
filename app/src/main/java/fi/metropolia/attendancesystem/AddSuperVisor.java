@@ -34,14 +34,18 @@ public class AddSuperVisor extends AppCompatActivity {
         String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
         String uniqueToken = ((EditText) findViewById(R.id.uniqueToken)).getText().toString();
-        if (uniqueToken.equals(getString(R.string.uniqueKey))) {
-            Toast.makeText(this, "SuperVisor added", Toast.LENGTH_SHORT).show();
-            database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, getString(R.string.esimies), getString(R.string.active)));
-            Intent intent=new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }else{
-            Toast.makeText(this, "Access Denied", Toast.LENGTH_SHORT).show();
+        if (newEmployeeId.equals("") || newEmployeeName.equals("") || newEmployeePassword.equals("")) {
+            Toast.makeText(this, "Required fields empty", Toast.LENGTH_SHORT).show();
+        } else {
+            if (uniqueToken.equals(getString(R.string.uniqueKey))) {
+                Toast.makeText(this, "SuperVisor added", Toast.LENGTH_SHORT).show();
+                database.employeeDao().insert(new Employee(newEmployeeId, newEmployeeName, newEmployeePassword, getString(R.string.esimies), getString(R.string.active)));
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Access Denied", Toast.LENGTH_SHORT).show();
 
+            }
         }
     }
 
