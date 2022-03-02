@@ -18,7 +18,6 @@ import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerViewHistory extends AppCompatActivity {
     private AppDataBase database;
-    public static final String TAG = "EmployerViewHistory";
     public static final String EMPLOYEEID = "employeeId";
     public static final String ATTENDANCEID = "attendanceId";
     private String employeeId;
@@ -27,11 +26,17 @@ public class EmployerViewHistory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer_view_history);
+        //Introducing database
         database=AppDataBase.getInstance(getApplicationContext());
         historyUI();
+        //Introducing signOut button for logging out
         Button signOutButton = findViewById(R.id.signOut2);
         signOutButton.setOnClickListener(view -> backToMain());
     }
+
+    /**
+     * Method of showing the employee attendance of an employee in the listView
+     */
     public void historyUI(){
         TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
@@ -49,14 +54,14 @@ public class EmployerViewHistory extends AppCompatActivity {
                 database.attendanceDao().getAllAttendance(employeeId)
         ));
 
-        historyList.setOnItemClickListener(((adapterView, view, i, l) -> {
-            Log.d(TAG, "did the click listener work?" + i);
-            startActivityEmployeeHistory(i);
-        }));
+        historyList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
 
     }
 
-    //Method for starting the employer edit activity.
+    /**
+     * Method for starting the employerEdit activity for editing the checkIn and checkOut time of the employee.
+     * @param i the number for the clicked employee attendance from the listView.
+     */
     private void startActivityEmployeeHistory(int i) {
         Intent intent = new Intent(EmployerViewHistory.this, EmployerEdit.class);
         List<EmployeeAttendance> list = database.attendanceDao().getAllAttendance(employeeId);
@@ -68,11 +73,17 @@ public class EmployerViewHistory extends AppCompatActivity {
 
     }
 
+    /**
+     * Method for going to the main activity
+     */
     public void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
     }
 
+    /**
+     * Method onResume is used so that it updates the listView when user comes back to this activity after employerEdit activity
+     */
     @Override
     protected void onResume() {
         super.onResume();
