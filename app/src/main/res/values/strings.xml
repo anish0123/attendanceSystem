@@ -51,7 +51,7 @@
     <string name="wrongCredentials">Wrong Credentials !!!</string>
     <string name="welcomeEmployeeDetails">Welcome, %1s (%2s)</string>
     <string name="uniqueKey">112233</string>
-    <string name="remove_employee_id">Employee Status Change</string>
+    <string name="remove_employee_id">Change Status(Employee ID)</string>
     <string name="info_button">Info button</string>
     <string name="addManager">Add manager Button</string>
     <string name="signup_employer">SignUp for Employer</string>
