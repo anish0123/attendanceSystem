@@ -25,32 +25,34 @@
         android:id="@+id/superVisorId"
         android:layout_width="261dp"
         android:layout_height="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/userId"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/superVisorPassword"
-        app:layout_constraintVertical_bias="0.026"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <EditText
         android:id="@+id/uniqueToken"
         android:layout_width="261dp"
         android:layout_height="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/uniqueToken"
         android:inputType="textPassword"
         android:textColor="@color/black"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/superVisorId"
-        app:layout_constraintVertical_bias="0.049"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.049" />
 
     <ImageButton
         android:id="@+id/addSuperVisorButton"
@@ -71,32 +73,34 @@
         android:id="@+id/superVisorName"
         android:layout_width="261dp"
         android:layout_height="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/admin"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <EditText
         android:id="@+id/superVisorPassword"
         android:layout_width="260dp"
         android:layout_height="70dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="@color/black"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/superVisorName"
-        app:layout_constraintVertical_bias="0.023"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/superVisorTextView"
