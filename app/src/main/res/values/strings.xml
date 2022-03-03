@@ -59,5 +59,6 @@
     <string name="empty_field_message">Required fields empty</string>
     <string name="inactive">inactive</string>
     <string name="active">active</string>
+    <string name="displayDetail">%1s, %2s (%3s)</string>
 
 </resources>

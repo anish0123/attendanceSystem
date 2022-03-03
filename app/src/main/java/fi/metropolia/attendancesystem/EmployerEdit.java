@@ -64,7 +64,7 @@ public class EmployerEdit extends AppCompatActivity {
             this.finish();
         } else if (editGroup.getCheckedRadioButtonId() == R.id.bothRadio) {
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
-            database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
+            database.attendanceDao().updateCheckOutTime(checkOutEdit.getText().toString(), attendanceId, employeeId);
             this.finish();
         }
     }
