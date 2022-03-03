@@ -137,7 +137,7 @@ public class EmployeeWindow extends AppCompatActivity {
 
     /**
      * Method for formatting the checkIn and checkOut time
-     *
+     * @see <a href ="https://stackoverflow.com/questions/7740972/convert-epoch-time-to-date"> Date formatting</a>
      * @param epochTime time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
