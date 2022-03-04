@@ -91,20 +91,18 @@ public class EmployerActivity extends AppCompatActivity {
         ));
 
         //setup the click listener so when employee name is clicked the work history opens up.
-        lvList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
+        //lvList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
+        lvList.setOnItemClickListener((adapterView, view, i, l) -> startActivityEmployeeHistory(((Employee) lvList.getItemAtPosition(i)).getEmployeeId()));
 
     }
 
     /**
      * Method for opening employerViewHistory activity according to which employee has been clicked in the listView.
      *
-     * @param i the number for the clicked employee from the listView.
+     * @param employeeId Employee's Id
      */
-    private void startActivityEmployeeHistory(int i) {
+    private void startActivityEmployeeHistory(String employeeId) {
         Intent intent = new Intent(EmployerActivity.this, EmployerViewHistory.class);
-        List<Employee> list = database.employeeDao().getAll();
-        Employee employee = list.get(i);
-        String employeeId = employee.getEmployeeId();
         intent.putExtra(EMPLOYEE_ID, employeeId);
         startActivity(intent);
 
