@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
 public class EmployerEdit extends AppCompatActivity {
+    public final static String TAG = "employerEdit";
     private AppDataBase database;
     long attendanceId;
     String employeeId;
@@ -58,14 +62,14 @@ public class EmployerEdit extends AppCompatActivity {
         //If else statement for checking which radio is button is selected and editing checkIn and checkOut according to it.
         if (editGroup.getCheckedRadioButtonId() == R.id.checkInRadioEdit) {
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
-            this.finish();
+            calculateDifference();
         } else if (editGroup.getCheckedRadioButtonId() == R.id.checkOutRadioEdit) {
             database.attendanceDao().updateCheckOutTime(checkOutEdit.getText().toString(), attendanceId, employeeId);
-            this.finish();
+            calculateDifference();
         } else if (editGroup.getCheckedRadioButtonId() == R.id.bothRadio) {
             database.attendanceDao().updateCheckInTime(checkInEdit.getText().toString(), attendanceId, employeeId);
             database.attendanceDao().updateCheckOutTime(checkOutEdit.getText().toString(), attendanceId, employeeId);
-            this.finish();
+            calculateDifference();
         }
     }
 
@@ -85,7 +89,42 @@ public class EmployerEdit extends AppCompatActivity {
         database.attendanceDao().updateCheckInTime(getString(R.string.absent), attendanceId, employeeId);
         database.attendanceDao().updateCheckOutTime(getString(R.string.absent), attendanceId, employeeId);
         this.finish();
+
     }
 
+    /**
+     * Method for calculating difference between checkIn and checkOut time after editing the time
+     */
+
+    public void calculateDifference() {
+        EmployeeWindow employeeWindow = new EmployeeWindow();
+        EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
+        long checkInTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckInTime());
+        long checkOutTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckOutTime());
+        long durationTime = checkOutTime - checkInTime;
+        String duration = getDuration(durationTime);
+        database.attendanceDao().updateDuration(duration,attendanceId,employeeId);
+        this.finish();
+
+    }
+
+    /**
+     * Convert milliseconds into String format (HH hours mm minutes ss seconds)
+     * @param millis  milliseconds that needs to be converted into String
+     * @return duration in String format (HH hours mm minutes ss seconds)
+     * @see <a href = "https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java">Convert epoch times into String</a>
+     */
+    public String getDuration(long millis) {
+        if(millis < 0) {
+            throw new IllegalArgumentException("Duration must be greater than zero!");
+        }
+
+        long hours = TimeUnit.MILLISECONDS.toHours(millis);
+        millis -= TimeUnit.HOURS.toMillis(hours);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
+        millis -= TimeUnit.MINUTES.toMillis(minutes);
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
+        return getString(R.string.duration,hours,minutes,seconds);
+    }
 
 }

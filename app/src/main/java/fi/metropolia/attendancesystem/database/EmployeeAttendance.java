@@ -130,10 +130,10 @@ public class EmployeeAttendance {
     /**
      * Method for providing details of the employee attendance
      *
-     * @return checkIn time and checkOut time of the attendance in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
+     * @return checkIn time and checkOut time of the attendance in locale.Uk date format ("dd/MM/yyyy HH:mm:ss") and duration of total work hours
      */
     public String toString() {
-        return "In: " + checkInTime + "   Out: " + checkOutTime;
+        return "In: " + checkInTime + "   Out: " + checkOutTime + "\n \n Duration: " + timeDuration + "\n";
     }
 
 

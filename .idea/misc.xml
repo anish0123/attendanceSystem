@@ -16,8 +16,12 @@
 <<<<<<< HEAD
 =======
         <entry key="app/src/main/res/layout/activity_employee_window.xml" value="0.16893115942028986" />
+<<<<<<< HEAD
 >>>>>>> anish
         <entry key="app/src/main/res/layout/activity_employer.xml" value="0.16893115942028986" />
+=======
+        <entry key="app/src/main/res/layout/activity_employer.xml" value="0.14581704456606723" />
+>>>>>>> anish
         <entry key="app/src/main/res/layout/activity_employer_edit.xml" value="0.29891304347826086" />
         <entry key="app/src/main/res/layout/activity_employer_view_history.xml" value="0.29891304347826086" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29891304347826086" />
