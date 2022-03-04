@@ -108,8 +108,8 @@ public class EmployeeWindow extends AppCompatActivity {
 
         if(employeeAttendance.getCheckOutTime().equals("")) {
             database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
-            database.attendanceDao().updateDuration(getDurationBreakdown(duration), id, employeesWindow);
-            checkInDisplay.setText(getString(R.string.checkedOutAt, formatted, getDurationBreakdown(duration)));
+            database.attendanceDao().updateDuration(getDuration(duration), id, employeesWindow);
+            checkInDisplay.setText(getString(R.string.checkedOutAt, formatted, getDuration(duration)));
         }
     }
 
@@ -141,7 +141,6 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for going back to main activity
      */
-
     private void backToMain(){
         Intent mainActivity = new Intent(this,MainActivity.class);
 
@@ -154,7 +153,7 @@ public class EmployeeWindow extends AppCompatActivity {
      * @param epochTime time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
-    private String dateFormat (long epochTime) {
+    public String dateFormat (long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
@@ -166,8 +165,7 @@ public class EmployeeWindow extends AppCompatActivity {
      * @return epoch time in milliseconds
      * @see <a href ="https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position.">String date format into epoch</a>
      */
-    private long convertToEpoch (String changeDate) {
-        //TODO: change formatted date into epoch time
+    public long convertToEpoch (String changeDate) {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         Date date = null;
         try {
@@ -189,7 +187,7 @@ public class EmployeeWindow extends AppCompatActivity {
      * @return duration in String format (HH hours mm minutes ss seconds)
      * @see <a href = "https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java">Convert epoch times into String</a>
      */
-    public String getDurationBreakdown(long millis) {
+    public String getDuration(long millis) {
         if(millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
