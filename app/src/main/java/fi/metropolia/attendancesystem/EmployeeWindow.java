@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
@@ -12,9 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
@@ -25,6 +29,7 @@ public class EmployeeWindow extends AppCompatActivity {
     private AppDataBase database;
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
+    public static final String TAG ="test";
 
 
     @Override
@@ -94,10 +99,18 @@ public class EmployeeWindow extends AppCompatActivity {
         Employee employee = database.employeeDao().getByEmployeeId(employeesWindow);
         // called get attendanceId for employee so that we can get the latest attendance Id for submitting checkOut.
         long id = employee.getAttendanceId();
+        EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(id);
         TextView checkInDisplay = findViewById(R.id.timeView);
         String formatted = dateFormat(System.currentTimeMillis());
-        checkInDisplay.setText(getString(R.string.checkedOutAt, formatted));
-        database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
+        //Calling for checkIn time for finding out duration between checkIn and checkOut Time
+        long checkInTime = convertToEpoch(employeeAttendance.getCheckInTime());
+        long duration = System.currentTimeMillis()-checkInTime;
+
+        if(employeeAttendance.getCheckOutTime().equals("")) {
+            database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
+            database.attendanceDao().updateDuration(getDurationBreakdown(duration), id, employeesWindow);
+            checkInDisplay.setText(getString(R.string.checkedOutAt, formatted, getDurationBreakdown(duration)));
+        }
     }
 
     /**
@@ -146,6 +159,50 @@ public class EmployeeWindow extends AppCompatActivity {
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
     }
+
+    /**
+     * changing String date format into epoch time format)
+     * @param changeDate date in String format ("dd/MM/yyyy HH:mm:ss", Locale.UK)
+     * @return epoch time in milliseconds
+     * @see <a href ="https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position.">String date format into epoch</a>
+     */
+    private long convertToEpoch (String changeDate) {
+        //TODO: change formatted date into epoch time
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
+        Date date = null;
+        try {
+            date = df.parse(changeDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        assert date != null;
+        long epoch = date.getTime();
+        Log.d(TAG,String.valueOf(epoch));
+        Log.d(TAG,dateFormat(epoch));
+        return epoch;
+    }
+
+
+    /**
+     * Convert milliseconds into String format (HH hours mm minutes ss seconds)
+     * @param millis  milliseconds that needs to be converted into String
+     * @return duration in String format (HH hours mm minutes ss seconds)
+     * @see <a href = "https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java">Convert epoch times into String</a>
+     */
+    public String getDurationBreakdown(long millis) {
+        if(millis < 0) {
+            throw new IllegalArgumentException("Duration must be greater than zero!");
+        }
+
+        long hours = TimeUnit.MILLISECONDS.toHours(millis);
+        millis -= TimeUnit.HOURS.toMillis(hours);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
+        millis -= TimeUnit.MINUTES.toMillis(minutes);
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
+       return getString(R.string.duration,hours,minutes,seconds);
+    }
+
+
 
     /**
      * Disable Physical back button

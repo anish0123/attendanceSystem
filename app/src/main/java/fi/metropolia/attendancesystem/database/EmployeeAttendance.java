@@ -28,6 +28,7 @@ public class EmployeeAttendance {
      * employee checkOut time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
      */
     private String checkOutTime;
+    private String timeDuration;
 
 
     /**
@@ -115,6 +116,15 @@ public class EmployeeAttendance {
      */
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
+    }
+
+
+    public String getTimeDuration() {
+        return timeDuration;
+    }
+
+    public void setTimeDuration(String timeDuration) {
+        this.timeDuration = timeDuration;
     }
 
     /**

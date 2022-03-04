@@ -46,4 +46,7 @@ public interface EmployeeDao {
     @Query("SELECT * FROM employee WHERE attendanceId like :attendanceId")
      Employee getByEmployeeId(long attendanceId);
 
+
+
+
 }
