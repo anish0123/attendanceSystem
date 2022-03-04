@@ -1,7 +1,7 @@
 # Attendance System
 
 Android Project (an attendance system)
-Project Creators:
+\n Project Creators:
 
 - Ritesh Ghimire
 - Asmita Shrestha
