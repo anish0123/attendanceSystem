@@ -77,14 +77,15 @@
     <Button
         android:id="@+id/statusButton"
         android:layout_width="110dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_buttons"
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.946"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomView" />
+        app:layout_constraintTop_toTopOf="@+id/bottomView"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/currentStatus"
