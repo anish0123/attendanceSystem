@@ -34,15 +34,11 @@ public class EmployerActivity extends AppCompatActivity {
         // Introducing database and image button which will be used to add employees in the database.
         database = AppDataBase.getInstance(getApplicationContext());
         ImageButton addButton = findViewById(R.id.addBtn);
-        ImageButton removeButton = findViewById(R.id.removeButton);
-        ImageButton enableButton = findViewById(R.id.enableEmployeeButton);
 
         //Logout button introduced to take employer to main activity after pressing the logout button.
         Button signOut = findViewById(R.id.logOutBtn);
         signOut.setOnClickListener(view -> backToMain());
         addButton.setOnClickListener(view -> checkRedundancy());
-        removeButton.setOnClickListener(view -> removeButtonClick());
-        enableButton.setOnClickListener(view -> enableButtonClick());
 
         updateUI();
     }
@@ -66,40 +62,6 @@ public class EmployerActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Method for making the employees inactive.
-     * When the employee is inactive, they won't be able to log in into their account but managers will still be check employee's previous history.
-     * If empty string is inserted, it shows error.
-     */
-    private void removeButtonClick() {
-        String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
-        //If else statement introduced so that user is not able to input empty string in the editTexts
-        if (employeeId.equals("")) {
-            Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, " Employee Removed ", Toast.LENGTH_SHORT).show();
-            database.employeeDao().updateEmployee(employeeId, getString(R.string.inactive));
-            updateUI();
-        }
-
-    }
-
-    /**
-     * Method for making the employees active so that employees are able to record their attendance again
-     * If empty string is inserted, it shows error.
-     */
-    private void enableButtonClick() {
-        String employeeId = ((EditText) findViewById(R.id.removeEmployee)).getText().toString();
-        //If else statement introduced so that user is not able to input empty string in the editTexts
-        if (employeeId.equals("")) {
-            Toast.makeText(this, "Required Fields empty", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, " Employee Status back to Active ", Toast.LENGTH_SHORT).show();
-            database.employeeDao().updateEmployee(employeeId, getString(R.string.active));
-            updateUI();
-        }
-
-    }
 
     /**
      * Method for checking if employeeId is already assigned to avoid same id for employees

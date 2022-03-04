@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -28,9 +31,15 @@ public class EmployerViewHistory extends AppCompatActivity {
         //Introducing database
         database = AppDataBase.getInstance(getApplicationContext());
         historyUI();
+        Employee employee = database.employeeDao().getByEmployeeId(employeeId);
         //Introducing signOut button for logging out
         Button signOutButton = findViewById(R.id.signOut2);
         signOutButton.setOnClickListener(view -> backToMain());
+        Button statusButton = findViewById(R.id.statusButton);
+        statusButton.setText(employee.getStatus());
+
+        //statusButton.setText(getString(R.string.status,employee.getStatus()));
+        statusButton.setOnClickListener(view -> statusChange());
     }
 
     /**
@@ -39,7 +48,6 @@ public class EmployerViewHistory extends AppCompatActivity {
     private void historyUI() {
         TextView detailView = findViewById(R.id.employeeHistoryId);
         Intent intent = getIntent();
-        //Since our employerId is in String so we had to change Int to String
         employeeId = intent.getStringExtra(EmployerActivity.EMPLOYEE_ID);
         //Introduced employee for getting the details of the employee.
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
@@ -87,5 +95,22 @@ public class EmployerViewHistory extends AppCompatActivity {
         historyUI();
     }
 
+    public void statusChange(){
+        Button statusButton =findViewById(R.id.statusButton);
+        Employee employee = database.employeeDao().getByEmployeeId(employeeId);
+        statusButton.setText(employee.getStatus());
+        Log.d("Status",employee.getStatus());
+        if(employee.getStatus().equals(getString(R.string.active))){
+            database.employeeDao().updateEmployee(employeeId,getString(R.string.inactive));
+            statusButton.setText(R.string.inactive);
+            Toast.makeText(this, " Employee Inactive ", Toast.LENGTH_SHORT).show();
+
+        }else if(employee.getStatus().equals(getString(R.string.inactive))){
+            database.employeeDao().updateEmployee(employeeId,getString(R.string.active));
+            Toast.makeText(this, " Employee active ", Toast.LENGTH_SHORT).show();
+            statusButton.setText(R.string.active);
+        }
+
+    }
 
 }

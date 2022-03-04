@@ -55,13 +55,13 @@
         android:id="@+id/lvEmployee"
         android:layout_width="match_parent"
         android:layout_height="364dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="182dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeView"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="NestedScrolling">
 
 
@@ -78,45 +78,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lvEmployee" />
 
-    <EditText
-        android:id="@+id/removeEmployee"
-        android:layout_width="207dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="280dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/remove_employee_id"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/lvEmployee"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/welcomeView"
-        app:layout_constraintVertical_bias="0.513" />
-
-    <ImageButton
-        android:id="@+id/removeButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="72dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
-        app:layout_constraintStart_toEndOf="@+id/removeEmployee"
-        app:layout_constraintTop_toTopOf="@+id/removeEmployee"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/disableicon32"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="212dp"
-        android:layout_height="143dp"
+        android:layout_width="217dp"
+        android:layout_height="160dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/removeEmployee"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,8 +112,8 @@
 
         <EditText
             android:id="@+id/etEmployeeId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/employeeId_employerPage"
@@ -165,27 +131,13 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="67dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="44dp"
         android:contentDescription="@string/add"
-        app:layout_constraintBottom_toTopOf="@+id/removeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/welcomeView"
-        app:layout_constraintVertical_bias="0.066"
         app:srcCompat="@drawable/addusermale"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-
-    <ImageButton
-        android:id="@+id/enableEmployeeButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="73dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="@+id/removeButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/removeButton"
-        app:layout_constraintTop_toTopOf="@+id/removeButton"
-        app:srcCompat="@drawable/enable" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

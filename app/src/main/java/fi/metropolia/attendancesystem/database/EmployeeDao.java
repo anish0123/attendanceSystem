@@ -23,27 +23,27 @@ public interface EmployeeDao {
     void updateEmployee(String employeeId, String status);
 
     @Query("SELECT * FROM employee ORDER BY employeeId")
-    public List<Employee> getAll();
+     List<Employee> getAll();
 
     @Query("SELECT * FROM employee WHERE employeeId like :employeeId")
-    public Employee getByEmployeeId(String employeeId);
+     Employee getByEmployeeId(String employeeId);
 
     @Query("SELECT * FROM employee WHERE employeeId like :employeeId and password = :password")
-    public Employee checkLogIn(String employeeId, String password);
+     Employee checkLogIn(String employeeId, String password);
 
     @Query("SELECT * FROM employee WHERE status like :status")
-    public Employee getStatus(String status);
+     Employee getStatus(String status);
 
     @Query("SELECT * FROM employee WHERE name like :name")
-    public List<Employee> getByName(String name);
+     List<Employee> getByName(String name);
 
     @Query("SELECT * FROM employee WHERE role like :role")
-    public List<Employee> getByRole(String role);
+     List<Employee> getByRole(String role);
 
     @Query("UPDATE employee SET attendanceId = :attendanceId WHERE employeeId = :employeeId")
     void updateAttendanceId(String employeeId, long attendanceId);
 
     @Query("SELECT * FROM employee WHERE attendanceId like :attendanceId")
-    public Employee getByEmployeeId(long attendanceId);
+     Employee getByEmployeeId(long attendanceId);
 
 }
