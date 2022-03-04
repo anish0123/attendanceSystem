@@ -95,6 +95,10 @@ public class EmployerViewHistory extends AppCompatActivity {
         historyUI();
     }
 
+    /**
+     * Method for changing the status of the employee. If the status of the employee is inactive, employee wont be able to login
+     */
+
     public void statusChange(){
         Button statusButton =findViewById(R.id.statusButton);
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
