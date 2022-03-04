@@ -127,5 +127,14 @@ public class EmployerActivity extends AppCompatActivity {
         Toast.makeText(this, "Back Button Disabled", Toast.LENGTH_SHORT).show();
 
     }
+
+    /**
+     * Updating the UI when user comes back to this activity
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
+    }
 }
 
