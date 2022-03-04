@@ -96,7 +96,7 @@ public class EmployerEdit extends AppCompatActivity {
      * Method for calculating difference between checkIn and checkOut time after editing the time
      */
 
-    public void calculateDifference() {
+    private void calculateDifference() {
         EmployeeWindow employeeWindow = new EmployeeWindow();
         EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
         long checkInTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckInTime());

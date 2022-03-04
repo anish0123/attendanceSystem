@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AddSuperVisor">
 
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/welcomeView"
         android:layout_width="408dp"
@@ -21,54 +22,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/superVisorId"
-        android:layout_width="261dp"
+    <!-- TextView used to display some details about the activity -->
+    <TextView
+        android:id="@+id/superVisorTextView"
+        android:layout_width="323dp"
         android:layout_height="68dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/userId"
-        android:inputType="textPersonName"
+        android:text="@string/addSuperVisor"
         android:textColor="@color/black"
-        android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/superVisorName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/superVisorPassword"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/uniqueToken"
-        android:layout_width="261dp"
-        android:layout_height="68dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/uniqueToken"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
-        android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/superVisorId"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <ImageButton
-        android:id="@+id/addSuperVisorButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="110dp"
-        android:layout_height="95dp"
-        android:contentDescription="@string/title_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uniqueToken"
-        app:layout_constraintVertical_bias="0.298"
-        app:srcCompat="@drawable/start2"
-        tools:ignore="SpeakableTextPresentCheck" />
-
+    <!-- EditText used for to input supervisor's name -->
     <EditText
         android:id="@+id/superVisorName"
         android:layout_width="261dp"
@@ -85,6 +53,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
+    <!-- EditText used for to input supervisor's password -->
     <EditText
         android:id="@+id/superVisorPassword"
         android:layout_width="260dp"
@@ -102,19 +71,58 @@
         app:layout_constraintTop_toBottomOf="@+id/superVisorName"
         app:layout_constraintVertical_bias="0.023" />
 
-    <TextView
-        android:id="@+id/superVisorTextView"
-        android:layout_width="323dp"
+    <!-- EditText used for to input supervisor's employeeId -->
+    <EditText
+        android:id="@+id/superVisorId"
+        android:layout_width="261dp"
         android:layout_height="68dp"
-        android:text="@string/addSuperVisor"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/userId"
+        android:inputType="textPersonName"
         android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/superVisorName"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/superVisorPassword"
+        app:layout_constraintVertical_bias="0.026" />
 
+    <!-- EditText used for to input unique token which gives different rights to employer -->
+    <EditText
+        android:id="@+id/uniqueToken"
+        android:layout_width="261dp"
+        android:layout_height="68dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/uniqueToken"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/superVisorId"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <!-- Image button used for submitting all the details -->
+    <ImageButton
+        android:id="@+id/addSuperVisorButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:contentDescription="@string/title_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uniqueToken"
+        app:layout_constraintVertical_bias="0.298"
+        app:srcCompat="@drawable/start2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/bottomView"
         android:layout_width="417dp"

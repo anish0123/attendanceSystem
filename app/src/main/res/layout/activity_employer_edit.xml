@@ -7,21 +7,59 @@
     android:background="@color/orange"
     tools:context=".EmployerEdit">
 
-    <EditText
-        android:id="@+id/checkOutTimeEdit"
-        android:layout_width="274dp"
-        android:layout_height="62dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/checkOutTime"
-        android:inputType="textPersonName"
-        android:textColorHint="#795548"
+    <!--TextView used to display the attendance time which employer has selected to change -->
+    <TextView
+        android:id="@+id/textDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/checkEditGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488" />
+
+    <!--RadioGroup used for choosing which time employer wants to edit -->
+    <RadioGroup
+        android:id="@+id/checkEditGroup"
+        android:layout_width="322dp"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkInTimeEdit"
-        app:layout_constraintVertical_bias="0.110000014" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215">
 
+        <!--RadioButton for choosing edit checkIn time -->
+        <RadioButton
+            android:id="@+id/checkInRadioEdit"
+            android:layout_width="107dp"
+            android:layout_height="match_parent"
+            android:text="@string/checkIn" />
+
+        <!--RadioButton for choosing edit checkOut time -->
+        <RadioButton
+            android:id="@+id/checkOutRadioEdit"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:text="@string/checkOut" />
+
+        <!--RadioButton for choosing edit both time -->
+        <RadioButton
+            android:id="@+id/bothRadio"
+            android:layout_width="82dp"
+            android:layout_height="match_parent"
+            android:text="@string/both"
+            android:textColor="@color/black"
+            tools:ignore="TextContrastCheck" />
+    </RadioGroup>
+
+    <!--EditText for inserting checkIn time -->
     <EditText
         android:id="@+id/checkInTimeEdit"
         android:layout_width="274dp"
@@ -38,6 +76,24 @@
         app:layout_constraintTop_toBottomOf="@+id/checkEditGroup"
         app:layout_constraintVertical_bias="0.084" />
 
+    <!--Edittext for inserting checkOut time -->
+    <EditText
+        android:id="@+id/checkOutTimeEdit"
+        android:layout_width="274dp"
+        android:layout_height="62dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/checkOutTime"
+        android:inputType="textPersonName"
+        android:textColorHint="#795548"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkInTimeEdit"
+        app:layout_constraintVertical_bias="0.110000014" />
+
+
+    <!--Button for submitting the updated time -->
     <Button
         android:id="@+id/editButton"
         android:layout_width="wrap_content"
@@ -51,6 +107,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.819" />
 
+    <!--Button for closing the edit window-->
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
@@ -65,53 +122,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.819" />
 
-    <RadioGroup
-        android:id="@+id/checkEditGroup"
-        android:layout_width="322dp"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215">
-
-        <RadioButton
-            android:id="@+id/checkInRadioEdit"
-            android:layout_width="107dp"
-            android:layout_height="match_parent"
-            android:text="@string/checkIn" />
-
-        <RadioButton
-            android:id="@+id/checkOutRadioEdit"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:text="@string/checkOut" />
-
-        <RadioButton
-            android:id="@+id/bothRadio"
-            android:layout_width="82dp"
-            android:layout_height="match_parent"
-            android:text="@string/both"
-            android:textColor="@color/black"
-            tools:ignore="TextContrastCheck" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text=""
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/checkEditGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488" />
-
+    <!--Button for making the time as absent -->
     <Button
         android:id="@+id/absentButton"
         android:layout_width="wrap_content"

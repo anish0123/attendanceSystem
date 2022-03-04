@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EmployeeWindow">
 
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/view3"
         android:layout_width="408dp"
@@ -20,17 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="412dp"
-        android:layout_height="54dp"
-        android:background="#94AFB3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.998" />
-
+    <!-- TextView used to display the name and details of an employee -->
     <TextView
         android:id="@+id/employeePageText"
         android:layout_width="376dp"
@@ -46,6 +37,7 @@
         app:layout_constraintTop_toTopOf="@+id/view3"
         app:layout_constraintVertical_bias="0.05" />
 
+    <!--Button used to check the working history of the employee -->
     <Button
         android:id="@+id/historyBtn"
         android:layout_width="wrap_content"
@@ -60,6 +52,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.18" />
 
+    <!--Button used for signing out-->
     <Button
         android:id="@+id/logOutBtn2"
         android:layout_width="wrap_content"
@@ -73,6 +66,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.18" />
 
+    <!--TextView used for printing the checkIn and checkOut time -->
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:text="@string/timeView"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/checkRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.614" />
+
+    <!--Radiogroup used for checkIn and checkOut -->
     <RadioGroup
         android:id="@+id/checkRadioGroup"
         android:layout_width="132dp"
@@ -84,12 +92,14 @@
         app:layout_constraintTop_toBottomOf="@+id/view3"
         app:layout_constraintVertical_bias="0.5">
 
+        <!--Radiobutton for checkIn -->
         <RadioButton
             android:id="@+id/checkInRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/checkIn" />
 
+        <!--Radiobutton for checkOut -->
         <RadioButton
             android:id="@+id/checkOutRadio"
             android:layout_width="match_parent"
@@ -97,6 +107,7 @@
             android:text="@string/checkOut" />
     </RadioGroup>
 
+    <!--ImageButton used for submitting the checkIn and checkOut time -->
     <ImageButton
         android:id="@+id/submitBtn"
         style="?android:attr/borderlessButtonStyle"
@@ -112,17 +123,16 @@
         app:srcCompat="@drawable/submit_icon"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/timeView"
-        android:layout_width="243dp"
-        android:layout_height="wrap_content"
-        android:text="@string/timeView"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/checkRadioGroup"
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
+    <View
+        android:id="@+id/view4"
+        android:layout_width="412dp"
+        android:layout_height="54dp"
+        android:background="#94AFB3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.614" />
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.998" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -175,8 +175,6 @@ public class EmployeeWindow extends AppCompatActivity {
         }
         assert date != null;
         long epoch = date.getTime();
-        Log.d(TAG,String.valueOf(epoch));
-        Log.d(TAG,dateFormat(epoch));
         return epoch;
     }
 

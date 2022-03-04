@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Employee_history">
 
-
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/topView"
         android:layout_width="412dp"
@@ -22,18 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-        android:id="@+id/bottomView"
-        android:layout_width="412dp"
-        android:layout_height="54dp"
-        android:background="#94AFB3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/historyList"
-        app:layout_constraintVertical_bias="1.0" />
-
+    <!--Button used for signing out -->
     <Button
         android:id="@+id/signOut2"
         android:layout_width="wrap_content"
@@ -48,6 +37,7 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
+    <!--TextView used for displaying the employee details -->
     <TextView
         android:id="@+id/employeeHistoryId"
         android:layout_width="240dp"
@@ -62,6 +52,7 @@
         app:layout_constraintTop_toTopOf="@+id/topView"
         app:layout_constraintVertical_bias="0.425" />
 
+    <!--ListView used to print all the working history of the employee -->
     <ListView
         android:id="@+id/historyList"
         android:layout_width="411dp"
@@ -74,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topView"
         app:layout_constraintVertical_bias="0.25" />
 
+    <!--Button used to changed the status of the employee: active or inactive -->
     <Button
         android:id="@+id/statusButton"
         android:layout_width="110dp"
@@ -87,6 +79,20 @@
         app:layout_constraintTop_toTopOf="@+id/bottomView"
         tools:ignore="TextContrastCheck" />
 
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
+    <View
+        android:id="@+id/bottomView"
+        android:layout_width="412dp"
+        android:layout_height="54dp"
+        android:background="#94AFB3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historyList"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--TextView used to display current status to make the purpose of the status button clearer -->
     <TextView
         android:id="@+id/currentStatus"
         android:layout_width="158dp"
@@ -102,5 +108,6 @@
         app:layout_constraintStart_toStartOf="@+id/bottomView"
         app:layout_constraintTop_toBottomOf="@+id/historyList"
         app:layout_constraintVertical_bias="0.875" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

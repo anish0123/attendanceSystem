@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         tools:context=".activity">
 
+        <!--TextView used for our title for the activity -->
         <TextView
             android:id="@+id/infoHead"
             android:layout_width="139dp"
@@ -27,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.018" />
 
+        <!--TextView for topic-->
         <TextView
             android:id="@+id/infoSignIn"
             android:layout_width="wrap_content"
@@ -41,6 +43,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.066" />
 
+        <!--ImageView for screenshot of our main activity-->
         <ImageView
             android:id="@+id/mainPage_image"
             android:layout_width="218dp"
@@ -53,6 +56,7 @@
             app:layout_constraintVertical_bias="0.027"
             app:srcCompat="@drawable/main_page" />
 
+        <!--TextView for some info about mainActivity -->
         <TextView
             android:id="@+id/statement_signIn"
             android:layout_width="346dp"
@@ -67,6 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mainPage_image"
             app:layout_constraintVertical_bias="0.012" />
 
+        <!--TextView for the topic -->
         <TextView
             android:id="@+id/logIn_info"
             android:layout_width="143dp"
@@ -80,6 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/statement_signIn"
             app:layout_constraintVertical_bias="0.013" />
 
+        <!--ImageView for screenshot of our employeeWindow activity -->
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="218dp"
@@ -93,6 +99,7 @@
             app:layout_constraintVertical_bias="0.033"
             app:srcCompat="@drawable/employeepage" />
 
+        <!--LinearLayout and textViews are used for displaying info about employeeWindow activity -->
         <LinearLayout
             android:layout_width="352dp"
             android:layout_height="123dp"
