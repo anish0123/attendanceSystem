@@ -7,14 +7,17 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/**
+ * This interface is created to get data about employeee from database through the queries created in this interface
+ */
 @Dao
 public interface EmployeeDao {
 
     @Insert
-    public void insert(Employee employee);
+    void insert(Employee employee);
 
     @Update
-    public void update(Employee employee);
+    void update(Employee employee);
 
     @Query("Delete FROM employee where employeeId= :employeeId ")
     void deleteEmployee(String employeeId);

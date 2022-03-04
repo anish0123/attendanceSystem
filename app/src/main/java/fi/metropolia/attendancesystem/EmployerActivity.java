@@ -17,6 +17,9 @@ import java.util.List;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
+/**
+ * This class is created for the activity where the employer can add employees in the database and see the list of employees.
+ */
 public class EmployerActivity extends AppCompatActivity {
     public static final String EMPLOYEE_ID = "employee_ID";
     private AppDataBase database;

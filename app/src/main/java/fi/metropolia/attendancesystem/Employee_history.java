@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 
+/**
+ * This class is created for the activity where the employee can check their working history.
+ */
 public class Employee_history extends AppCompatActivity {
     private AppDataBase dataBase;
 

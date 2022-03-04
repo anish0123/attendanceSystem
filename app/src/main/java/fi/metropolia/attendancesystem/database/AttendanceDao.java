@@ -8,6 +8,9 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/**
+ * The interface is created to get data from database about employee attendance through the queries created in this interface
+ */
 @Dao
 public interface AttendanceDao {
 

@@ -11,6 +11,9 @@ import android.widget.Toast;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
+/**
+ * This class is created for the activity to add supervisor/manager in the database and application.
+ */
 public class AddSuperVisor extends AppCompatActivity {
     private AppDataBase database;
 

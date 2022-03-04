@@ -18,6 +18,10 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
+/**
+ * This class is created for the activity in which employee can see the working history of the employee
+ * The employer can also make employee account inactive so employee won't be able to log in for recording the attendance
+ */
 public class EmployerViewHistory extends AppCompatActivity {
     private AppDataBase database;
     public static final String EMPLOYEEID = "employeeId";

@@ -16,6 +16,9 @@ import java.util.concurrent.TimeUnit;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
+/**
+ * This class is created for the activity where employer can edit the time of the employees
+ */
 public class EmployerEdit extends AppCompatActivity {
     public final static String TAG = "employerEdit";
     private AppDataBase database;

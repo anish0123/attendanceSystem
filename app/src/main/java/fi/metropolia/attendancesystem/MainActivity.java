@@ -12,7 +12,10 @@ import android.widget.Toast;
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
-
+/**
+ * The class is created for the main activity when employees and employer can log in to their account.
+ * Employer can sign up for the first time or add other employer later in this activity.
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static final String EMPLOYEE_LOGIN = "employee_login";

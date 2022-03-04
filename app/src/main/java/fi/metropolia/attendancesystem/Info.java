@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+/**
+ * This class is created for the activity where employee can check for info about how to use the app
+ */
+
 public class Info extends AppCompatActivity {
 
     @Override

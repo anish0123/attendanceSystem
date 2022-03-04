@@ -24,6 +24,9 @@ import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 
+/**
+ * This class is created for the activity where employee can checkIn and checkOut their working time
+ */
 public class EmployeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
