@@ -11,8 +11,6 @@
     tools:context=".EmployerActivity">
 
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
-
-    <!--TextView used for displaying employer details -->
     <View
         android:id="@+id/welcomeView"
         android:layout_width="match_parent"
@@ -24,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!--TextView used for displaying employer details -->
     <TextView
         android:id="@+id/welcomeBoss"
         android:layout_width="wrap_content"
@@ -52,13 +51,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--LinearLayout used for keeping editTexts together -->
-
-    <!--ImageButton used for submitting the details of new ID -->
-
-    <!--ListView used to print the list of all the employees and employer too -->
-
-    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="273dp"
@@ -71,11 +63,6 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeView">
 
         <!--EditText for inserting new employee name -->
-
-        <!--EditText for inserting new employee password -->
-
-        <!--EditText for inserting new employee ID -->
-
         <EditText
             android:id="@+id/etEmployeeName"
             android:layout_width="match_parent"
@@ -87,6 +74,7 @@
             android:minHeight="48dp"
             android:textColorHint="#757575" />
 
+        <!--EditText for inserting new employee password -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -98,6 +86,7 @@
             android:minHeight="48dp"
             android:textColorHint="#757575" />
 
+        <!--EditText for inserting new employee ID -->
         <EditText
             android:id="@+id/etEmployeeId"
             android:layout_width="match_parent"
@@ -111,27 +100,24 @@
 
     </LinearLayout>
 
+    <!--ImageButton used for submitting the details of new ID -->
     <ImageButton
         android:id="@+id/addBtn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="76dp"
         android:layout_height="48dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="86dp"
+
         android:contentDescription="@string/add"
-<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/lvEmployee"
-=======
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
->>>>>>> d618c661ffedff5b3b360ae4cbb1947f9b815cc4
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeView"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/logOutBtn"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/addusermale"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
+    <!--ListView used to print the list of all the employees and employer too -->
     <ListView
         android:id="@+id/lvEmployee"
         android:layout_width="386dp"
@@ -146,10 +132,9 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="NestedScrolling">
-
-
     </ListView>
 
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/bottomView"
         android:layout_width="420dp"
