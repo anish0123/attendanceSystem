@@ -60,8 +60,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="240dp"
-        android:layout_height="149dp"
+        android:layout_width="273dp"
+        android:layout_height="140dp"
         android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,18 +73,8 @@
 
         <!--EditText for inserting new employee password -->
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/password_employerPage"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:textColorHint="#757575" />
-
         <!--EditText for inserting new employee ID -->
+
         <EditText
             android:id="@+id/etEmployeeName"
             android:layout_width="match_parent"
@@ -97,9 +87,20 @@
             android:textColorHint="#757575" />
 
         <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/password_employerPage"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+        <EditText
             android:id="@+id/etEmployeeId"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="48dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/employeeId_employerPage"
