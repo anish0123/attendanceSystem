@@ -1,7 +1,6 @@
 package fi.metropolia.attendancesystem.database;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -14,7 +13,9 @@ import androidx.room.RoomDatabase;
 public abstract class AppDataBase extends RoomDatabase {
     //Defining fields of the class
     public abstract EmployeeDao employeeDao();
+
     public abstract AttendanceDao attendanceDao();
+
     private static final String DB_NAME = "app_database.db";
     private static AppDataBase instance;
 

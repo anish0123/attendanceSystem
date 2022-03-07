@@ -12,8 +12,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 

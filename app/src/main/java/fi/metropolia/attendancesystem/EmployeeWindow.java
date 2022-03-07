@@ -32,7 +32,6 @@ public class EmployeeWindow extends AppCompatActivity {
     private AppDataBase database;
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
-    public static final String TAG ="test";
 
 
     @Override
@@ -107,9 +106,9 @@ public class EmployeeWindow extends AppCompatActivity {
         String formatted = dateFormat(System.currentTimeMillis());
         //Calling for checkIn time for finding out duration between checkIn and checkOut Time
         long checkInTime = convertToEpoch(employeeAttendance.getCheckInTime());
-        long duration = System.currentTimeMillis()-checkInTime;
+        long duration = System.currentTimeMillis() - checkInTime;
         //If-else statement for checking it the input is null
-        if(employeeAttendance.getCheckOutTime().equals("")) {
+        if (employeeAttendance.getCheckOutTime().equals("")) {
             database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
             database.attendanceDao().updateDuration(getDuration(duration), id, employeesWindow);
             checkInDisplay.setText(getString(R.string.checkedOutAt, formatted, getDuration(duration)));
@@ -119,7 +118,7 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method of opening the employee history activity when the viewHistory button is clicked
      */
-    private void historyButtonClick(){
+    private void historyButtonClick() {
         Intent intent = getIntent();
         String employeeName = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         String employeeId = intent.getStringExtra(MainActivity.EMPLOYEE_ID);
@@ -130,8 +129,9 @@ public class EmployeeWindow extends AppCompatActivity {
     }
 
     /**
-     *Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
-     * @see  <a href="https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds">postDelay</a>
+     * Method onPause is called so that when employee activity is on pause for 60 seconds it goes back to main activity
+     *
+     * @see <a href="https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds">postDelay</a>
      */
     @Override
     protected void onPause() {
@@ -144,19 +144,20 @@ public class EmployeeWindow extends AppCompatActivity {
     /**
      * Method for going back to main activity
      */
-    private void backToMain(){
-        Intent mainActivity = new Intent(this,MainActivity.class);
+    private void backToMain() {
+        Intent mainActivity = new Intent(this, MainActivity.class);
 
         startActivity(mainActivity);
     }
 
     /**
      * Method for formatting the checkIn and checkOut time
-     * @see <a href ="https://stackoverflow.com/questions/7740972/convert-epoch-time-to-date"> Date formatting</a>
+     *
      * @param epochTime time in milli seconds
      * @return time in locale.Uk date format ("dd/MM/yyyy HH:mm:ss")
+     * @see <a href ="https://stackoverflow.com/questions/7740972/convert-epoch-time-to-date"> Date formatting</a>
      */
-    public String dateFormat (long epochTime) {
+    public String dateFormat(long epochTime) {
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         format.setTimeZone(TimeZone.getTimeZone("EET"));
         return format.format(epochTime);
@@ -164,11 +165,12 @@ public class EmployeeWindow extends AppCompatActivity {
 
     /**
      * changing String date format into epoch time format)
+     *
      * @param changeDate date in String format ("dd/MM/yyyy HH:mm:ss", Locale.UK)
      * @return epoch time in milliseconds
      * @see <a href ="https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position.">String date format into epoch</a>
      */
-    public long convertToEpoch (String changeDate) {
+    public long convertToEpoch(String changeDate) {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.UK);
         Date date = null;
         try {
@@ -184,12 +186,13 @@ public class EmployeeWindow extends AppCompatActivity {
 
     /**
      * Convert milliseconds into String format (HH hours mm minutes ss seconds)
-     * @param millis  milliseconds that needs to be converted into String
+     *
+     * @param millis milliseconds that needs to be converted into String
      * @return duration in String format (HH hours mm minutes ss seconds)
      * @see <a href = "https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java">Convert epoch times into String</a>
      */
     public String getDuration(long millis) {
-        if(millis < 0) {
+        if (millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
 
@@ -198,9 +201,8 @@ public class EmployeeWindow extends AppCompatActivity {
         long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
         millis -= TimeUnit.MINUTES.toMillis(minutes);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
-       return getString(R.string.duration,hours,minutes,seconds);
+        return getString(R.string.duration, hours, minutes, seconds);
     }
-
 
 
     /**

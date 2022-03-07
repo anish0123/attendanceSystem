@@ -50,7 +50,7 @@ public class EmployerEdit extends AppCompatActivity {
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
-        deleteBtn.setOnClickListener(view -> deleteEmployeeAttendanceAbsent());
+        deleteBtn.setOnClickListener(view -> deleteEmployeeAttendance());
     }
 
     /**
@@ -87,7 +87,7 @@ public class EmployerEdit extends AppCompatActivity {
     /**
      * Method for updating employee attendance as absent if employee was not present but had checkIn and checkOut time.
      */
-    private void deleteEmployeeAttendanceAbsent() {
+    private void deleteEmployeeAttendance() {
         database.attendanceDao().delete(database.attendanceDao().getByAttendanceId(attendanceId));
         this.finish();
 
@@ -105,19 +105,20 @@ public class EmployerEdit extends AppCompatActivity {
         long checkOutTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckOutTime());
         long durationTime = checkOutTime - checkInTime;
         String duration = getDuration(durationTime);
-        database.attendanceDao().updateDuration(duration,attendanceId,employeeId);
+        database.attendanceDao().updateDuration(duration, attendanceId, employeeId);
         this.finish();
 
     }
 
     /**
      * Convert milliseconds into String format (HH hours mm minutes ss seconds)
-     * @param millis  milliseconds that needs to be converted into String
+     *
+     * @param millis milliseconds that needs to be converted into String
      * @return duration in String format (HH hours mm minutes ss seconds)
      * @see <a href = "https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java">Convert epoch times into String</a>
      */
     public String getDuration(long millis) {
-        if(millis < 0) {
+        if (millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
 
@@ -126,7 +127,7 @@ public class EmployerEdit extends AppCompatActivity {
         long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
         millis -= TimeUnit.MINUTES.toMillis(minutes);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
-        return getString(R.string.duration,hours,minutes,seconds);
+        return getString(R.string.duration, hours, minutes, seconds);
     }
 
 }

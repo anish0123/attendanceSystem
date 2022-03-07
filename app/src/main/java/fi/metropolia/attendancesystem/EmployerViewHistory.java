@@ -55,7 +55,7 @@ public class EmployerViewHistory extends AppCompatActivity {
         employeeId = intent.getStringExtra(EmployerActivity.EMPLOYEE_ID);
         //Introduced employee for getting the details of the employee.
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
-        detailView.setText(getString(R.string.displayDetail,employee.getName(),employee.getEmployeeId(),employee.getRole()));
+        detailView.setText(getString(R.string.displayDetail, employee.getName(), employee.getEmployeeId(), employee.getRole()));
         //Introduced ListView for displaying the work history of employee
         ListView historyList = findViewById(R.id.historyList);
         historyList.setAdapter(new ArrayAdapter<>(
@@ -103,19 +103,19 @@ public class EmployerViewHistory extends AppCompatActivity {
      * Method for changing the status of the employee. If the status of the employee is inactive, employee wont be able to login
      */
 
-    public void statusChange(){
-        Button statusButton =findViewById(R.id.statusButton);
+    private void statusChange() {
+        Button statusButton = findViewById(R.id.statusButton);
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
         statusButton.setText(employee.getStatus());
-        Log.d("Status",employee.getStatus());
+        Log.d("Status", employee.getStatus());
         //IF-else statement for checking status of the employee
-        if(employee.getStatus().equals(getString(R.string.active))){
-            database.employeeDao().updateEmployee(employeeId,getString(R.string.inactive));
+        if (employee.getStatus().equals(getString(R.string.active))) {
+            database.employeeDao().updateEmployee(employeeId, getString(R.string.inactive));
             statusButton.setText(R.string.inactive);
             Toast.makeText(this, " Employee Inactive ", Toast.LENGTH_SHORT).show();
 
-        }else if(employee.getStatus().equals(getString(R.string.inactive))){
-            database.employeeDao().updateEmployee(employeeId,getString(R.string.active));
+        } else if (employee.getStatus().equals(getString(R.string.inactive))) {
+            database.employeeDao().updateEmployee(employeeId, getString(R.string.active));
             Toast.makeText(this, " Employee active ", Toast.LENGTH_SHORT).show();
             statusButton.setText(R.string.active);
         }

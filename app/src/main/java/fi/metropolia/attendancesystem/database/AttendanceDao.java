@@ -15,28 +15,28 @@ import java.util.List;
 public interface AttendanceDao {
 
     @Insert
-     long insertTime(EmployeeAttendance employeeAttendance);
+    long insertTime(EmployeeAttendance employeeAttendance);
 
     @Update
-     void update(EmployeeAttendance employeeAttendance);
+    void update(EmployeeAttendance employeeAttendance);
 
     @Delete
-     void delete(EmployeeAttendance employeeAttendance);
+    void delete(EmployeeAttendance employeeAttendance);
 
     @Query("SELECT * FROM employee WHERE employeeId = :employeeId")
-     ListOfAttendance getAttendance(String employeeId);
+    ListOfAttendance getAttendance(String employeeId);
 
     @Query("SELECT * FROM employeeattendance Where attendanceId = :attendanceId")
-     EmployeeAttendance getByAttendanceId(long attendanceId);
+    EmployeeAttendance getByAttendanceId(long attendanceId);
 
     @Query("Update EmployeeAttendance Set checkOutTime= :checkOutTime where attendanceId= :attendanceId and employeeId= :employeeId")
-     void updateCheckOutTime(String checkOutTime, long attendanceId, String employeeId);
+    void updateCheckOutTime(String checkOutTime, long attendanceId, String employeeId);
 
     @Query("Select * From employeeattendance where employeeId= :employeeId Order By attendanceId DESC")
-     List<EmployeeAttendance> getAllAttendance(String employeeId);
+    List<EmployeeAttendance> getAllAttendance(String employeeId);
 
     @Query("Update EmployeeAttendance Set checkInTime= :checkInTime  where attendanceId= :attendanceId and employeeId= :employeeId")
-     void updateCheckInTime(String checkInTime, long attendanceId, String employeeId);
+    void updateCheckInTime(String checkInTime, long attendanceId, String employeeId);
 
     @Query("Update EmployeeAttendance Set timeDuration =:timeDuration where attendanceId= :attendanceId and employeeId= :employeeId")
     void updateDuration(String timeDuration, long attendanceId, String employeeId);

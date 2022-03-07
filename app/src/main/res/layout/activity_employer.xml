@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:fillViewport="true"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".EmployerActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployerActivity">
 
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
 
@@ -40,10 +40,11 @@
     <!--Button used for signing out -->
     <Button
         android:id="@+id/logOutBtn"
-        android:background="@drawable/round_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_buttons"
         android:text="@string/sign_out"
+        android:textColor="#81D4FA"
         app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.72"
@@ -117,8 +118,13 @@
         android:layout_height="48dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="112dp"
         android:contentDescription="@string/add"
+<<<<<<< HEAD
+        app:layout_constraintBottom_toTopOf="@+id/lvEmployee"
+=======
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+>>>>>>> d618c661ffedff5b3b360ae4cbb1947f9b815cc4
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/welcomeView"
