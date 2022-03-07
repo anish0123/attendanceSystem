@@ -11,20 +11,19 @@
     tools:context=".EmployerActivity">
 
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
+
+    <!--TextView used for displaying employer details -->
     <View
         android:id="@+id/welcomeView"
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:layout_marginEnd="1dp"
         android:background="#94AFB3"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089999974" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!--TextView used for displaying employer details -->
     <TextView
         android:id="@+id/welcomeBoss"
         android:layout_width="wrap_content"
@@ -53,29 +52,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--LinearLayout used for keeping editTexts together -->
+
+    <!--ImageButton used for submitting the details of new ID -->
+
+    <!--ListView used to print the list of all the employees and employer too -->
+
+    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="217dp"
-        android:layout_height="160dp"
+        android:layout_width="240dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeView">
 
         <!--EditText for inserting new employee name -->
-        <EditText
-            android:id="@+id/etEmployeeName"
-            android:layout_width="213dp"
-            android:layout_height="50dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/employee_name_employerPage"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:textColorHint="#757575" />
 
         <!--EditText for inserting new employee password -->
+
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="wrap_content"
@@ -89,6 +87,17 @@
 
         <!--EditText for inserting new employee ID -->
         <EditText
+            android:id="@+id/etEmployeeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/employee_name_employerPage"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+        <EditText
             android:id="@+id/etEmployeeId"
             android:layout_width="match_parent"
             android:layout_height="62dp"
@@ -101,52 +110,55 @@
 
     </LinearLayout>
 
-    <!--ImageButton used for submitting the details of new ID -->
     <ImageButton
         android:id="@+id/addBtn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="76dp"
         android:layout_height="48dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="112dp"
         android:contentDescription="@string/add"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/lvEmployee"
+=======
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+>>>>>>> d618c661ffedff5b3b360ae4cbb1947f9b815cc4
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/welcomeView"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/addusermale"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
-    <!--ListView used to print the list of all the employees and employer too -->
     <ListView
         android:id="@+id/lvEmployee"
-        android:layout_width="403dp"
-        android:layout_height="223dp"
+        android:layout_width="386dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.301"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="NestedScrolling">
 
 
     </ListView>
 
-    <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/bottomView"
-        android:layout_width="417dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="420dp"
+        android:layout_height="54dp"
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvEmployee"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeView"
         app:layout_constraintVertical_bias="1.0" />
 
 
