@@ -17,6 +17,9 @@ public class Employee {
     private String name;
     private String password;
     private String role;
+    /**
+     * Id of the latest attendance of the employee. It is used to save the latest attendance ID which will be later used for inserting checkOut time
+     */
     private long attendanceId;
 
     /**
@@ -152,6 +155,6 @@ public class Employee {
      */
     @Override
     public String toString() {
-        return name + "  " + employeeId + "  " + "(" + role + ") Status: " + status+"("+password+")";
+        return name + "  " + employeeId + "  " + "(" + role + ") Status: " + status + "(" + password + ")";
     }
 }

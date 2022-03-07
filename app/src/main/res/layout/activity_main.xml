@@ -134,7 +134,6 @@
         tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck" />
 
 
-
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/bottomView"
