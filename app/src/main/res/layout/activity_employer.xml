@@ -90,7 +90,7 @@
         <EditText
             android:id="@+id/etEmployeeId"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/employeeId_employerPage"
@@ -107,7 +107,6 @@
         android:layout_width="76dp"
         android:layout_height="48dp"
         android:layout_marginBottom="86dp"
-
         android:contentDescription="@string/add"
         app:layout_constraintBottom_toTopOf="@+id/lvEmployee"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,8 +119,8 @@
     <!--ListView used to print the list of all the employees and employer too -->
     <ListView
         android:id="@+id/lvEmployee"
-        android:layout_width="386dp"
-        android:layout_height="220dp"
+        android:layout_width="400dp"
+        android:layout_height="324dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="4dp"
@@ -131,8 +130,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="NestedScrolling">
-    </ListView>
+        tools:ignore="NestedScrolling"/>
 
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
