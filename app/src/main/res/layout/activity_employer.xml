@@ -43,18 +43,18 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_buttons"
         android:text="@string/sign_out"
-        android:textColor="#81D4FA"
         app:layout_constraintBottom_toBottomOf="@+id/welcomeView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toEndOf="@+id/welcomeBoss"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <!--LinearLayout used for keeping editTexts together -->
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="273dp"
-        android:layout_height="140dp"
+        android:layout_width="276dp"
+        android:layout_height="149dp"
         android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
