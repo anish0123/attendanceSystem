@@ -16,7 +16,7 @@ import androidx.room.ForeignKey;
         childColumns = "employeeId"
 ))
 public class EmployeeAttendance {
-
+    //Defining fields of the class
     @PrimaryKey(autoGenerate = true)
     private long attendanceId;
     private String employeeId;

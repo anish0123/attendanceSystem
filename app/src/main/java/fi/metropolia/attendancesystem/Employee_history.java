@@ -39,6 +39,7 @@ public class Employee_history extends AppCompatActivity {
         String employeeDetail = intent.getStringExtra(EmployeeWindow.EMPLOYEE_DETAIL);
         textView.setText(employeeDetail);
         ListView listView = findViewById(R.id.historyList);
+        //Displaying the list of all the attendance of the employee
         listView.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,

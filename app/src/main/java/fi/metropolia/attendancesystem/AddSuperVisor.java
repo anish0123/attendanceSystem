@@ -38,6 +38,7 @@ public class AddSuperVisor extends AppCompatActivity {
         String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
         String uniqueToken = ((EditText) findViewById(R.id.uniqueToken)).getText().toString();
+        //If-else statement for checking mull input and adding supervisor if the unique token matches
         if (newEmployeeId.equals("") || newEmployeeName.equals("") || newEmployeePassword.equals("")) {
             Toast.makeText(this, "Required fields empty", Toast.LENGTH_SHORT).show();
         } else {
@@ -60,6 +61,7 @@ public class AddSuperVisor extends AppCompatActivity {
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
 
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
+        //If-else statement for checking if the employeeId already exists or not
         if (employee != null) {
             Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
         } else {

@@ -63,7 +63,7 @@ public class EmployeeWindow extends AppCompatActivity {
      */
     private void submitButtonClick() {
         RadioGroup checkInRG = findViewById(R.id.checkRadioGroup);
-
+        //If-else statement for checking which radiobutton has been clicked
         if (checkInRG.getCheckedRadioButtonId() == R.id.checkInRadio) {
             checkInButtonClick();
         }
@@ -108,7 +108,7 @@ public class EmployeeWindow extends AppCompatActivity {
         //Calling for checkIn time for finding out duration between checkIn and checkOut Time
         long checkInTime = convertToEpoch(employeeAttendance.getCheckInTime());
         long duration = System.currentTimeMillis()-checkInTime;
-
+        //If-else statement for checking it the input is null
         if(employeeAttendance.getCheckOutTime().equals("")) {
             database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
             database.attendanceDao().updateDuration(getDuration(duration), id, employeesWindow);

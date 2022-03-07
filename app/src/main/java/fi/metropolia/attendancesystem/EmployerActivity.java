@@ -28,9 +28,10 @@ public class EmployerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer);
+        //Getting the intent from the main activity
         Intent intent = getIntent();
         String welcomeMessage = intent.getStringExtra(MainActivity.EMPLOYER_LOGIN);
-
+        //Displaying the employer details in the textView
         TextView welcome = findViewById(R.id.welcomeBoss);
         welcome.setText(welcomeMessage);
 
@@ -73,6 +74,7 @@ public class EmployerActivity extends AppCompatActivity {
     private void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.etEmployeeId)).getText().toString();
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
+        //If-else statement for checking if the employee id already exists
         if (employee != null) {
             Toast.makeText(this, "Employee Id exists", Toast.LENGTH_SHORT).show();
         } else {
@@ -87,14 +89,13 @@ public class EmployerActivity extends AppCompatActivity {
     private void updateUI() {
         //Introducing listview for displaying all the employees
         ListView lvList = findViewById(R.id.lvEmployee);
+        //Displaying the list of all the employees on the listView
         lvList.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 database.employeeDao().getAll()
         ));
-
         //setup the click listener so when employee name is clicked the work history opens up.
-        //lvList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
         lvList.setOnItemClickListener((adapterView, view, i, l) -> startActivityEmployeeHistory(((Employee) lvList.getItemAtPosition(i)).getEmployeeId()));
 
     }

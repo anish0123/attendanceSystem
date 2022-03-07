@@ -9,9 +9,9 @@ import androidx.room.PrimaryKey;
  */
 @Entity
 public class Employee {
+    //Defining fields of the class
     @PrimaryKey
     @NonNull
-
     private String employeeId;
     private String status;
     private String name;

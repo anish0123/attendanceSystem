@@ -12,12 +12,9 @@ import androidx.room.RoomDatabase;
  */
 @Database(entities = {Employee.class, EmployeeAttendance.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
-    public static final String TAG = "DATABASE";
-
+    //Defining fields of the class
     public abstract EmployeeDao employeeDao();
-
     public abstract AttendanceDao attendanceDao();
-
     private static final String DB_NAME = "app_database.db";
     private static AppDataBase instance;
 
@@ -41,7 +38,6 @@ public abstract class AppDataBase extends RoomDatabase {
      * @return room database
      */
     private static AppDataBase create(Context context) {
-        Log.d(TAG, "only one instance created?");
         return Room.databaseBuilder(context, AppDataBase.class, DB_NAME)
                 //for letting app to run in background
                 .allowMainThreadQueries()

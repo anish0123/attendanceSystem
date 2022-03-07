@@ -108,6 +108,7 @@ public class EmployerViewHistory extends AppCompatActivity {
         Employee employee = database.employeeDao().getByEmployeeId(employeeId);
         statusButton.setText(employee.getStatus());
         Log.d("Status",employee.getStatus());
+        //IF-else statement for checking status of the employee
         if(employee.getStatus().equals(getString(R.string.active))){
             database.employeeDao().updateEmployee(employeeId,getString(R.string.inactive));
             statusButton.setText(R.string.inactive);

@@ -20,7 +20,6 @@ import fi.metropolia.attendancesystem.database.EmployeeAttendance;
  * This class is created for the activity where employer can edit the time of the employees
  */
 public class EmployerEdit extends AppCompatActivity {
-    public final static String TAG = "employerEdit";
     private AppDataBase database;
     long attendanceId;
     String employeeId;
@@ -47,11 +46,11 @@ public class EmployerEdit extends AppCompatActivity {
         //Buttons are introduced for editing the checkIn and checkOut time and closing the popup
         Button editBtn = findViewById(R.id.editButton);
         Button cancelBtn = findViewById(R.id.cancelButton);
-        Button absentBtn = findViewById(R.id.absentButton);
+        Button deleteBtn = findViewById(R.id.deleteButton);
 
         editBtn.setOnClickListener(view -> editClick());
         cancelBtn.setOnClickListener(view -> this.finish());
-        absentBtn.setOnClickListener(view -> makeEmployeeAttendanceAbsent());
+        deleteBtn.setOnClickListener(view -> deleteEmployeeAttendanceAbsent());
     }
 
     /**
@@ -88,9 +87,8 @@ public class EmployerEdit extends AppCompatActivity {
     /**
      * Method for updating employee attendance as absent if employee was not present but had checkIn and checkOut time.
      */
-    private void makeEmployeeAttendanceAbsent() {
-        database.attendanceDao().updateCheckInTime(getString(R.string.absent), attendanceId, employeeId);
-        database.attendanceDao().updateCheckOutTime(getString(R.string.absent), attendanceId, employeeId);
+    private void deleteEmployeeAttendanceAbsent() {
+        database.attendanceDao().delete(database.attendanceDao().getByAttendanceId(attendanceId));
         this.finish();
 
     }
@@ -102,6 +100,7 @@ public class EmployerEdit extends AppCompatActivity {
     private void calculateDifference() {
         EmployeeWindow employeeWindow = new EmployeeWindow();
         EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
+        //Converting checkIn and checkOut time into epoch for calculating the difference
         long checkInTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckInTime());
         long checkOutTime = employeeWindow.convertToEpoch(employeeAttendance.getCheckOutTime());
         long durationTime = checkOutTime - checkInTime;

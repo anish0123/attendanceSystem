@@ -9,6 +9,7 @@ import java.util.List;
  * The class is created to get the list of all the attendance and connect two tables from database.
  */
 public class ListOfAttendance {
+    //Defining fields of the class
     @Embedded
     private Employee employee;
 

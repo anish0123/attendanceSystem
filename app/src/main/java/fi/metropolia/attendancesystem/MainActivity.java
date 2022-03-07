@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         String employeeId = ((EditText) findViewById(R.id.userIdText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         TextView errorTextView = findViewById(R.id.errorText);
+        //If-else statement for checking if the input is empty
         if (employeeId.equals("") || password.equals("")) {
             errorTextView.setText(R.string.empty_field_message);
         } else {
