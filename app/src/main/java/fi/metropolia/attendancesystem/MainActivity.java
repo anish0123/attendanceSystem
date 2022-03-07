@@ -1,13 +1,13 @@
 package fi.metropolia.attendancesystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
@@ -17,7 +17,7 @@ import fi.metropolia.attendancesystem.database.Employee;
  * Employer can sign up for the first time or add other employer later in this activity.
  */
 public class MainActivity extends AppCompatActivity {
-
+    //Defining strings to put it in as extras in intent
     public static final String EMPLOYEE_LOGIN = "employee_login";
     public static final String EMPLOYEE_ID = "employee_id";
     public static final String EMPLOYER_LOGIN = "employer_login";
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * checks employeeID & password from database and logIn to respective activity for employee and employer based on roles mentioned on the database
+     * Method that checks employeeID and password from database and logIn to respective activity for employee and employer based on roles mentioned on the database
      * If the employee is inactive, employee won't be able to log in.
      */
 

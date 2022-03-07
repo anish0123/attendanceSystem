@@ -55,7 +55,7 @@
     <!--ListView used to print all the working history of the employee -->
     <ListView
         android:id="@+id/historyList"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="493dp"
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,8 +68,8 @@
     <!--Button used to changed the status of the employee: active or inactive -->
     <Button
         android:id="@+id/statusButton"
-        android:layout_width="110dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_buttons"
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
@@ -82,7 +82,7 @@
     <!-- View used for UI to app some gap between screen and activity to make activity look clean -->
     <View
         android:id="@+id/bottomView"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
         android:background="#94AFB3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -95,8 +95,8 @@
     <!--TextView used to display current status to make the purpose of the status button clearer -->
     <TextView
         android:id="@+id/currentStatus"
-        android:layout_width="158dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/current_status"
@@ -104,10 +104,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottomView"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/bottomView"
         app:layout_constraintTop_toBottomOf="@+id/historyList"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.85" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

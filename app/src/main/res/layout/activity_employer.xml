@@ -53,8 +53,8 @@
     <!--LinearLayout used for keeping editTexts together -->
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="276dp"
-        android:layout_height="149dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"

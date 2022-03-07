@@ -1,12 +1,12 @@
 package fi.metropolia.attendancesystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
@@ -16,6 +16,7 @@ import fi.metropolia.attendancesystem.database.Employee;
  */
 public class AddSuperVisor extends AppCompatActivity {
     private AppDataBase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class AddSuperVisor extends AppCompatActivity {
      * Method to add superVisor and has a uniqueToken which only allows user to create new supervisor/manager
      */
     private void addButtonClick() {
+        //Introducing editTexts for taking in the inputs given by the user
         String newEmployeeName = ((EditText) findViewById(R.id.superVisorName)).getText().toString();
         String newEmployeePassword = ((EditText) findViewById(R.id.superVisorPassword)).getText().toString();
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
@@ -59,7 +61,6 @@ public class AddSuperVisor extends AppCompatActivity {
      */
     private void checkRedundancy() {
         String newEmployeeId = ((EditText) findViewById(R.id.superVisorId)).getText().toString();
-
         Employee employee = database.employeeDao().getByEmployeeId(newEmployeeId);
         //If-else statement for checking if the employeeId already exists or not
         if (employee != null) {

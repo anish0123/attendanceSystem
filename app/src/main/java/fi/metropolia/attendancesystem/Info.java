@@ -1,10 +1,9 @@
 package fi.metropolia.attendancesystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * This class is created for the activity where employee can check for info about how to use the app

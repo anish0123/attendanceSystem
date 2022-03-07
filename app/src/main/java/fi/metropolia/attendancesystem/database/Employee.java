@@ -40,7 +40,7 @@ public class Employee {
     }
 
     /**
-     * Method for getting attendanceId of the employee.
+     * Method for getting latest attendanceId of the employee.
      *
      * @return latest attendanceId
      */

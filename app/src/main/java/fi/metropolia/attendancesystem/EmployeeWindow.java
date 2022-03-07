@@ -1,16 +1,15 @@
 package fi.metropolia.attendancesystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -30,6 +29,7 @@ import fi.metropolia.attendancesystem.database.EmployeeAttendance;
 public class EmployeeWindow extends AppCompatActivity {
     final Handler handler = new Handler();
     private AppDataBase database;
+    //Defined strings to put it in intent as extra
     public static final String EMPLOYEE_ID_SEND = "employee_id";
     public static final String EMPLOYEE_DETAIL = "employee_detail";
 
@@ -137,7 +137,7 @@ public class EmployeeWindow extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        // got idea from this page https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds
+        // Credit: https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds
         handler.postDelayed(this::finish, 60000);
     }
 
@@ -146,7 +146,6 @@ public class EmployeeWindow extends AppCompatActivity {
      */
     private void backToMain() {
         Intent mainActivity = new Intent(this, MainActivity.class);
-
         startActivity(mainActivity);
     }
 

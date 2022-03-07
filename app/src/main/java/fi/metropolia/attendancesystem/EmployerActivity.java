@@ -1,7 +1,5 @@
 package fi.metropolia.attendancesystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -12,6 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import fi.metropolia.attendancesystem.database.AppDataBase;
 import fi.metropolia.attendancesystem.database.Employee;
 
@@ -19,6 +19,7 @@ import fi.metropolia.attendancesystem.database.Employee;
  * This class is created for the activity where the employer can add employees in the database and see the list of employees.
  */
 public class EmployerActivity extends AppCompatActivity {
+    //String defined for putting it as extra in intent
     public static final String EMPLOYEE_ID = "employee_ID";
     private AppDataBase database;
 

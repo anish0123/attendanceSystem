@@ -3,18 +3,20 @@ package fi.metropolia.attendancesystem.database;
 import static androidx.room.ForeignKey.CASCADE;
 
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-/**
- * This class is defined for recording employee attendance of each working employee in the database.
- */
+
 @Entity(foreignKeys = @ForeignKey(
         entity = Employee.class,
         onDelete = CASCADE,
         parentColumns = "employeeId",
         childColumns = "employeeId"
 ))
+
+/**
+ * This class is defined for recording employee attendance of each working employee in the database.
+ */
 public class EmployeeAttendance {
     //Defining fields of the class
     @PrimaryKey(autoGenerate = true)
@@ -118,11 +120,20 @@ public class EmployeeAttendance {
         this.employeeId = employeeId;
     }
 
-
+    /**
+     * Method for getting the time duration of an employee's attendance
+     *
+     * @return time duration between checkIn and checkOut time
+     */
     public String getTimeDuration() {
         return timeDuration;
     }
 
+    /**
+     * Method for setting the time duration of an employee's attendance
+     *
+     * @param timeDuration time duration between checkIn and checkOut time
+     */
     public void setTimeDuration(String timeDuration) {
         this.timeDuration = timeDuration;
     }

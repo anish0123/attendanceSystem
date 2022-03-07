@@ -12,11 +12,26 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Employee.class, EmployeeAttendance.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
     //Defining fields of the class
+
+    /**
+     * Interface that will connect employee table with activities
+     * @return employee
+     */
     public abstract EmployeeDao employeeDao();
 
+    /**
+     * Interface that will connect employeeAttendance table with activites
+     * @return employeeAttendance
+     */
     public abstract AttendanceDao attendanceDao();
 
+    /**
+     * name for the database as an String
+     */
     private static final String DB_NAME = "app_database.db";
+    /**
+     * Instance of the database
+     */
     private static AppDataBase instance;
 
     /**
