@@ -23,6 +23,7 @@ Project Creators:
 
 ## About the app
 
--This application is a stand alone application that implements room database for maintaining and storing employee's work attendance records.
--This application is easy to use,has a simple User Interface and takes less time to mark attendances and access the attendance records and makes changes when needed.The database is stored in a digital database (at target time for time being).
--Employer can signup for their account using the unique token number provided by the developers and then create employee's account. Employee's can login to the application using their employee ID and password provided by their employer and mark their attendance and view attendance history. Info button is available on the mainActivity which provides help for Employees in case they need some help and instructions on how to use application.Employer would be provided a documented test case which includes all the instructions for using application as both employee and employer.
+
+- This application is a stand alone application that implements room database for maintaining and storing employee's work attendance records
+- This application is easy to use,has a simple User Interface and takes less time to mark attendances and access the attendance records and makes changes when needed.The database is stored in a digital database (at target time for time being
+- Employer can signup for their account using the unique token number provided by the developers and then create employee's account. Employee's can login to the application using their employee ID and password provided by their employer and mark their attendance and view attendance history Info button is available on the mainActivity which provides help for Employees in case they need some help and instructions on how to use application.Employer would be provided a documented test case which includes all the instructions for using application as both employee and employer.
