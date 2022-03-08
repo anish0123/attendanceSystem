@@ -14,7 +14,7 @@ Project Creators:
 
 ## Credits
 
-- button credits [Icons8](https://icons8.com)
+- image button, image view and application icon credits [Icons8](https://icons8.com)
 - Epoch time to String Date Format Converter (dd/MM/yyyy HH:mm:
   ss) [Geeksforgeeks](https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position)
 - Epoch time to String time format (HH:mm:
