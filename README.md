@@ -19,6 +19,7 @@ Project Creators:
 - No action bar for the app[Stack Overflow ](https://stackoverflow.com/questions/26492522/how-do-i-remove-the-title-bar-from-my-app)
 - Popup Window (layout inflater) [youtube](https://www.youtube.com/watch?v=fn5OlqQuOCk)
 - rounded button [codegrepper](https://www.codegrepper.com/code-examples/whatever/how+to+make+round+buttons+in+android+studio)
+- Toast [Android developers](https://developer.android.com/reference/android/widget/Toast)
 
 
 ## About the app
