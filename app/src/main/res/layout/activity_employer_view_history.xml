@@ -24,6 +24,8 @@
 
 
     <!--Button used for signing out -->
+
+    <!--TextView used for displaying the employee details -->
     <Button
         android:id="@+id/signOut2"
         android:layout_width="wrap_content"
@@ -32,12 +34,12 @@
         android:text="@string/sign_out"
         app:layout_constraintBottom_toBottomOf="@+id/employeeHistoryId"
         app:layout_constraintEnd_toEndOf="@+id/topView"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/employeeHistoryId"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
-    <!--TextView used for displaying the employee details -->
     <TextView
         android:id="@+id/employeeHistoryId"
         android:layout_width="wrap_content"
@@ -68,8 +70,8 @@
     <!--Button used to changed the status of the employee: active or inactive -->
     <Button
         android:id="@+id/statusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="43dp"
         android:background="@drawable/round_buttons"
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
@@ -104,10 +106,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottomView"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="@+id/bottomView"
         app:layout_constraintTop_toBottomOf="@+id/historyList"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,22 +34,23 @@
         android:contentDescription="@string/app_name" />
 
     <!--TextView used to print our app's name -->
+
+    <!--TextView used to print info if there is problem with login -->
     <TextView
         android:id="@+id/attendanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_name"
         android:textColor="@color/navyBlue"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="@+id/topView"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.699"
         app:layout_constraintStart_toStartOf="@+id/topView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
+        app:layout_constraintVertical_bias="0.453" />
 
-    <!--TextView used to print info if there is problem with login -->
     <TextView
         android:id="@+id/errorText"
         android:layout_width="wrap_content"
@@ -64,6 +65,8 @@
         app:layout_constraintVertical_bias="0.215" />
 
     <!--Image Button used for the help which will take to info activity -->
+
+    <!--EditText for inserting employee ID -->
     <ImageButton
         android:id="@+id/infoButton"
         style="?android:attr/borderlessButtonStyle"
@@ -72,7 +75,7 @@
         android:contentDescription="@string/info_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.173"
@@ -80,7 +83,6 @@
         app:tint="@color/teal_700"
         tools:ignore="RedundantDescriptionCheck" />
 
-    <!--EditText for inserting employee ID -->
     <EditText
         android:id="@+id/userIdText"
         android:layout_width="wrap_content"
@@ -104,7 +106,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,8 +116,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userIdText"
         app:layout_constraintVertical_bias="0.128"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:importantForAutofill="no" />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <!--ImageButton used for logging in -->
     <!--- Credit: https://icons8.com/icons/set/log-in icon's source -->
@@ -174,9 +177,9 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
         app:layout_constraintEnd_toStartOf="@+id/addSuperVisorBtn"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="@+id/bottomView"
         app:layout_constraintTop_toBottomOf="@+id/logInButton"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.881" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
