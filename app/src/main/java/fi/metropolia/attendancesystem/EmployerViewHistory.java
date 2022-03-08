@@ -62,7 +62,7 @@ public class EmployerViewHistory extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 database.attendanceDao().getAllAttendance(employeeId)
         ));
-        historyList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistory(i)));
+        historyList.setOnItemClickListener(((adapterView, view, i, l) -> startActivityEmployeeHistoryEdit(i)));
     }
 
     /**
@@ -70,7 +70,7 @@ public class EmployerViewHistory extends AppCompatActivity {
      *
      * @param i the number for the clicked employee attendance from the listView.
      */
-    private void startActivityEmployeeHistory(int i) {
+    private void startActivityEmployeeHistoryEdit(int i) {
         Intent intent = new Intent(EmployerViewHistory.this, EmployerEdit.class);
         List<EmployeeAttendance> list = database.attendanceDao().getAllAttendance(employeeId);
         EmployeeAttendance employeeAttendance = list.get(i);
