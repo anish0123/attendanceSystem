@@ -20,7 +20,7 @@ public class Employee {
     /**
      * Id of the latest attendance of the employee. It is used to save the latest attendance ID which will be later used for inserting checkOut time
      */
-    private long attendanceId;
+    private long latestAttendanceId;
 
     /**
      * Constructor for getting an instance of employee class
@@ -44,17 +44,17 @@ public class Employee {
      *
      * @return latest attendanceId
      */
-    public long getAttendanceId() {
-        return attendanceId;
+    public long getLatestAttendanceId() {
+        return latestAttendanceId;
     }
 
     /**
      * Method for setting attendanceId of the employee.
      *
-     * @param attendanceId latest Attendance's Id
+     * @param latestAttendanceId latest Attendance's Id
      */
-    public void setAttendanceId(long attendanceId) {
-        this.attendanceId = attendanceId;
+    public void setLatestAttendanceId(long latestAttendanceId) {
+        this.latestAttendanceId = latestAttendanceId;
     }
 
     /**

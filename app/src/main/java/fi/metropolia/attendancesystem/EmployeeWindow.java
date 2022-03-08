@@ -100,13 +100,14 @@ public class EmployeeWindow extends AppCompatActivity {
         //Declared a employee so that we can get employee details through employee ID.
         Employee employee = database.employeeDao().getByEmployeeId(employeesWindow);
         // called get attendanceId for employee so that we can get the latest attendance Id for submitting checkOut.
-        long id = employee.getAttendanceId();
+        long id = employee.getLatestAttendanceId();
         EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(id);
         TextView checkInDisplay = findViewById(R.id.timeView);
-        String formatted = dateFormat(System.currentTimeMillis());
+        long checkOutTime = System.currentTimeMillis();
+        String formatted = dateFormat(checkOutTime);
         //Calling for checkIn time for finding out duration between checkIn and checkOut Time
         long checkInTime = convertToEpoch(employeeAttendance.getCheckInTime());
-        long duration = System.currentTimeMillis() - checkInTime;
+        long duration = checkOutTime - checkInTime;
         //If-else statement for checking it the input is null
         if (employeeAttendance.getCheckOutTime().equals("")) {
             database.attendanceDao().updateCheckOutTime(formatted, id, employeesWindow);
