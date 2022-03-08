@@ -52,8 +52,8 @@
     <!--TextView used to print info if there is problem with login -->
     <TextView
         android:id="@+id/errorText"
-        android:layout_width="221dp"
-        android:layout_height="68dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/errorText"
         android:textColor="@color/red"
         android:textSize="20sp"
@@ -83,8 +83,8 @@
     <!--EditText for inserting employee ID -->
     <EditText
         android:id="@+id/userIdText"
-        android:layout_width="237dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/userId"
@@ -100,8 +100,8 @@
     <!--EditText for inserting employee password  -->
     <EditText
         android:id="@+id/passwordText"
-        android:layout_width="239dp"
-        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -167,16 +167,16 @@
     <TextView
         android:id="@+id/employerSignUp"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="@string/signup_employer"
         android:textColor="#4E342E"
-        android:textStyle="italic"
         android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
         app:layout_constraintEnd_toStartOf="@+id/addSuperVisorBtn"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="@+id/bottomView"
         app:layout_constraintTop_toBottomOf="@+id/logInButton"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.882" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

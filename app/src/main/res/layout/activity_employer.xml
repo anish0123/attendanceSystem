@@ -119,7 +119,7 @@
     <!--ListView used to print the list of all the employees and employer too -->
     <ListView
         android:id="@+id/lvEmployee"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="324dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
