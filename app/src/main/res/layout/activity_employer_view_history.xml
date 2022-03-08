@@ -71,7 +71,7 @@
     <Button
         android:id="@+id/statusButton"
         android:layout_width="111dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_buttons"
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
