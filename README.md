@@ -7,9 +7,10 @@ Project Creators:
 - Asmita Shrestha
 - Anish Maharjan
 
-## documented test case
+## Documentation
 
-- documented test case [Google docs](https://docs.google.com/document/d/1IkTq5zSij1COSui_ePY5-4DntRlTK1di1K6NMn-NZzw/edit?usp=sharing)
+- Documented Test Case [Google docs](https://docs.google.com/document/d/1IkTq5zSij1COSui_ePY5-4DntRlTK1di1K6NMn-NZzw/edit?usp=sharing)
+- Javadoc [Javadoc](https://users.metropolia.fi/~anishm/Javadoc/index.html)
 
 ## Credits
 
