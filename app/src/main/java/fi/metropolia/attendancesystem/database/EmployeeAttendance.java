@@ -2,11 +2,14 @@ package fi.metropolia.attendancesystem.database;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-
+/**
+ * This class is defined for recording employee attendance of each working employee in the database.
+ */
 @Entity(foreignKeys = @ForeignKey(
         entity = Employee.class,
         onDelete = CASCADE,
@@ -14,9 +17,6 @@ import androidx.room.PrimaryKey;
         childColumns = "employeeId"
 ))
 
-/**
- * This class is defined for recording employee attendance of each working employee in the database.
- */
 public class EmployeeAttendance {
     //Defining fields of the class
     @PrimaryKey(autoGenerate = true)
@@ -143,6 +143,7 @@ public class EmployeeAttendance {
      *
      * @return checkIn time and checkOut time of the attendance in locale.Uk date format ("dd/MM/yyyy HH:mm:ss") and duration of total work hours
      */
+    @NonNull
     public String toString() {
         return "In: " + checkInTime + "   Out: " + checkOutTime + "\n \n Duration: " + timeDuration + "\n";
     }

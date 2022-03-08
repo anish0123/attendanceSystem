@@ -31,7 +31,7 @@ public class Employee {
      * @param role       Employee's role
      * @param status     Employee's status
      */
-    public Employee(String employeeId, String name, String password, String role, String status) {
+    public Employee(@NonNull String employeeId, String name, String password, String role, String status) {
         this.employeeId = employeeId;
         this.name = name;
         this.password = password;
@@ -62,6 +62,7 @@ public class Employee {
      *
      * @return EmployeeId of the employee
      */
+    @NonNull
     public String getEmployeeId() {
         return employeeId;
     }
@@ -71,7 +72,7 @@ public class Employee {
      *
      * @param employeeId Employee's Id
      */
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(@NonNull String employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -153,6 +154,7 @@ public class Employee {
      *
      * @return Employee's details: name, employeeId, role and status.
      */
+    @NonNull
     @Override
     public String toString() {
         return name + "  " + employeeId + "  " + "(" + role + ") Status: " + status + "(" + password + ")";
