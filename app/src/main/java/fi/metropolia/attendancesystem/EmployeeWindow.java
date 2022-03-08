@@ -38,7 +38,7 @@ public class EmployeeWindow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_window);
-        //Getting the intend and string from main activity.
+        //Getting the intent and string from main activity.
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EMPLOYEE_LOGIN);
         //Introducing the database
@@ -178,8 +178,7 @@ public class EmployeeWindow extends AppCompatActivity {
             e.printStackTrace();
         }
         assert date != null;
-        long epoch = date.getTime();
-        return epoch;
+        return date.getTime();
     }
 
 

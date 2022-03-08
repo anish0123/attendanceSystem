@@ -28,11 +28,13 @@ public class EmployerEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer_edit);
         database = AppDataBase.getInstance(getApplicationContext());
+        //Getting intent from EmployerViewHistory activity
         Intent intent = getIntent();
         attendanceId = intent.getLongExtra(EmployerViewHistory.ATTENDANCEID, 0);
         employeeId = intent.getStringExtra(EmployerViewHistory.EMPLOYEEID);
 
         //Introduces display metrics for the popup window
+        //Credit: https://www.youtube.com/watch?v=fn5OlqQuOCk
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
@@ -84,7 +86,7 @@ public class EmployerEdit extends AppCompatActivity {
     }
 
     /**
-     * Method for updating employee attendance as absent if employee was not present but had checkIn and checkOut time.
+     * Method for delete employee attendance if employee was not present but had checkIn and checkOut time.
      */
     private void deleteEmployeeAttendance() {
         database.attendanceDao().delete(database.attendanceDao().getByAttendanceId(attendanceId));

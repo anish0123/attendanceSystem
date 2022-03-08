@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Disable Physical back button
      * Avoids chances of moving back to signed it status after signOut button is Pressed
+     * @see <a href="https://developer.android.com/reference/android/widget/Toast">Toast</a>
      */
     @Override
     public void onBackPressed() {
