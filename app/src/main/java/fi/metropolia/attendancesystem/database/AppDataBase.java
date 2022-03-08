@@ -15,12 +15,14 @@ public abstract class AppDataBase extends RoomDatabase {
 
     /**
      * Interface that will connect employee table with activities
+     *
      * @return employee
      */
     public abstract EmployeeDao employeeDao();
 
     /**
-     * Interface that will connect employeeAttendance table with activites
+     * Interface that will connect employeeAttendance table with activities
+     *
      * @return employeeAttendance
      */
     public abstract AttendanceDao attendanceDao();
@@ -29,6 +31,7 @@ public abstract class AppDataBase extends RoomDatabase {
      * name for the database as an String
      */
     private static final String DB_NAME = "app_database.db";
+
     /**
      * Instance of the database
      */

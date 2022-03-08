@@ -23,6 +23,10 @@ public class EmployerEdit extends AppCompatActivity {
     long attendanceId;
     String employeeId;
 
+    /**
+     * Popup window is created in this onCreate method
+     * @see <a href="https://www.youtube.com/watch?v=fn5OlqQuOCk">Popup Window</a>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +101,6 @@ public class EmployerEdit extends AppCompatActivity {
     /**
      * Method for calculating difference between checkIn and checkOut time after editing the time
      */
-
     private void calculateDifference() {
         EmployeeWindow employeeWindow = new EmployeeWindow();
         EmployeeAttendance employeeAttendance = database.attendanceDao().getByAttendanceId(attendanceId);
