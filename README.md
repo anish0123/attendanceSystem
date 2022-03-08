@@ -17,3 +17,4 @@ Project Creators:
 - Timer on pause, if activity is onPause for more than 60 seconds goes back to
   mainActivity [Code Grepper](https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds)
 - No action bar for the app[Stack Overflow ](https://stackoverflow.com/questions/26492522/how-do-i-remove-the-title-bar-from-my-app)
+- Popup Window (layout inflater) [youtube](https://www.youtube.com/watch?v=fn5OlqQuOCk)
