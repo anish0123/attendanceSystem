@@ -11,24 +11,11 @@ Project Creators:
 
 - Documented Test Case [Google docs](https://docs.google.com/document/d/1IkTq5zSij1COSui_ePY5-4DntRlTK1di1K6NMn-NZzw/edit?usp=sharing)
 - Javadoc [Javadoc](https://users.metropolia.fi/~anishm/Javadoc/index.html)
+- UML Diagram [Diagram](https://app.diagrams.net/#G1DftdisWAuWz0lm8Mv8DIrr_ZBqSGIMyS)
 
-## Credits
-
-- image button, image view and application icon credits [Icons8](https://icons8.com)
-- Epoch time to String Date Format Converter (dd/MM/yyyy HH:mm:
-  ss) [Geeksforgeeks](https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position)
-- Epoch time to String time format (HH:mm:
-  ss) [Stack Overflow](https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java)
-- Timer on pause, if activity is onPause for more than 60 seconds goes back to
-  mainActivity [Code Grepper](https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds)
-- No action bar for the app[Stack Overflow ](https://stackoverflow.com/questions/26492522/how-do-i-remove-the-title-bar-from-my-app)
-- Popup Window (layout inflater) [youtube](https://www.youtube.com/watch?v=fn5OlqQuOCk)
-- rounded button [codegrepper](https://www.codegrepper.com/code-examples/whatever/how+to+make+round+buttons+in+android+studio)
-- Toast [Android developers](https://developer.android.com/reference/android/widget/Toast)
 
 
 ## About the app
-
 
 - This application is a stand alone application that implements room database for maintaining and storing employee's work attendance records.
 
@@ -45,4 +32,20 @@ Project Creators:
 
 ## UML Diagram
 <img src="/uploads/0485caf942ed386e8ac52d55e24e6713/uml_diagram_attendance_system.jpg">
+
+
+## Credits
+
+- image button, image view and application icon credits [Icons8](https://icons8.com)
+- Epoch time to String Date Format Converter (dd/MM/yyyy HH:mm:
+  ss) [Geeksforgeeks](https://www.geeksforgeeks.org/simpledateformat-parse-method-in-java-with-examples/#:~:text=The%20parse()%20Method%20of,given%20by%20a%20start%20position)
+- Epoch time to String time format (HH:mm:
+  ss) [Stack Overflow](https://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java)
+- Timer on pause, if activity is onPause for more than 60 seconds goes back to
+  mainActivity [Code Grepper](https://www.codegrepper.com/code-examples/java/android++delay+for+3+seconds)
+- No action bar for the app[Stack Overflow ](https://stackoverflow.com/questions/26492522/how-do-i-remove-the-title-bar-from-my-app)
+- Popup Window (layout inflater) [youtube](https://www.youtube.com/watch?v=fn5OlqQuOCk)
+- rounded button [codegrepper](https://www.codegrepper.com/code-examples/whatever/how+to+make+round+buttons+in+android+studio)
+- Toast [Android developers](https://developer.android.com/reference/android/widget/Toast)
+
 
