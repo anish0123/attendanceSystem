@@ -44,5 +44,5 @@ Project Creators:
 <img src="/uploads/5741da655d7865a63e7216b513d412d1/EmployerUI.jpg" height="1000">
 
 ## UML Diagram
-<img src="/uploads/0485caf942ed386e8ac52d55e24e6713/uml_diagram_attendance_system.jpg" height="1000">
+<img src="/uploads/0485caf942ed386e8ac52d55e24e6713/uml_diagram_attendance_system.jpg">
 
