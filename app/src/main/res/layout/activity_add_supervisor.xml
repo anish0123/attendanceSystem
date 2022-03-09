@@ -107,6 +107,7 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <!-- Image button used for submitting all the details -->
+    <!-- Source for imageButton: https://icons8.com/ -->
     <ImageButton
         android:id="@+id/addSuperVisorButton"
         style="?android:attr/borderlessButtonStyle"

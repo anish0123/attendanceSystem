@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <!--ImageView used to displaying our app icon -->
+    <!-- Source for imageView: https://icons8.com/ -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -34,8 +35,6 @@
         android:contentDescription="@string/app_name" />
 
     <!--TextView used to print our app's name -->
-
-    <!--TextView used to print info if there is problem with login -->
     <TextView
         android:id="@+id/attendanceTextView"
         android:layout_width="wrap_content"
@@ -51,6 +50,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.453" />
 
+    <!--TextView used to print info if there is problem with login -->
     <TextView
         android:id="@+id/errorText"
         android:layout_width="wrap_content"
@@ -65,8 +65,7 @@
         app:layout_constraintVertical_bias="0.215" />
 
     <!--Image Button used for the help which will take to info activity -->
-
-    <!--EditText for inserting employee ID -->
+    <!-- Source for imageButton: https://icons8.com/ -->
     <ImageButton
         android:id="@+id/infoButton"
         style="?android:attr/borderlessButtonStyle"
@@ -83,6 +82,7 @@
         app:tint="@color/teal_700"
         tools:ignore="RedundantDescriptionCheck" />
 
+    <!--EditText for inserting employee ID -->
     <EditText
         android:id="@+id/userIdText"
         android:layout_width="wrap_content"
@@ -151,6 +151,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <!--ImageButton used for signup employer which will take to add supervisor activity -->
+    <!-- Source for imageButton: https://icons8.com/ -->
     <ImageButton
         android:id="@+id/addSuperVisorBtn"
         style="?android:attr/borderlessButtonStyle"

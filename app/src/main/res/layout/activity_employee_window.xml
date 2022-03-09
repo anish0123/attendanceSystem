@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view3"
         app:layout_constraintVertical_bias="0.614" />
 
-    <!--Radiogroup used for checkIn and checkOut -->
+    <!--RadioGroup used for checkIn and checkOut -->
     <RadioGroup
         android:id="@+id/checkRadioGroup"
         android:layout_width="wrap_content"
@@ -108,6 +108,7 @@
     </RadioGroup>
 
     <!--ImageButton used for submitting the checkIn and checkOut time -->
+    <!--Source for imageButton: https://icons8.com/ -->
     <ImageButton
         android:id="@+id/submitBtn"
         style="?android:attr/borderlessButtonStyle"
