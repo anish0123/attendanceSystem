@@ -38,3 +38,4 @@ Project Creators:
 
 ## Employee UI
 ![EmployeeUI](/uploads/6af8fe4925e1b23cd847ee338a259218/EmployeeUI.jpg)
+img [alt=EemployeeUI] {width:200px;}
