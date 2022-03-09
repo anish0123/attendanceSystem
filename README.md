@@ -40,3 +40,6 @@ Project Creators:
 
 <img src="/uploads/6af8fe4925e1b23cd847ee338a259218/EmployeeUI.jpg" height="1000">
 
+## Employer UI
+<img src="/uploads/5741da655d7865a63e7216b513d412d1/EmployerUI.jpg" height="1000">
+
