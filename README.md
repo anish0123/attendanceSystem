@@ -38,5 +38,5 @@ Project Creators:
 
 ## Employee UI
 
-<img src="![EmployeeUI](/uploads/430e8ed61459c7607955ca4fd796d6fd/EmployeeUI.jpg)" height="1000">
+<img src="/uploads/cfadc6ae0343eeef79bef0caafd3b76f/EmployeeUI.jpg))" height="1000">
 
