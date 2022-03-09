@@ -37,4 +37,4 @@ Project Creators:
 - Employer can signup for their account using the unique token number provided by the developers and then create employee's account. Employee's can login to the application using their employee ID and password provided by their employer. They can mark their attendance and also view their attendance history. Info button is available on the mainActivity which provides help for Employees in case they need some help and instructions on how to use application. Employer would be provided a documented test case which includes all the instructions for using application as both employee and employer.
 
 ## Employee UI
-![Employee UI](https://gitlab.metropolia.fi/riteshg/attendance-system/-/blob/anish/EmployeeUI.jpg)
+![EmployeeUI](/uploads/6af8fe4925e1b23cd847ee338a259218/EmployeeUI.jpg)
