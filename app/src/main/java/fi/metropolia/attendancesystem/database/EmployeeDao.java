@@ -17,7 +17,7 @@ public interface EmployeeDao {
      * Method for inserting new employee in the database
      *
      * @param employee employee that needs to be added.
-     * employee is defined more in Employee class
+     *                 employee is defined more in Employee class
      */
     @Insert
     void insert(Employee employee);
@@ -78,7 +78,7 @@ public interface EmployeeDao {
      * Method for updating the attendance Id to the latest one.
      * Whenever an employee checks in, new attendance Id is created and that will be also be saved in employeeDao to be later used while employee checks Out.
      *
-     * @param employeeId   Id of the employee
+     * @param employeeId         Id of the employee
      * @param latestAttendanceId latest Id of the employee's attendance
      */
     @Query("UPDATE employee SET latestAttendanceId = :latestAttendanceId WHERE employeeId = :employeeId")
