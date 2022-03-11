@@ -59,8 +59,8 @@
         <!--TextView for some info about mainActivity -->
         <TextView
             android:id="@+id/statement_signIn"
-            android:layout_width="346dp"
-            android:layout_height="14dp"
+            android:layout_width="351dp"
+            android:layout_height="41dp"
             android:text="@string/signIn_info"
             android:textColor="@color/black"
             android:textSize="11sp"
@@ -101,8 +101,8 @@
 
         <!--LinearLayout and textViews are used for displaying info about employeeWindow activity -->
         <LinearLayout
-            android:layout_width="352dp"
-            android:layout_height="123dp"
+            android:layout_width="366dp"
+            android:layout_height="148dp"
             android:layout_marginStart="72dp"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="16dp"
@@ -115,8 +115,8 @@
 
             <TextView
                 android:id="@+id/statement_logIn1"
-                android:layout_width="348dp"
-                android:layout_height="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
                 android:layout_marginTop="36dp"
                 android:text="@string/statement_logIn1"
                 android:textColor="@color/black"
@@ -124,16 +124,16 @@
 
             <TextView
                 android:id="@+id/statement_logIn2"
-                android:layout_width="329dp"
-                android:layout_height="26dp"
+                android:layout_width="349dp"
+                android:layout_height="37dp"
                 android:text="@string/history_info"
                 android:textColor="@color/black"
                 android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/statement_logIn3"
-                android:layout_width="326dp"
-                android:layout_height="26dp"
+                android:layout_width="351dp"
+                android:layout_height="38dp"
                 android:text="@string/signOut_info"
                 android:textColor="@color/black"
                 android:textSize="11sp" />

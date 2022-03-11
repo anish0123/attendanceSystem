@@ -157,6 +157,6 @@ public class Employee {
     @NonNull
     @Override
     public String toString() {
-        return name + "  " + employeeId + "  " + "(" + role + ") Status: " + status + "(" + password + ")";
+        return name + "  " + employeeId + "  " + "(" + role + ") Status: " + status + " (" + password + ")";
     }
 }
