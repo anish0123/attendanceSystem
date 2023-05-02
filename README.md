@@ -25,13 +25,13 @@ Project Creators:
 
 ## Employee UI
 
-<img src="/uploads/6af8fe4925e1b23cd847ee338a259218/EmployeeUI.jpg" height="1000">
+<img src="https://gitlab.metropolia.fi/riteshg/attendance-system/uploads/6af8fe4925e1b23cd847ee338a259218/EmployeeUI.jpg" height="1000">
 
 ## Employer UI
-<img src="/uploads/5741da655d7865a63e7216b513d412d1/EmployerUI.jpg" height="1000">
+<img src="https://gitlab.metropolia.fi/riteshg/attendance-system/uploads/5741da655d7865a63e7216b513d412d1/EmployerUI.jpg" height="1000">
 
 ## UML Diagram
-<img src="/uploads/0485caf942ed386e8ac52d55e24e6713/uml_diagram_attendance_system.jpg">
+<img src="https://gitlab.metropolia.fi/riteshg/attendance-system/uploads/0485caf942ed386e8ac52d55e24e6713/uml_diagram_attendance_system.jpg">
 
 
 ## Credits
